@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+
+# Raw data, credentials, model caches, and generated results are local by default.
+data/raw/
+data/processed/
+data/annotations/private/
+results/generated/
+*.sqlite
