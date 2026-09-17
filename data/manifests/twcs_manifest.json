@@ -1,0 +1,36 @@
+{
+  "columns": [
+    "tweet_id",
+    "author_id",
+    "inbound",
+    "created_at",
+    "text",
+    "response_tweet_id",
+    "in_response_to_tweet_id"
+  ],
+  "detected_encoding": "utf-8",
+  "duplicate_tweet_id_count": 0,
+  "earliest_valid_timestamp": "2008-05-08T20:13:59+00:00",
+  "file_size_bytes": 516508641,
+  "generation_timestamp": "2026-09-17T19:33:19.452724+00:00",
+  "latest_valid_timestamp": "2017-12-03T23:14:01+00:00",
+  "local_filename": "twcs.csv",
+  "null_or_unparseable_essential_field_counts": {
+    "inbound": 0,
+    "parent_lineage": 0,
+    "tweet_id": 0
+  },
+  "resolved_logical_columns": {
+    "author_id": "author_id",
+    "created_at": "created_at",
+    "in_response_to_tweet_id": "in_response_to_tweet_id",
+    "inbound": "inbound",
+    "response_tweet_id": "response_tweet_id",
+    "text": "text",
+    "tweet_id": "tweet_id"
+  },
+  "sha256": "cd297fcfa1bf6f99938be242e8e578980bc6d1b96adc8691abec9a39175b03c0",
+  "source_dataset_name": "Customer Support on Twitter (TWCS)",
+  "source_url": "https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter",
+  "total_row_count": 2811774
+}

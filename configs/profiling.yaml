@@ -1,0 +1,43 @@
+{
+    "source_dataset_name": "Customer Support on Twitter (TWCS)",
+    "source_url": "https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter",
+    "heuristics": {
+        "minimum_substantive_word_count": 8,
+        "top_template_count": 5,
+        "generic_or_redirect_terms": [
+            "sorry",
+            "apolog",
+            "please dm",
+            "send us a dm",
+            "direct message",
+            "contact our",
+            "contact us",
+            "call our",
+            "visit <url>"
+        ],
+        "actionable_terms": [
+            "try",
+            "please update",
+            "restart",
+            "go to",
+            "select",
+            "settings",
+            "reset",
+            "check"
+        ]
+    },
+    "selection": {
+        "minimum_outbound_messages": 500,
+        "priority": [
+            "reconstructible_multi_turn_threads",
+            "public_containment_proxy_fraction",
+            "unique_normalized_reply_ratio",
+            "brand_authored_messages"
+        ]
+    },
+    "heuristic_validation": {
+        "seed": "phase1b-v1",
+        "sample_size": 5,
+        "template_comparison_minimum_outbound_messages": 10000
+    }
+}

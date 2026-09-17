@@ -4,9 +4,9 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 0 — repository and experiment design.** No dataset has been profiled, no brand has been selected, and no benchmark, model, retrieval index, or headline metric exists yet. This repository deliberately makes no performance or safety claims.
+**Phase 1 complete — TWCS profiled and `AmazonHelp` selected.** The selection is based only on reproducible data-structure and explicitly labelled proxy evidence in [docs/BRAND_SELECTION.md](docs/BRAND_SELECTION.md). No benchmark, model, retrieval index, or headline performance/safety metric exists yet.
 
-The two repositories named in the assignment were reviewed only as architectural references. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
+Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
 ## Intended workflow
 
@@ -24,25 +24,26 @@ configs/       versioned configuration and frozen evaluation manifests
 data/          ignored source data; tracked schemas and manifests only
 docs/          plans, decision log, annotation protocol, and final report
 evaluation/    evaluation harness (not implemented yet)
-results/       generated metrics and frozen artifacts (not implemented yet)
-scripts/       reproducible command entry points (not implemented yet)
-src/           installable application package (not implemented yet)
-tests/         data, leakage, safety, and evaluation tests
+results/       Phase 1 profiling artifacts; later frozen evaluation artifacts
+scripts/       reproducible Phase 1 profiling and validation commands
+src/           installable package; Phase 1 data module is implemented
+tests/         deterministic data-engineering tests; later safety/evaluation tests
 ```
 
 ## Commands available now
 
 ```bash
 python3 -m pip install -e '.[dev]'
-make test     # run the empty-but-valid test scaffold and lint checks
+make test     # run data-engineering unit tests and lint checks
 make plan     # print the phased plan location
+make profile  # profile the local, ignored data/raw/twcs.csv export
 ```
 
 `make reproduce`, `make demo`, and `make rebuild` will be added only when their inputs, outputs, and claims can be made reproducible.
 
-## Before Phase 1
+## Phase 1 artifacts
 
-Provide a local Kaggle TWCS export or a permitted download path. The first profiling pass needs only the raw schema and a reproducible sample with tweet ID, author ID, inbound flag, timestamp/order information, response-to linkage, text, and brand/author identity. No implementation choices involving brand, taxonomy, split proportions, retrieval model, thresholds, or LLM provider are frozen before that analysis.
+The Phase 1 run used `make profile` with `data/raw/twcs.csv`. Its aggregate artifacts are [the raw-data manifest](data/manifests/twcs_manifest.json), [candidate CSV](results/brand_profile.csv), [candidate JSON](results/brand_profile.json), and [ID-only heuristic review sample](results/heuristic_validation.json). The raw export remains uncommitted. No final model or evaluation metric exists yet.
 
 ## Integrity commitments
 

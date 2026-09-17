@@ -1,0 +1,58 @@
+{
+  "input_sha256": "cd297fcfa1bf6f99938be242e8e578980bc6d1b96adc8691abec9a39175b03c0",
+  "privacy_note": "Raw tweet text was displayed only for local manual review and is not stored here.",
+  "sample_size": 5,
+  "samples": [
+    {
+      "brand": "AmazonHelp",
+      "candidate_count": 30715,
+      "category": "generic_or_redirect",
+      "tweet_ids": [
+        "841711",
+        "2170898",
+        "180787",
+        "1238811",
+        "1079463"
+      ]
+    },
+    {
+      "brand": "AmazonHelp",
+      "candidate_count": 16617,
+      "category": "substantive_actionable",
+      "tweet_ids": [
+        "922297",
+        "134876",
+        "1606551",
+        "286821",
+        "793875"
+      ]
+    },
+    {
+      "brand": "Uber_Support",
+      "candidate_count": 1854,
+      "category": "high_template_collapse",
+      "tweet_ids": [
+        "2382965",
+        "320399",
+        "478923",
+        "2393637",
+        "2794429"
+      ]
+    },
+    {
+      "brand": "hulu_support",
+      "candidate_count": 10,
+      "category": "low_template_collapse",
+      "tweet_ids": [
+        "2510564",
+        "2498105",
+        "2504732",
+        "2497808",
+        "2510806"
+      ]
+    }
+  ],
+  "seed": "phase1b-v1",
+  "selected_brand": "AmazonHelp",
+  "template_comparison_minimum_outbound_messages": 10000
+}

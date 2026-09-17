@@ -11,4 +11,5 @@ data/raw/
 data/processed/
 data/annotations/private/
 results/generated/
+*.sqlite3
 *.sqlite

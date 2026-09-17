@@ -7,4 +7,10 @@ This project is independently implemented. The following repositories were inspe
 | [Customer-Support-Agent-Evaluation-Suite](https://github.com/Kavya-Tamilarasu/Customer-Support-Agent-Evaluation-Suite) | Modular support-agent stages, evaluation-harness organization, safety/audit emphasis | Its code, metrics, golden set, deterministic quality scorer, reported claims, and dataset conclusions |
 | [hiver-support-agent](https://github.com/Sumantkumar18/hiver-support-agent) | To be reviewed only at a high level if needed | Any source code, labels, results, prompts, or derived implementation |
 
+## Dataset
+
+| Source | Use in this project | Notes |
+| --- | --- | --- |
+| [Customer Support on Twitter (TWCS), thoughtvector/Kaggle](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter) | Phase 1 source dataset, once a permitted local export is supplied | Raw data remains uncommitted. The repository stores only aggregate manifests and profiling artifacts. |
+
 Any future use of external methods, libraries, datasets, model APIs, or papers must be added here with the specific idea borrowed and the implementation location.

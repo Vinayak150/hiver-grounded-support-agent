@@ -27,3 +27,6 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.ruff.format]
+exclude = ["configs/profiling.yaml"]

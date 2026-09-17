@@ -1,0 +1,13 @@
+tweet_id,author_id,inbound,created_at,text,response_tweet_id,in_response_to_tweet_id
+1,customer_a,TRUE,2017-10-01T10:00:00Z,"I cannot sign in",2,
+2,BrandOne,FALSE,2017-10-01T10:01:00Z,"Please try resetting your password in settings.",3,1
+3,customer_a,1,2017-10-01T10:02:00Z,"That reset did not work",4,2
+4,BrandOne,false,2017-10-01T10:03:00Z,"Please DM us your account details.",,3
+5,customer_b,true,2017-10-02T10:00:00Z,"My billing is wrong","6,7",
+6,BrandTwo,0,2017-10-02T10:01:00Z,"Sorry. Please DM us.",,5
+7,BrandTwo,FALSE,2017-10-02T10:01:30Z,"Try checking your subscription settings.",,5
+8,customer_c,true,invalid-date,"Missing parent",,999
+9,customer_d,true,2017-10-03T10:00:00Z,"Self reference",,9
+10,BrandThree,false,2017-10-04T10:00:00Z,"First cycle",,11
+11,customer_e,true,2017-10-04T10:01:00Z,"Second cycle",,10
+2,BrandOne,false,2017-10-01T10:01:00Z,"Duplicate identifier",,1
