@@ -154,7 +154,24 @@ The generated evidence block below is updated only after profiling real data. It
 All values are raw counts or explicitly named heuristics. They are not resolution rates or present-day policy claims.
 <!-- END GENERATED PROFILE EVIDENCE -->
 
-## Selected Brand
+## Post-Audit Frozen Brand
+
+**Initial Phase 1 selection: `AmazonHelp`. Final post-audit selection: `SpotifyCares`.**
+
+Phase 1 correctly applied its predeclared lexicographic, volume-first rule. Phase
+1.5 then re-evaluated the strongest measured accounts with a 10,000 multi-turn
+thread saturation threshold, public-grounding proxies, deterministic ID-only
+diagnostic samples, and five weighting sensitivities. SpotifyCares meets the
+threshold with 10,500 multi-turn threads and has 97.3766% public containment and
+2.4662% generic/redirect proxies, versus AmazonHelp's 77.7408% and 18.0847%.
+SpotifyCares won every declared sensitivity configuration. The complete evidence,
+including the selection's main template-collapse limitation, is in
+[Phase 1.5 Brand Selection Audit](BRAND_SELECTION_AUDIT.md).
+
+The initial selection remains below as an auditable historical record; it is not
+the brand frozen for any later phase.
+
+## Initial Phase 1 Selection (historical record)
 
 **INTERPRETATION: select `AmazonHelp`.** The predeclared lexicographic selection order prioritizes reconstructible multi-turn threads, then public-containment proxy, normalized-reply variety, and brand-authored message volume. It selected AmazonHelp without a weighted composite or test-set information.
 

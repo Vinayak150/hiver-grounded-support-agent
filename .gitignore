@@ -5,6 +5,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.py[cod]
+*.egg-info/
 
 # Raw data, credentials, model caches, and generated results are local by default.
 data/raw/

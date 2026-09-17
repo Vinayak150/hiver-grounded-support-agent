@@ -1,0 +1,161 @@
+brand,thread_id,root_tweet_id,sample_category,representative_tweet_id,historical_reply_value,publicly_actionable,private_lookup_required,template_like,multi_turn_usefulness,reviewer_note
+AmazonHelp,twcs-fe25d01afb931f74291e,2960505,multi_turn,2960500,LOW,NO,YES,NO,MEDIUM,private case handoff
+AmazonHelp,twcs-0e83d4faf4fd81b68cd8,1573584,multi_turn,1573582,LOW,NO,YES,YES,LOW,repeat private handoff
+AmazonHelp,twcs-8b1aff963f9a3f5ae615,1664816,multi_turn,1664813,HIGH,YES,NO,NO,HIGH,public follow-up answer
+AmazonHelp,twcs-405a2cd61f8d652d4e63,2719452,multi_turn,2719450,MEDIUM,YES,NO,NO,MEDIUM,public product information
+AmazonHelp,twcs-dda78a25748fc044418a,789017,multi_turn,789011,LOW,NO,YES,NO,MEDIUM,security concern private handoff
+AmazonHelp,twcs-741061e0559490f77d18,279030,multi_turn,279029,LOW,NO,YES,YES,LOW,contact channel redirect
+AmazonHelp,twcs-bb697a7836da8a6bac80,2317666,multi_turn,2317664,MEDIUM,PARTIAL,YES,NO,MEDIUM,acknowledgement after contact
+AmazonHelp,twcs-ef15bedfdbb348a97ed5,2410445,multi_turn,2410438,MEDIUM,YES,NO,NO,HIGH,stepwise public triage
+AmazonHelp,twcs-385f63f2fecab840e852,292307,multi_turn,292305,LOW,PARTIAL,YES,NO,MEDIUM,limited public triage
+AmazonHelp,twcs-1e2ca2b96bb3ed719071,1386174,multi_turn,1386172,LOW,NO,YES,YES,LOW,private account handoff
+AmazonHelp,twcs-4b1d14a0a9fac461e27e,2397253,high_public_containment,2397252,HIGH,YES,NO,NO,MEDIUM,public cancellation steps
+AmazonHelp,twcs-b58f4bd70bea88d412ec,2907887,high_public_containment,2907885,MEDIUM,PARTIAL,YES,NO,MEDIUM,public prevention then handoff
+AmazonHelp,twcs-fa5d84201433362c628e,60259,high_public_containment,60255,HIGH,YES,NO,NO,HIGH,public refund options
+AmazonHelp,twcs-35a0f180734016a305dd,2405242,high_public_containment,2405241,LOW,PARTIAL,YES,YES,MEDIUM,private status response
+AmazonHelp,twcs-c71279037119792457f3,1551613,high_public_containment,1551612,HIGH,YES,NO,NO,LOW,public cancellation guidance
+AmazonHelp,twcs-d739aa4364dcee73a776,2952359,high_public_containment,2952357,HIGH,YES,NO,NO,MEDIUM,public payment answer
+AmazonHelp,twcs-0cb71266f1e5698f1be9,2617285,high_public_containment,2617283,MEDIUM,PARTIAL,YES,NO,MEDIUM,public information request
+AmazonHelp,twcs-23247e179cbfa935dc7f,917033,high_public_containment,917032,LOW,NO,NO,YES,LOW,marketing exchange
+AmazonHelp,twcs-f13849e9bdaa2dacd9b2,2784546,high_public_containment,2784545,HIGH,YES,NO,NO,MEDIUM,public password steps
+AmazonHelp,twcs-3dd9a8fbdffa482a14ca,2917215,high_public_containment,2917206,MEDIUM,PARTIAL,YES,NO,HIGH,public dialogue ends private
+AmazonHelp,twcs-8c3ddc13d2156f435a55,176440,generic_redirect,176439,MEDIUM,YES,NO,NO,LOW,public shipping policy
+AmazonHelp,twcs-51431e8b1eb4abe011b7,1357701,generic_redirect,1357700,LOW,NO,YES,YES,LOW,refund form handoff
+AmazonHelp,twcs-c13db0feaf813151da74,439812,generic_redirect,439803,LOW,NO,YES,YES,HIGH,repeat private escalation
+AmazonHelp,twcs-479334627e246002edfe,2978195,generic_redirect,2978193,MEDIUM,YES,NO,NO,MEDIUM,public seller guidance
+AmazonHelp,twcs-eda8eedbdf51dc544c6d,2829429,generic_redirect,2829428,LOW,NO,YES,YES,LOW,private delivery handoff
+AmazonHelp,twcs-5cfd345ad4d53d2fdeff,2061313,generic_redirect,2061314,LOW,PARTIAL,YES,NO,MEDIUM,limited troubleshooting
+AmazonHelp,twcs-c517c833c63da0599539,223904,generic_redirect,223902,LOW,NO,YES,YES,MEDIUM,form selection handoff
+AmazonHelp,twcs-5ee64ca1eb173a248eea,1030386,generic_redirect,1030380,LOW,NO,YES,YES,MEDIUM,private delivery handoff
+AmazonHelp,twcs-d861db6d2e8b1f5e4eda,1743695,generic_redirect,1743693,MEDIUM,YES,NO,NO,HIGH,public tracking triage
+AmazonHelp,twcs-71af3fc805c19d523e71,1543581,generic_redirect,1543580,LOW,NO,YES,YES,LOW,private support redirect
+AmazonHelp,twcs-d01f875b98de64379903,838294,repeated_template,838292,LOW,NO,YES,YES,HIGH,repeat private form
+AmazonHelp,twcs-91ef85c91ef8ccaff8c0,859605,repeated_template,859602,LOW,NO,YES,YES,HIGH,repeat private form
+AmazonHelp,twcs-9abfaed48361c8392d80,789233,repeated_template,789234,LOW,NO,YES,YES,MEDIUM,security case form
+AmazonHelp,twcs-cd4cd38e25da9e66d10f,348231,repeated_template,348236,LOW,NO,YES,YES,MEDIUM,repeat private form
+AmazonHelp,twcs-c54afa08ae947136673b,2398926,repeated_template,2398922,LOW,NO,YES,YES,MEDIUM,repeat private form
+AmazonHelp,twcs-64a052e5c941fdf95f31,291749,repeated_template,291748,LOW,NO,YES,YES,LOW,repeat private form
+AmazonHelp,twcs-52340b82ca49975d84a5,925330,repeated_template,925329,LOW,NO,YES,YES,LOW,repeat private form
+AmazonHelp,twcs-ae342d8b0211a09f4c89,865701,repeated_template,865702,LOW,NO,YES,YES,HIGH,repeat private form
+AmazonHelp,twcs-e2c6d8113af118640997,1907483,repeated_template,1907481,LOW,NO,YES,YES,MEDIUM,repeat private form
+AmazonHelp,twcs-80f115330757098d0741,390762,repeated_template,390761,LOW,NO,YES,YES,LOW,repeat private form
+SpotifyCares,twcs-15af41745453cd917be5,2095022,multi_turn,2095020,MEDIUM,PARTIAL,YES,NO,MEDIUM,account recovery handoff
+SpotifyCares,twcs-f2d90ba666af186bb333,2131406,multi_turn,2131404,HIGH,YES,NO,NO,HIGH,public diagnostic exchange
+SpotifyCares,twcs-5b680d2d975002e4c41a,496124,multi_turn,496120,HIGH,PARTIAL,YES,NO,HIGH,public steps then account handoff
+SpotifyCares,twcs-52257128f9e1583909de,2639876,multi_turn,2639873,MEDIUM,YES,NO,NO,MEDIUM,feature feedback routing
+SpotifyCares,twcs-ed4fdae47f72ac9122a7,1125896,multi_turn,1125885,HIGH,PARTIAL,YES,NO,HIGH,iterative public troubleshooting
+SpotifyCares,twcs-0aa22de1dc764dda16e0,1012742,multi_turn,1012739,MEDIUM,YES,NO,NO,MEDIUM,feature request explanation
+SpotifyCares,twcs-3662472c0afbd9e1bff6,869983,multi_turn,869970,HIGH,PARTIAL,YES,NO,HIGH,iterative public troubleshooting
+SpotifyCares,twcs-a8aa1a18268e7e4215b9,262666,multi_turn,262664,MEDIUM,YES,NO,NO,MEDIUM,public diagnostic questions
+SpotifyCares,twcs-01c06f670f172dcdf1d0,2293429,multi_turn,2293428,MEDIUM,YES,NO,NO,LOW,feature workaround information
+SpotifyCares,twcs-3961620081f7718e7492,2070899,multi_turn,2070896,MEDIUM,YES,NO,NO,MEDIUM,public product feedback
+SpotifyCares,twcs-2663fa016880694e935e,607498,high_public_containment,607494,HIGH,YES,NO,NO,HIGH,public browser diagnosis
+SpotifyCares,twcs-a61b2e4243082b5995b0,2541839,high_public_containment,2541837,HIGH,YES,NO,NO,HIGH,public diagnostic sequence
+SpotifyCares,twcs-64a3b807183759ac86b0,2917841,high_public_containment,2917840,HIGH,YES,NO,NO,LOW,public incident status
+SpotifyCares,twcs-22243590abf60c5f7689,1875238,high_public_containment,1875237,LOW,NO,YES,YES,LOW,private account handoff
+SpotifyCares,twcs-f42a1507c3649fad0081,2917965,high_public_containment,2917964,LOW,NO,YES,YES,LOW,private incident handoff
+SpotifyCares,twcs-31a7f569998bd1716083,1778508,high_public_containment,1778506,HIGH,YES,NO,NO,HIGH,public reinstall guidance
+SpotifyCares,twcs-66b67e54749115777ea7,1099435,high_public_containment,1099434,LOW,NO,YES,YES,LOW,private billing handoff
+SpotifyCares,twcs-e1e8070aa88835bef100,2582661,high_public_containment,2582660,MEDIUM,YES,NO,NO,LOW,feature request routing
+SpotifyCares,twcs-70d0da0d552aa86d8c67,2941489,high_public_containment,2941487,HIGH,YES,NO,NO,MEDIUM,public diagnostic request
+SpotifyCares,twcs-5ab49e25e8e719cd9339,1535159,high_public_containment,1535155,MEDIUM,YES,NO,NO,MEDIUM,public status acknowledgement
+SpotifyCares,twcs-c3d7d59c39727be07679,2373414,generic_redirect,2373415,LOW,NO,YES,YES,LOW,private payment handoff
+SpotifyCares,twcs-f7a23e3b2af862e989cd,2643174,generic_redirect,2643173,LOW,PARTIAL,NO,YES,LOW,status acknowledgement
+SpotifyCares,twcs-f6d6173b9be8058b262a,1916785,generic_redirect,1916784,MEDIUM,PARTIAL,YES,NO,MEDIUM,specialist channel routing
+SpotifyCares,twcs-f9be735f8c5ef3774e7f,2165498,generic_redirect,2165494,MEDIUM,YES,NO,NO,MEDIUM,public feature limitation
+SpotifyCares,twcs-f6c99c6e462f36509ba9,2190856,generic_redirect,2190855,LOW,PARTIAL,NO,YES,LOW,feedback acknowledgement
+SpotifyCares,twcs-27c401edeb3038bf2fb4,73743,generic_redirect,73742,HIGH,YES,NO,NO,HIGH,iterative public troubleshooting
+SpotifyCares,twcs-60afa3dafe4fb32b631c,2460886,generic_redirect,2460884,MEDIUM,YES,NO,NO,MEDIUM,public licensing explanation
+SpotifyCares,twcs-416a2a7b023ea298ccf9,324646,generic_redirect,324645,LOW,NO,YES,YES,LOW,private DM handoff
+SpotifyCares,twcs-0d0db1ca5a9b03cd9620,881470,generic_redirect,881460,LOW,NO,YES,YES,MEDIUM,private account handoff
+SpotifyCares,twcs-9d46bcf033631ae4fc76,2959322,generic_redirect,2959321,LOW,NO,YES,YES,LOW,private DM handoff
+SpotifyCares,twcs-525647c6e72b3fef5e58,566360,repeated_template,566359,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-71834241df4fa2fdc112,1602227,repeated_template,1602226,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-373db6e095d3a36428f2,1593819,repeated_template,1593818,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-46998412c8818d5e3d87,571349,repeated_template,571348,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-61ff8bf53c91dd7beb29,410167,repeated_template,410166,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-5f6956fda156c9cacf49,2289998,repeated_template,2289997,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-4f1af1668000683e19ab,1917210,repeated_template,1917209,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-b42977aa156488bc4698,223051,repeated_template,223050,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-73147fcd41aaadff9d49,574275,repeated_template,574274,LOW,NO,YES,YES,LOW,repeat account handoff
+SpotifyCares,twcs-e7e1a799ef342e5a1ac1,2308796,repeated_template,2308795,LOW,NO,YES,YES,LOW,repeat account handoff
+AppleSupport,twcs-9c9de25f3cf2c810f0b3,1533029,multi_turn,1533027,MEDIUM,PARTIAL,YES,NO,MEDIUM,device inquiry handoff
+AppleSupport,twcs-54b2d3b8bcb917a2ee8c,2367759,multi_turn,2367757,HIGH,PARTIAL,YES,NO,HIGH,iterative public troubleshooting
+AppleSupport,twcs-ced75324603dcc8814de,520201,multi_turn,520200,MEDIUM,PARTIAL,YES,NO,MEDIUM,public update and handoff
+AppleSupport,twcs-cae361331a55e7513ccd,1557426,multi_turn,1557423,MEDIUM,YES,NO,NO,LOW,public workaround link
+AppleSupport,twcs-d123edaec45f88081447,587090,multi_turn,587088,HIGH,YES,NO,NO,HIGH,public update guidance
+AppleSupport,twcs-e941b187b0d4b91d3ee1,2614240,multi_turn,2614238,HIGH,YES,NO,NO,MEDIUM,public known issue fix
+AppleSupport,twcs-fa925e8fa2d66c7561e5,187445,multi_turn,187442,MEDIUM,PARTIAL,YES,NO,MEDIUM,private device handoff
+AppleSupport,twcs-f6663dcea359a83c6be6,542406,multi_turn,542404,HIGH,YES,NO,NO,HIGH,public update guidance
+AppleSupport,twcs-b1a54101561a397dd5b2,771393,multi_turn,771391,MEDIUM,YES,NO,NO,LOW,gift card policy answer
+AppleSupport,twcs-ededcc975a0a27fb7b58,905799,multi_turn,905797,MEDIUM,PARTIAL,YES,NO,MEDIUM,account handoff
+AppleSupport,twcs-5fe9471286c740f1a0f6,2708490,high_public_containment,2708489,LOW,NO,YES,YES,LOW,private version handoff
+AppleSupport,twcs-8b0c19ba29ca49fc7d2f,2980719,high_public_containment,2980716,LOW,NO,YES,YES,LOW,private repair handoff
+AppleSupport,twcs-d1747bfbdc1a9bfead14,254127,high_public_containment,254126,HIGH,YES,NO,NO,LOW,public cancellation article
+AppleSupport,twcs-89f68e0c33f397790b50,2549065,high_public_containment,2549063,MEDIUM,PARTIAL,YES,NO,MEDIUM,public triage then DM
+AppleSupport,twcs-e1e16d5fe9ef3200608e,2288302,high_public_containment,2288300,HIGH,YES,NO,NO,MEDIUM,public known issue fix
+AppleSupport,twcs-6c6ea61a10d10b68b0ec,2547213,high_public_containment,2547212,HIGH,YES,NO,NO,MEDIUM,public update condition
+AppleSupport,twcs-10e0860350d5c1c77663,387606,high_public_containment,387605,HIGH,YES,NO,NO,MEDIUM,public troubleshooting article
+AppleSupport,twcs-db993ad3a98b0bca1d8a,1144280,high_public_containment,1144279,LOW,NO,YES,YES,LOW,private issue handoff
+AppleSupport,twcs-31d0ddd4f65b5adedf0e,413744,high_public_containment,413743,LOW,NO,YES,YES,LOW,private battery handoff
+AppleSupport,twcs-55528f4e70913d179ea1,146589,high_public_containment,146588,HIGH,YES,NO,NO,MEDIUM,public diagnostic questions
+AppleSupport,twcs-3e09e45fde64d106f97e,1014411,generic_redirect,1014409,MEDIUM,YES,NO,NO,MEDIUM,public settings explanation
+AppleSupport,twcs-f9a5e2b3512f4a4469d0,496813,generic_redirect,496812,LOW,NO,YES,YES,LOW,language redirect
+AppleSupport,twcs-081b9e4773d609985620,2078066,generic_redirect,2078065,LOW,NO,YES,YES,LOW,private media handoff
+AppleSupport,twcs-9fc5dd92b7a6c327ba1d,1233632,generic_redirect,1233633,MEDIUM,PARTIAL,YES,NO,MEDIUM,triage then DM
+AppleSupport,twcs-d7462743ba47825f3d96,2966615,generic_redirect,2966613,LOW,NO,YES,YES,LOW,private details request
+AppleSupport,twcs-8cd20b09e484ee864740,622633,generic_redirect,622631,LOW,NO,YES,YES,LOW,private device handoff
+AppleSupport,twcs-0f737bcb6eb138ca9fee,1837883,generic_redirect,1837882,LOW,NO,YES,YES,LOW,private battery handoff
+AppleSupport,twcs-fc8f97e7edf6dfcc2aa0,1526088,generic_redirect,1526085,LOW,NO,YES,YES,LOW,private issue handoff
+AppleSupport,twcs-41cb3ae2a24cadb927e3,1872247,generic_redirect,1872246,LOW,NO,YES,YES,LOW,private app handoff
+AppleSupport,twcs-aa1882510d663585e97c,1986824,generic_redirect,1986823,LOW,NO,YES,YES,LOW,private issue handoff
+AppleSupport,twcs-2065688a63be1d9f0f50,1678544,repeated_template,1678543,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-7a809c0fdd4cdab069a5,1635758,repeated_template,1635759,MEDIUM,YES,NO,YES,MEDIUM,repeat known issue workaround
+AppleSupport,twcs-7d5b4172b85581c90951,1649555,repeated_template,1649554,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-bfb841bbe1b07dead1c3,1405939,repeated_template,1405937,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-c2ec241720617d7891f9,1641236,repeated_template,1641235,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-51bc98be1f54290e5803,1733800,repeated_template,1733799,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-64ea83c7d784c240663d,1712446,repeated_template,1712445,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-c08c11a30ec8b167878d,1744903,repeated_template,1744901,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-f1021562a609b3898d44,1660382,repeated_template,1660379,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+AppleSupport,twcs-d6b7eb6e04aa1a3d12a6,1715207,repeated_template,1715206,MEDIUM,YES,NO,YES,LOW,repeat known issue workaround
+XboxSupport,twcs-c6dfa24162e820dca29f,1397682,multi_turn,1397681,MEDIUM,YES,NO,NO,MEDIUM,public policy and review path
+XboxSupport,twcs-abd16f982aebb565c1bb,2306442,multi_turn,2306440,HIGH,PARTIAL,YES,NO,HIGH,public triage then DM
+XboxSupport,twcs-04da8bae66b7e6d33316,943104,multi_turn,943103,MEDIUM,PARTIAL,YES,NO,MEDIUM,ownership triage
+XboxSupport,twcs-bb0ef9f9987a2659d8b3,2912028,multi_turn,2912026,MEDIUM,YES,NO,NO,MEDIUM,public follow-up question
+XboxSupport,twcs-12791a6b379fb4ac6297,1111119,multi_turn,1111117,MEDIUM,YES,NO,NO,MEDIUM,public comparison triage
+XboxSupport,twcs-7bec7ee3a1407c9852d1,2109075,multi_turn,2109073,MEDIUM,YES,NO,NO,MEDIUM,public issue discovery
+XboxSupport,twcs-223879fa34171939ea3d,1250136,multi_turn,1250132,MEDIUM,YES,NO,NO,MEDIUM,feedback path
+XboxSupport,twcs-8b0ebc4f656253f8542a,1689026,multi_turn,1689025,MEDIUM,PARTIAL,YES,NO,MEDIUM,private network handoff
+XboxSupport,twcs-f73893d3d663934ded1e,365794,multi_turn,365790,LOW,NO,NO,YES,LOW,non-support exchange
+XboxSupport,twcs-a628f49c6f8a8765c55d,544053,multi_turn,544037,HIGH,PARTIAL,YES,NO,HIGH,iterative public troubleshooting
+XboxSupport,twcs-5fbe76c5e8ff534812b4,667577,high_public_containment,667576,MEDIUM,YES,NO,NO,MEDIUM,public problem request
+XboxSupport,twcs-42cfbd335ed3893dc96a,509862,high_public_containment,509860,HIGH,YES,NO,NO,LOW,public update information
+XboxSupport,twcs-5f20b13756ad95b8e3ba,2598812,high_public_containment,2598799,MEDIUM,PARTIAL,YES,NO,MEDIUM,public account triage
+XboxSupport,twcs-00cb7e497f4b9d235eba,127301,high_public_containment,127299,LOW,NO,YES,YES,LOW,private subscription handoff
+XboxSupport,twcs-840c765a618cb3b4fb10,681929,high_public_containment,681927,HIGH,YES,NO,NO,HIGH,iterative public troubleshooting
+XboxSupport,twcs-ee6ae16c5586c7aed994,570263,high_public_containment,570261,HIGH,YES,NO,NO,LOW,public power cycle steps
+XboxSupport,twcs-987100acc9c90eecce83,1172448,high_public_containment,1172443,MEDIUM,YES,NO,NO,LOW,public incident status
+XboxSupport,twcs-dd86b781b00586bf7e00,2301568,high_public_containment,2301567,LOW,NO,YES,YES,LOW,private diagnostic handoff
+XboxSupport,twcs-38dfb76a2ce0dd9e1ba1,2440191,high_public_containment,2440189,HIGH,YES,NO,NO,MEDIUM,public specification answer
+XboxSupport,twcs-37a1904d9a5a1bd8c825,1749070,high_public_containment,1749069,MEDIUM,YES,NO,NO,LOW,public documentation pointer
+XboxSupport,twcs-38b21714e4800f0a1672,2304705,generic_redirect,2304706,LOW,NO,YES,YES,LOW,private diagnostic handoff
+XboxSupport,twcs-ae7ee6048eafb0cc231c,1633512,generic_redirect,1633508,LOW,NO,YES,YES,LOW,order support redirect
+XboxSupport,twcs-f05acc485e7ca438e55f,2312245,generic_redirect,2312246,LOW,NO,YES,YES,LOW,private diagnostic handoff
+XboxSupport,twcs-9a6588b893c426d18b3a,1148936,generic_redirect,1148937,LOW,NO,YES,YES,LOW,private diagnostic handoff
+XboxSupport,twcs-943ad8a72cf5da36f9ae,269651,generic_redirect,269668,HIGH,YES,NO,NO,HIGH,iterative public troubleshooting
+XboxSupport,twcs-b698e98824ba62296c78,868817,generic_redirect,868818,LOW,NO,YES,YES,LOW,private diagnostic handoff
+XboxSupport,twcs-1a31a7d76b72832bc8d0,1695617,generic_redirect,1695616,LOW,NO,YES,YES,LOW,refund support redirect
+XboxSupport,twcs-222d6dc46b628d5c4805,116139,generic_redirect,518547,HIGH,YES,NO,NO,HIGH,public technical guidance
+XboxSupport,twcs-68aa075e7b96a8ba3873,2467406,generic_redirect,2467405,LOW,NO,YES,YES,LOW,repair support redirect
+XboxSupport,twcs-ac4f318b833a77b94e6e,2856898,generic_redirect,2856894,HIGH,YES,NO,NO,HIGH,public repair path
+XboxSupport,twcs-2caac125900a163a7ddb,2279618,repeated_template,2279617,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-4399681e0e761c373195,925365,repeated_template,925364,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-b32f905c246de598c72b,365482,repeated_template,365479,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-27f3c6c747c9cc51d032,877537,repeated_template,877535,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-335b858335005102186f,2633966,repeated_template,2633965,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-251a0d1cf3a87d37d61d,2587594,repeated_template,2587593,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-1a3e281a9168c43d9e65,2294216,repeated_template,2294214,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-a5f073c67f524af5a779,598250,repeated_template,598249,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-4beb80ebccba77d7c726,164487,repeated_template,164486,LOW,NO,YES,YES,LOW,repeat DM request
+XboxSupport,twcs-2c056090986c355a5f14,2798249,repeated_template,2798248,LOW,NO,YES,YES,LOW,repeat DM request

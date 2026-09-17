@@ -4,7 +4,7 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 1 complete — TWCS profiled and `AmazonHelp` selected.** The selection is based only on reproducible data-structure and explicitly labelled proxy evidence in [docs/BRAND_SELECTION.md](docs/BRAND_SELECTION.md). No benchmark, model, retrieval index, or headline performance/safety metric exists yet.
+**Phase 1 complete — TWCS profiled; Phase 1.5 audit froze `SpotifyCares` as the final brand.** The original Phase 1 volume-first selection was `AmazonHelp`; the post-audit decision uses saturation, measured grounding proxies, a deterministic diagnostic sample, and sensitivity analysis in [docs/BRAND_SELECTION_AUDIT.md](docs/BRAND_SELECTION_AUDIT.md). No benchmark, model, retrieval index, or headline performance/safety metric exists yet.
 
 Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
@@ -43,7 +43,7 @@ make profile  # profile the local, ignored data/raw/twcs.csv export
 
 ## Phase 1 artifacts
 
-The Phase 1 run used `make profile` with `data/raw/twcs.csv`. Its aggregate artifacts are [the raw-data manifest](data/manifests/twcs_manifest.json), [candidate CSV](results/brand_profile.csv), [candidate JSON](results/brand_profile.json), and [ID-only heuristic review sample](results/heuristic_validation.json). The raw export remains uncommitted. No final model or evaluation metric exists yet.
+The Phase 1 run used `make profile` with `data/raw/twcs.csv`. Its aggregate artifacts are [the raw-data manifest](data/manifests/twcs_manifest.json), [candidate CSV](results/brand_profile.csv), [candidate JSON](results/brand_profile.json), and [ID-only heuristic review sample](results/heuristic_validation.json). Phase 1.5 adds [the saturated audit result](results/brand_selection_audit.json) and [ID-only diagnostic labels](data/annotations/brand_audit.csv). The raw export remains uncommitted. No final model or evaluation metric exists yet.
 
 ## Integrity commitments
 

@@ -1,0 +1,91 @@
+{
+    "initial_phase_1_brand": "AmazonHelp",
+    "final_post_audit_brand": "SpotifyCares",
+    "candidates": [
+        "AmazonHelp",
+        "SpotifyCares",
+        "AppleSupport",
+        "XboxSupport",
+        "hulu_support",
+        "Uber_Support"
+    ],
+    "manual_audit_brands": ["AmazonHelp", "SpotifyCares", "AppleSupport", "XboxSupport"],
+    "saturation_target_multiturn_threads": 10000,
+    "sample_seed": "phase1_5_brand_audit_v1",
+    "sample_size_per_stratum": 10,
+    "risk_terms": {
+        "account_private": ["account", "address", "email", "phone", "details", "order number"],
+        "billing_payment": [
+            "refund",
+            "charge",
+            "charged",
+            "payment",
+            "bill",
+            "billing",
+            "card",
+            "invoice"
+        ],
+        "security_access": [
+            "hack",
+            "hacked",
+            "security",
+            "compromised",
+            "password",
+            "fraud",
+            "unauthorized"
+        ],
+        "high_conflict": ["complaint", "legal", "lawyer", "sue", "cancel"]
+    },
+    "weight_sets": {
+        "balanced": {
+            "corpus": 0.10,
+            "grounding": 0.25,
+            "low_generic": 0.10,
+            "anti_template": 0.15,
+            "topic_diversity": 0.10,
+            "reconstruction": 0.10,
+            "escalation_value": 0.10,
+            "manual_value": 0.10
+        },
+        "grounding_heavy": {
+            "corpus": 0.05,
+            "grounding": 0.40,
+            "low_generic": 0.20,
+            "anti_template": 0.15,
+            "topic_diversity": 0.05,
+            "reconstruction": 0.05,
+            "escalation_value": 0.05,
+            "manual_value": 0.05
+        },
+        "reproducibility_data_quality": {
+            "corpus": 0.20,
+            "grounding": 0.10,
+            "low_generic": 0.05,
+            "anti_template": 0.10,
+            "topic_diversity": 0.10,
+            "reconstruction": 0.25,
+            "escalation_value": 0.10,
+            "manual_value": 0.10
+        },
+        "diversity_heavy": {
+            "corpus": 0.10,
+            "grounding": 0.15,
+            "low_generic": 0.05,
+            "anti_template": 0.20,
+            "topic_diversity": 0.30,
+            "reconstruction": 0.05,
+            "escalation_value": 0.05,
+            "manual_value": 0.10
+        },
+        "conservative_safety": {
+            "corpus": 0.05,
+            "grounding": 0.25,
+            "low_generic": 0.20,
+            "anti_template": 0.10,
+            "topic_diversity": 0.05,
+            "reconstruction": 0.10,
+            "escalation_value": 0.15,
+            "manual_value": 0.10
+        }
+    }
+}

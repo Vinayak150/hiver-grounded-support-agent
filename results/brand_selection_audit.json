@@ -1,0 +1,293 @@
+{
+  "candidate_signals": {
+    "AmazonHelp": {
+      "escalation_learning_proxy": 0.2222469,
+      "manual_labels_present": 40,
+      "manual_reply_value_proxy": 0.2625,
+      "topic_entropy_proxy": 0.61809061
+    },
+    "AppleSupport": {
+      "escalation_learning_proxy": 0.42754076,
+      "manual_labels_present": 40,
+      "manual_reply_value_proxy": 0.4625,
+      "topic_entropy_proxy": 0.60867783
+    },
+    "SpotifyCares": {
+      "escalation_learning_proxy": 0.266888,
+      "manual_labels_present": 40,
+      "manual_reply_value_proxy": 0.3875,
+      "topic_entropy_proxy": 0.64035932
+    },
+    "Uber_Support": {
+      "escalation_learning_proxy": 0.413734,
+      "manual_labels_present": 0,
+      "manual_reply_value_proxy": 0.5,
+      "topic_entropy_proxy": 0.62879007
+    },
+    "XboxSupport": {
+      "escalation_learning_proxy": 0.15331631,
+      "manual_labels_present": 40,
+      "manual_reply_value_proxy": 0.3625,
+      "topic_entropy_proxy": 0.65965191
+    },
+    "hulu_support": {
+      "escalation_learning_proxy": 0.1739697,
+      "manual_labels_present": 0,
+      "manual_reply_value_proxy": 0.5,
+      "topic_entropy_proxy": 0.66722213
+    }
+  },
+  "candidates": [
+    "AmazonHelp",
+    "SpotifyCares",
+    "AppleSupport",
+    "XboxSupport",
+    "hulu_support",
+    "Uber_Support"
+  ],
+  "final_post_audit_brand": "SpotifyCares",
+  "initial_phase_1_brand": "AmazonHelp",
+  "input_sha256": "cd297fcfa1bf6f99938be242e8e578980bc6d1b96adc8691abec9a39175b03c0",
+  "manual_audit": {
+    "brands": [
+      "AmazonHelp",
+      "SpotifyCares",
+      "AppleSupport",
+      "XboxSupport"
+    ],
+    "raw_text_committed": false,
+    "sample_rows": 160,
+    "sample_size_per_stratum": 10,
+    "strata": [
+      "multi_turn",
+      "high_public_containment",
+      "generic_redirect",
+      "repeated_template"
+    ]
+  },
+  "phase": "1.5",
+  "raw_profiles": {
+    "AmazonHelp": {
+      "actionable_reply_proxy_fraction": 0.09789213,
+      "brand": "AmazonHelp",
+      "brand_authored_messages": 169840,
+      "brand_related_threads": 82556,
+      "exact_normalized_duplicate_reply_rate": 0.09089143,
+      "generic_or_redirect_reply_proxy_fraction": 0.18084668,
+      "linked_customer_brand_pairs": 269317,
+      "median_outbound_word_count": 21.0,
+      "outbound_orphan_parent_rate": 0.00273198,
+      "outbound_parent_link_completeness": 0.99401201,
+      "public_containment_proxy_fraction": 0.77740815,
+      "reconstructible_multi_turn_threads": 51260,
+      "substantive_reply_proxy_fraction": 0.95801931,
+      "top_template_concentration": 0.0037447,
+      "unique_inbound_customer_messages_linked": 189132,
+      "unique_normalized_customer_message_ratio": 0.96758877,
+      "unique_normalized_reply_ratio": 0.90910857
+    },
+    "AppleSupport": {
+      "actionable_reply_proxy_fraction": 0.19586375,
+      "brand": "AppleSupport",
+      "brand_authored_messages": 106860,
+      "brand_related_threads": 80717,
+      "exact_normalized_duplicate_reply_rate": 0.22387236,
+      "generic_or_redirect_reply_proxy_fraction": 0.13996818,
+      "linked_customer_brand_pairs": 143304,
+      "median_outbound_word_count": 25.0,
+      "outbound_orphan_parent_rate": 0.00066442,
+      "outbound_parent_link_completeness": 0.9980161,
+      "public_containment_proxy_fraction": 0.85613887,
+      "reconstructible_multi_turn_threads": 28144,
+      "substantive_reply_proxy_fraction": 0.9960977,
+      "top_template_concentration": 0.08349242,
+      "unique_inbound_customer_messages_linked": 119895,
+      "unique_normalized_customer_message_ratio": 0.96246716,
+      "unique_normalized_reply_ratio": 0.77612764
+    },
+    "SpotifyCares": {
+      "actionable_reply_proxy_fraction": 0.18666358,
+      "brand": "SpotifyCares",
+      "brand_authored_messages": 43265,
+      "brand_related_threads": 28280,
+      "exact_normalized_duplicate_reply_rate": 0.17783428,
+      "generic_or_redirect_reply_proxy_fraction": 0.02466197,
+      "linked_customer_brand_pairs": 58188,
+      "median_outbound_word_count": 24.0,
+      "outbound_orphan_parent_rate": 0.00085519,
+      "outbound_parent_link_completeness": 0.99863631,
+      "public_containment_proxy_fraction": 0.97376632,
+      "reconstructible_multi_turn_threads": 10500,
+      "substantive_reply_proxy_fraction": 0.99842829,
+      "top_template_concentration": 0.01137178,
+      "unique_inbound_customer_messages_linked": 45180,
+      "unique_normalized_customer_message_ratio": 0.96724214,
+      "unique_normalized_reply_ratio": 0.82216572
+    },
+    "Uber_Support": {
+      "actionable_reply_proxy_fraction": 0.05612227,
+      "brand": "Uber_Support",
+      "brand_authored_messages": 56270,
+      "brand_related_threads": 41923,
+      "exact_normalized_duplicate_reply_rate": 0.62942954,
+      "generic_or_redirect_reply_proxy_fraction": 0.37609739,
+      "linked_customer_brand_pairs": 78320,
+      "median_outbound_word_count": 20.0,
+      "outbound_orphan_parent_rate": 0.00120846,
+      "outbound_parent_link_completeness": 0.9986316,
+      "public_containment_proxy_fraction": 0.60275458,
+      "reconstructible_multi_turn_threads": 15088,
+      "substantive_reply_proxy_fraction": 0.97885196,
+      "top_template_concentration": 0.07828328,
+      "unique_inbound_customer_messages_linked": 65924,
+      "unique_normalized_customer_message_ratio": 0.96430738,
+      "unique_normalized_reply_ratio": 0.37057046
+    },
+    "XboxSupport": {
+      "actionable_reply_proxy_fraction": 0.19432341,
+      "brand": "XboxSupport",
+      "brand_authored_messages": 24557,
+      "brand_related_threads": 13455,
+      "exact_normalized_duplicate_reply_rate": 0.28199699,
+      "generic_or_redirect_reply_proxy_fraction": 0.04194323,
+      "linked_customer_brand_pairs": 35068,
+      "median_outbound_word_count": 21.0,
+      "outbound_orphan_parent_rate": 0.00118093,
+      "outbound_parent_link_completeness": 0.99002321,
+      "public_containment_proxy_fraction": 0.95426966,
+      "reconstructible_multi_turn_threads": 8396,
+      "substantive_reply_proxy_fraction": 0.99621289,
+      "top_template_concentration": 0.0581097,
+      "unique_inbound_customer_messages_linked": 25842,
+      "unique_normalized_customer_message_ratio": 0.9578206,
+      "unique_normalized_reply_ratio": 0.71800301
+    },
+    "hulu_support": {
+      "actionable_reply_proxy_fraction": 0.25137162,
+      "brand": "hulu_support",
+      "brand_authored_messages": 21872,
+      "brand_related_threads": 14955,
+      "exact_normalized_duplicate_reply_rate": 0.00566935,
+      "generic_or_redirect_reply_proxy_fraction": 0.23802121,
+      "linked_customer_brand_pairs": 30823,
+      "median_outbound_word_count": 23.0,
+      "outbound_orphan_parent_rate": 0.00050293,
+      "outbound_parent_link_completeness": 0.99542794,
+      "public_containment_proxy_fraction": 0.76170446,
+      "reconstructible_multi_turn_threads": 5897,
+      "substantive_reply_proxy_fraction": 0.99972568,
+      "top_template_concentration": 0.00150878,
+      "unique_inbound_customer_messages_linked": 24556,
+      "unique_normalized_customer_message_ratio": 0.98175599,
+      "unique_normalized_reply_ratio": 0.99433065
+    }
+  },
+  "saturation_target_multiturn_threads": 10000,
+  "sensitivity_analysis": {
+    "balanced": {
+      "scores": {
+        "AmazonHelp": 0.72231861,
+        "AppleSupport": 0.76613051,
+        "SpotifyCares": 0.7936386,
+        "Uber_Support": 0.62278004,
+        "XboxSupport": 0.74258269,
+        "hulu_support": 0.70840557
+      },
+      "weights": {
+        "anti_template": 0.15,
+        "corpus": 0.1,
+        "escalation_value": 0.1,
+        "grounding": 0.25,
+        "low_generic": 0.1,
+        "manual_value": 0.1,
+        "reconstruction": 0.1,
+        "topic_diversity": 0.1
+      },
+      "winner": "SpotifyCares"
+    },
+    "conservative_safety": {
+      "scores": {
+        "AmazonHelp": 0.68898633,
+        "AppleSupport": 0.75427046,
+        "SpotifyCares": 0.78139055,
+        "Uber_Support": 0.60588898,
+        "XboxSupport": 0.73519143,
+        "hulu_support": 0.68073929
+      },
+      "weights": {
+        "anti_template": 0.1,
+        "corpus": 0.05,
+        "escalation_value": 0.15,
+        "grounding": 0.25,
+        "low_generic": 0.2,
+        "manual_value": 0.1,
+        "reconstruction": 0.1,
+        "topic_diversity": 0.05
+      },
+      "winner": "SpotifyCares"
+    },
+    "diversity_heavy": {
+      "scores": {
+        "AmazonHelp": 0.71188073,
+        "AppleSupport": 0.72677914,
+        "SpotifyCares": 0.75339901,
+        "Uber_Support": 0.60497771,
+        "XboxSupport": 0.70991644,
+        "hulu_support": 0.71882726
+      },
+      "weights": {
+        "anti_template": 0.2,
+        "corpus": 0.1,
+        "escalation_value": 0.05,
+        "grounding": 0.15,
+        "low_generic": 0.05,
+        "manual_value": 0.1,
+        "reconstruction": 0.05,
+        "topic_diversity": 0.3
+      },
+      "winner": "SpotifyCares"
+    },
+    "grounding_heavy": {
+      "scores": {
+        "AmazonHelp": 0.76600269,
+        "AppleSupport": 0.80571779,
+        "SpotifyCares": 0.87256817,
+        "Uber_Support": 0.59852571,
+        "XboxSupport": 0.83127424,
+        "hulu_support": 0.75254313
+      },
+      "weights": {
+        "anti_template": 0.15,
+        "corpus": 0.05,
+        "escalation_value": 0.05,
+        "grounding": 0.4,
+        "low_generic": 0.2,
+        "manual_value": 0.05,
+        "reconstruction": 0.05,
+        "topic_diversity": 0.05
+      },
+      "winner": "SpotifyCares"
+    },
+    "reproducibility_data_quality": {
+      "scores": {
+        "AmazonHelp": 0.76839609,
+        "AppleSupport": 0.80560413,
+        "SpotifyCares": 0.80749392,
+        "Uber_Support": 0.73243794,
+        "XboxSupport": 0.74810273,
+        "hulu_support": 0.71461862
+      },
+      "weights": {
+        "anti_template": 0.1,
+        "corpus": 0.2,
+        "escalation_value": 0.1,
+        "grounding": 0.1,
+        "low_generic": 0.05,
+        "manual_value": 0.1,
+        "reconstruction": 0.25,
+        "topic_diversity": 0.1
+      },
+      "winner": "SpotifyCares"
+    }
+  }
+}
