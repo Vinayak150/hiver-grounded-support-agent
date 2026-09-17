@@ -60,6 +60,7 @@ def test_profiling_emits_aggregate_artifacts_and_no_raw_fixture_text(tmp_path: P
     assert result.selected_brand == "BrandOne"
     assert "I cannot sign in" not in output
     assert "I cannot sign in" not in report.read_text(encoding="utf-8")
+    assert "\r" not in result.profile_csv_path.read_text(encoding="utf-8")
     profiles = json.loads(output)["profiles"]
     brand_two = next(profile for profile in profiles if profile["brand"] == "BrandTwo")
     assert brand_two["generic_or_redirect_reply_proxy_fraction"] == 0.5

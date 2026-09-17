@@ -368,7 +368,7 @@ def _write_csv(path: Path, profiles: list[BrandProfile]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = list(BrandProfile.__dataclass_fields__)
     with path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(profile.as_dict() for profile in profiles)
 
