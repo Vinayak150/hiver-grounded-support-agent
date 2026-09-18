@@ -1,0 +1,30 @@
+{
+  "ai_provisional_labels_used": false,
+  "classes": [
+    "account_access_or_security",
+    "billing_or_payment",
+    "content_availability_or_metadata",
+    "device_or_connectivity",
+    "feature_request_or_product_feedback",
+    "library_playlist_or_saved_content",
+    "other_or_unclear",
+    "playback_or_app_behavior",
+    "subscription_or_plan"
+  ],
+  "frozen_ids_used": false,
+  "phase": "4",
+  "training_examples": 19793,
+  "training_partition": "TRAIN",
+  "weak_label_cross_validation_used": false,
+  "weak_label_distribution": {
+    "account_access_or_security": 2563,
+    "billing_or_payment": 1215,
+    "content_availability_or_metadata": 1353,
+    "device_or_connectivity": 1107,
+    "feature_request_or_product_feedback": 581,
+    "library_playlist_or_saved_content": 490,
+    "other_or_unclear": 4016,
+    "playback_or_app_behavior": 6038,
+    "subscription_or_plan": 2430
+  }
+}

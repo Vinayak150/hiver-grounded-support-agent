@@ -4,7 +4,7 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 3 baseline and evaluation infrastructure complete; final evaluation remains blocked.** Phase 2.6 froze 200 protected evaluation cases and human confirmation remains at zero. Phase 3 adds a fixed always-escalate baseline, a TRAIN-only lexical neighbor baseline, reusable label-driven metrics, and deterministic bootstrap utilities. It generated DEVELOPMENT engineering artifacts only. No frozen predictions, benchmark scores, human-agreement claims, or final-agent components exist yet.
+**Phase 4 grounded agent complete on DEVELOPMENT; final evaluation remains blocked.** The deterministic agent combines a weak-label intent classifier, TRAIN-only hybrid retrieval, explicit risk and evidence gates, extractive grounded drafting, and a safety verifier. Phase 2.6's 200 protected cases remain untouched for optimization/evaluation and human confirmation remains at zero. No frozen predictions, benchmark scores, headline metrics, or human-agreement claims exist yet.
 
 Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
@@ -25,8 +25,8 @@ data/          ignored source/processed text; tracked manifests and annotation q
 docs/          plans, decision log, annotation protocol, and final report
 results/       profiling, audits, taxonomy, and DEVELOPMENT baseline artifacts
 scripts/       reproducible data, annotation, and baseline commands
-src/           data, taxonomy, annotation, baseline, and evaluation modules
-tests/         deterministic data, leakage, baseline, metric, and statistics tests
+src/           data, agent, retrieval, generation, baseline, and evaluation modules
+tests/         deterministic data, leakage, agent, metric, and statistics tests
 ```
 
 ## Commands available now
@@ -47,6 +47,8 @@ make provisional-audit  # audit provisional distributions and contradictions
 make phase2-6          # regenerate the three Phase 2.6 artifacts above
 make annotate          # explicitly accept/correct suggestions as a human
 make baselines-dev     # generate both DEVELOPMENT-only baseline artifacts
+make train-agent       # verify TRAIN-only intent-classifier fitting
+make agent-dev         # generate proposed-agent DEVELOPMENT artifacts
 ```
 
 `make reproduce`, `make demo`, and `make rebuild` will be added only when their inputs, outputs, and claims can be made reproducible.
@@ -62,6 +64,13 @@ Phase 2.6 adds the [final 200-case manifest](data/manifests/final_golden_candida
 The raw TWCS export and reconstructed thread JSONL remain ignored and uncommitted. See [the split protocol](docs/SPLIT_PROTOCOL.md), [taxonomy](docs/TAXONOMY.md), and [annotation guide](docs/ANNOTATION_GUIDE.md) for definitions and limitations. No final model or reported gold-dependent evaluation metric exists yet.
 
 Phase 3 adds deterministic DEVELOPMENT predictions for the [fixed baseline](results/dev_baseline_fixed.jsonl) and [lexical baseline](results/dev_baseline_lexical.jsonl), plus a [generation manifest](results/dev_baseline_manifest.json). The metric library is implemented but no gold-dependent metric has been computed. See [baseline documentation](docs/BASELINES.md) and the [evaluation protocol](docs/EVALUATION_PROTOCOL.md).
+
+Phase 4 adds 2,594 deterministic DEVELOPMENT predictions for the proposed agent,
+plus its traceability manifest and unlabeled engineering diagnostics. The current
+run allows 65 cases through every automation gate and escalates 2,529; these are
+coverage diagnostics, not correctness or safety measurements. See the
+[agent architecture](docs/AGENT_ARCHITECTURE.md) and
+[safety policy](docs/SAFETY_POLICY.md). Regenerate with `make agent-dev`.
 
 ## Integrity commitments
 

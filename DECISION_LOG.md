@@ -28,5 +28,9 @@
 | ADR-24 | Use word/character TF-IDF cosine neighbors as the simple lexical baseline. | Accepted | The method is deterministic, interpretable, uses TRAIN only, caps repeated reply templates, and avoids embeddings, LLMs, and vector databases. |
 | ADR-25 | Calibrate lexical automation at the configured 75th percentile of DEVELOPMENT top-1 similarity. | Accepted | DEVELOPMENT has no gold labels, so the threshold is a bounded unsupervised data-quality heuristic rather than accuracy optimization. |
 | ADR-26 | Generate Phase 3 predictions for DEVELOPMENT only. | Accepted | The frozen 200 remain untouched until genuine human labels enable a one-time final evaluation; AI provisional suggestions are never used as gold. |
+| ADR-27 | Use class-balanced word/character TF-IDF logistic regression on TRAIN-side provisional groups. | Accepted | The model is deterministic and interpretable; its outputs are weak-label consistency signals rather than human accuracy. |
+| ADR-28 | Rerank TRAIN history with six transparent retrieval signals and cap exact templates at two. | Accepted | Separate lexical similarities, intent compatibility, reply quality, context compatibility, and a template penalty expose why evidence ranks while limiting repeated replies. |
+| ADR-29 | Calibrate Phase 4 evidence thresholds with bounded unlabeled DEVELOPMENT quantiles. | Accepted | No human gold is available, so these are distribution heuristics rather than correctness-optimal thresholds. Frozen cases remain excluded. |
+| ADR-30 | Make deterministic extractive drafting the default and fail closed through explicit gates. | Accepted | Evidence-preserving extraction is reproducible without credentials and cannot silently introduce external facts; private, sensitive, weak-evidence, or verifier-failing cases escalate. |
 
 Future entries will be added only for non-obvious decisions supported by project evidence.
