@@ -1,0 +1,25 @@
+{
+  "taxonomy_version": "spotify-intents-v1",
+  "sampling_version": "spotify-golden-candidates-v1",
+  "split_version": "spotify-temporal-v1",
+  "candidate_count": 300,
+  "representative_count": 240,
+  "challenge_count": 60,
+  "seed": "spotify-phase2-annotation-v1",
+  "actions": ["AUTO_HANDLE", "ESCALATE"],
+  "difficulties": ["EASY", "MEDIUM", "HARD"],
+  "risk_tags": [
+    "ACCOUNT_SPECIFIC",
+    "PAYMENT",
+    "REFUND",
+    "SECURITY",
+    "PII",
+    "POLICY_SENSITIVE",
+    "PRIVATE_LOOKUP",
+    "MULTI_INTENT",
+    "AMBIGUOUS",
+    "OUT_OF_DOMAIN",
+    "DEVICE_CONTEXT",
+    "LOW_CONTEXT"
+  ]
+}

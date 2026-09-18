@@ -1,0 +1,914 @@
+{
+  "assistance": {
+    "model": "OpenAI Codex GPT-5",
+    "prompt_summary": "Create a compact operational taxonomy from TRAIN-only aggregate TF-IDF clusters and ID-only representatives.",
+    "representative_thread_ids": [
+      "twcs-00f1aeddf3990b4efffd",
+      "twcs-01d26e23f62384030d85",
+      "twcs-01e10a3f0ae47d12c7e7",
+      "twcs-04e8065c07d9e3cc9914",
+      "twcs-052051f239e41ce601c0",
+      "twcs-0552ac39d52c1fe0ce76",
+      "twcs-05c0ea3a4e4fd47b4b31",
+      "twcs-07122464491e109ae5b1",
+      "twcs-08f0248ac405eafa4038",
+      "twcs-14a4ad3f249a289697a2",
+      "twcs-1a5d06f783c2c5b0d4ca",
+      "twcs-213deeea1337a3d36a6b",
+      "twcs-256be9f1ca7ed095e66b",
+      "twcs-28e084773fc9d4e4c8fb",
+      "twcs-2d7403c5ad4b3b25e873",
+      "twcs-30141c3da5979be461c4",
+      "twcs-33e4edbf42aca6ff2afa",
+      "twcs-35e493ea400560442a5b",
+      "twcs-399c23f6aff705e4c1fa",
+      "twcs-3b5ad8df5fe91f4c49ef",
+      "twcs-3c58b66258807a8e9f3e",
+      "twcs-3f849152e6aec5a48e51",
+      "twcs-3fe44f6a95629912276d",
+      "twcs-42a9e8961015ab92b4e9",
+      "twcs-4d86d11456e168397dd9",
+      "twcs-4e63a6d2caa804268aaf",
+      "twcs-4f28849ac820ad9eb40b",
+      "twcs-514692cba7a7b972968d",
+      "twcs-54c52ca837c46265a8d5",
+      "twcs-54c687800634f3cc9ef0",
+      "twcs-5e8c3e42cac08161cca3",
+      "twcs-602a687df2d6df5d1846",
+      "twcs-6110dda74888f924e54e",
+      "twcs-6190042da9ca6c7c4cd0",
+      "twcs-621e334afe7a78a86580",
+      "twcs-641a602acd640e5619ae",
+      "twcs-68088b6271a88941e960",
+      "twcs-7ab8d80bef8e45c02f8c",
+      "twcs-819008d30769d0de585d",
+      "twcs-84dce0285ab4c0566638",
+      "twcs-873efdf5d1f0abdbc1b6",
+      "twcs-8ec88cc5762a093bbc05",
+      "twcs-9575cc79e01a74216134",
+      "twcs-a80d982f7a1f1be8d3bd",
+      "twcs-af83eb3c927f7e5eb289",
+      "twcs-b0d24ec210d8abdcbaa7",
+      "twcs-b11053ac57a0d20d577b",
+      "twcs-be0ed65e5ce0a61b1913",
+      "twcs-c2fa19ec1397a1c73db1",
+      "twcs-c3558892d2518a7b4a2e",
+      "twcs-ca0747b95943ebd98391",
+      "twcs-d884fc4ce48ec5f0e3e1",
+      "twcs-da013bfd795eb34064af",
+      "twcs-da0cdb6ae81f9cef34f4",
+      "twcs-dc7796557d0a7e13c662",
+      "twcs-ec72928e9019eb0c518c",
+      "twcs-f003b4e6f3c29298a2e3",
+      "twcs-f90260675106c02267f0",
+      "twcs-f941c921f76c7a8e243a",
+      "twcs-fe7e7a2fcaecc857a9cc"
+    ],
+    "role": "Interpreted aggregate train-side cluster terms and drafted provisional boundaries; did not label examples.",
+    "used": true
+  },
+  "brand": "SpotifyCares",
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "representative_thread_ids": [
+        "twcs-f90260675106c02267f0",
+        "twcs-514692cba7a7b972968d",
+        "twcs-b0d24ec210d8abdcbaa7",
+        "twcs-f941c921f76c7a8e243a",
+        "twcs-35e493ea400560442a5b"
+      ],
+      "top_terms": [
+        "app",
+        "iphone",
+        "update",
+        "ios",
+        "spotify",
+        "version",
+        "apple",
+        "watch",
+        "just",
+        "apple watch",
+        "android",
+        "app iphone",
+        "music",
+        "screen",
+        "phone"
+      ],
+      "train_thread_count": 2084
+    },
+    {
+      "cluster_id": 1,
+      "representative_thread_ids": [
+        "twcs-28e084773fc9d4e4c8fb",
+        "twcs-5e8c3e42cac08161cca3",
+        "twcs-68088b6271a88941e960",
+        "twcs-873efdf5d1f0abdbc1b6",
+        "twcs-9575cc79e01a74216134"
+      ],
+      "top_terms": [
+        "isn",
+        "spotify",
+        "isn working",
+        "working",
+        "isn spotify",
+        "album",
+        "available",
+        "isn available",
+        "spotify isn",
+        "hey",
+        "music",
+        "just",
+        "help",
+        "app",
+        "album isn"
+      ],
+      "train_thread_count": 386
+    },
+    {
+      "cluster_id": 2,
+      "representative_thread_ids": [
+        "twcs-af83eb3c927f7e5eb289",
+        "twcs-3c58b66258807a8e9f3e",
+        "twcs-c3558892d2518a7b4a2e",
+        "twcs-602a687df2d6df5d1846",
+        "twcs-6110dda74888f924e54e"
+      ],
+      "top_terms": [
+        "family",
+        "plan",
+        "family plan",
+        "premium",
+        "account",
+        "premium family",
+        "family account",
+        "invite",
+        "family premium",
+        "help",
+        "add",
+        "spotify family",
+        "members",
+        "join",
+        "address"
+      ],
+      "train_thread_count": 902
+    },
+    {
+      "cluster_id": 3,
+      "representative_thread_ids": [
+        "twcs-01d26e23f62384030d85",
+        "twcs-01e10a3f0ae47d12c7e7",
+        "twcs-04e8065c07d9e3cc9914",
+        "twcs-052051f239e41ce601c0",
+        "twcs-07122464491e109ae5b1"
+      ],
+      "top_terms": [
+        "spotify",
+        "songs",
+        "playlist",
+        "song",
+        "thank",
+        "just",
+        "hey",
+        "like",
+        "playlists",
+        "add",
+        "don",
+        "play",
+        "want",
+        "guys",
+        "help"
+      ],
+      "train_thread_count": 8392
+    },
+    {
+      "cluster_id": 4,
+      "representative_thread_ids": [
+        "twcs-fe7e7a2fcaecc857a9cc",
+        "twcs-14a4ad3f249a289697a2",
+        "twcs-4e63a6d2caa804268aaf",
+        "twcs-05c0ea3a4e4fd47b4b31",
+        "twcs-d884fc4ce48ec5f0e3e1"
+      ],
+      "top_terms": [
+        "student",
+        "charged",
+        "discount",
+        "student discount",
+        "premium",
+        "hulu",
+        "account",
+        "student account",
+        "month",
+        "charged twice",
+        "student premium",
+        "twice",
+        "help",
+        "spotify",
+        "subscription"
+      ],
+      "train_thread_count": 831
+    },
+    {
+      "cluster_id": 5,
+      "representative_thread_ids": [
+        "twcs-33e4edbf42aca6ff2afa",
+        "twcs-4d86d11456e168397dd9",
+        "twcs-4f28849ac820ad9eb40b",
+        "twcs-641a602acd640e5619ae",
+        "twcs-7ab8d80bef8e45c02f8c"
+      ],
+      "top_terms": [
+        "reputation",
+        "reputation available",
+        "available",
+        "reputation spotify",
+        "album",
+        "spotify",
+        "available spotify",
+        "taylor",
+        "reputation album",
+        "swift",
+        "taylor swift",
+        "album reputation",
+        "isn",
+        "waiting",
+        "listen"
+      ],
+      "train_thread_count": 178
+    },
+    {
+      "cluster_id": 6,
+      "representative_thread_ids": [
+        "twcs-3b5ad8df5fe91f4c49ef",
+        "twcs-ca0747b95943ebd98391",
+        "twcs-ec72928e9019eb0c518c",
+        "twcs-dc7796557d0a7e13c662",
+        "twcs-3f849152e6aec5a48e51"
+      ],
+      "top_terms": [
+        "premium",
+        "free",
+        "spotify premium",
+        "account",
+        "premium account",
+        "spotify",
+        "paid",
+        "charged",
+        "help",
+        "subscription",
+        "just",
+        "pay",
+        "don",
+        "month",
+        "trial"
+      ],
+      "train_thread_count": 1489
+    },
+    {
+      "cluster_id": 7,
+      "representative_thread_ids": [
+        "twcs-f003b4e6f3c29298a2e3",
+        "twcs-54c687800634f3cc9ef0",
+        "twcs-b11053ac57a0d20d577b",
+        "twcs-8ec88cc5762a093bbc05",
+        "twcs-213deeea1337a3d36a6b"
+      ],
+      "top_terms": [
+        "account",
+        "email",
+        "help",
+        "password",
+        "facebook",
+        "log",
+        "spotify",
+        "hacked",
+        "spotify account",
+        "address",
+        "changed",
+        "email address",
+        "login",
+        "reset",
+        "access"
+      ],
+      "train_thread_count": 1742
+    },
+    {
+      "cluster_id": 8,
+      "representative_thread_ids": [
+        "twcs-0552ac39d52c1fe0ce76",
+        "twcs-08f0248ac405eafa4038",
+        "twcs-256be9f1ca7ed095e66b",
+        "twcs-399c23f6aff705e4c1fa",
+        "twcs-42a9e8961015ab92b4e9"
+      ],
+      "top_terms": [
+        "help",
+        "need",
+        "need help",
+        "account",
+        "help account",
+        "spotify",
+        "premium",
+        "asap",
+        "help need",
+        "payment",
+        "hello need",
+        "hi",
+        "hey need",
+        "email",
+        "family"
+      ],
+      "train_thread_count": 347
+    },
+    {
+      "cluster_id": 9,
+      "representative_thread_ids": [
+        "twcs-00f1aeddf3990b4efffd",
+        "twcs-1a5d06f783c2c5b0d4ca",
+        "twcs-3fe44f6a95629912276d",
+        "twcs-54c52ca837c46265a8d5",
+        "twcs-819008d30769d0de585d"
+      ],
+      "top_terms": [
+        "music",
+        "album",
+        "new",
+        "spotify",
+        "listen",
+        "new album",
+        "play",
+        "songs",
+        "just",
+        "like",
+        "apple",
+        "apple music",
+        "playing",
+        "don",
+        "song"
+      ],
+      "train_thread_count": 1772
+    },
+    {
+      "cluster_id": 10,
+      "representative_thread_ids": [
+        "twcs-2d7403c5ad4b3b25e873",
+        "twcs-be0ed65e5ce0a61b1913",
+        "twcs-c2fa19ec1397a1c73db1",
+        "twcs-da013bfd795eb34064af",
+        "twcs-da0cdb6ae81f9cef34f4"
+      ],
+      "top_terms": [
+        "thanks",
+        "spotify",
+        "just",
+        "hey",
+        "hi",
+        "songs",
+        "help",
+        "playlist",
+        "guys",
+        "like",
+        "app",
+        "song",
+        "music",
+        "know",
+        "ve"
+      ],
+      "train_thread_count": 1307
+    },
+    {
+      "cluster_id": 11,
+      "representative_thread_ids": [
+        "twcs-30141c3da5979be461c4",
+        "twcs-6190042da9ca6c7c4cd0",
+        "twcs-621e334afe7a78a86580",
+        "twcs-84dce0285ab4c0566638",
+        "twcs-a80d982f7a1f1be8d3bd"
+      ],
+      "top_terms": [
+        "dm",
+        "sent",
+        "sent dm",
+        "check",
+        "check dm",
+        "hi",
+        "thanks",
+        "reply dm",
+        "help",
+        "reply",
+        "account",
+        "dm sent",
+        "guys",
+        "just",
+        "dm thanks"
+      ],
+      "train_thread_count": 363
+    }
+  ],
+  "intent_evidence": [
+    {
+      "display_name": "Playback or app behavior",
+      "id": "playback_or_app_behavior",
+      "top_train_tokens": [
+        "app",
+        "songs",
+        "playlist",
+        "music",
+        "play",
+        "just",
+        "song",
+        "thanks",
+        "playlists",
+        "it's",
+        "like",
+        "playing",
+        "iphone",
+        "i'm",
+        "help",
+        "hey",
+        "version",
+        "phone",
+        "premium",
+        "ios"
+      ],
+      "train_side_support_count": 6022,
+      "training_example_ids": [
+        "twcs-17c57e153e12cd220a46",
+        "twcs-468c3f2bcb3741840fd7",
+        "twcs-57ccf7d063cefe9be297",
+        "twcs-3446d661947eff20aafa",
+        "twcs-ca1a066a0ca788baebaa"
+      ]
+    },
+    {
+      "display_name": "Device or connectivity",
+      "id": "device_or_connectivity",
+      "top_train_tokens": [
+        "iphone",
+        "version",
+        "app",
+        "android",
+        "just",
+        "thanks",
+        "ios",
+        "update",
+        "device",
+        "help",
+        "phone",
+        "tried",
+        "it's",
+        "account",
+        "connect",
+        "i'm",
+        "music",
+        "devices",
+        "using",
+        "windows"
+      ],
+      "train_side_support_count": 1111,
+      "training_example_ids": [
+        "twcs-ea724e920de31f51e05b",
+        "twcs-9c9a719a823860e11e3d",
+        "twcs-1723a43c317aba734624",
+        "twcs-5aad50c4695d1525c681",
+        "twcs-ff529d3ce0e21994e678"
+      ]
+    },
+    {
+      "display_name": "Account access or security",
+      "id": "account_access_or_security",
+      "top_train_tokens": [
+        "account",
+        "email",
+        "help",
+        "premium",
+        "log",
+        "password",
+        "can't",
+        "facebook",
+        "just",
+        "login",
+        "need",
+        "hi",
+        "hacked",
+        "username",
+        "address",
+        "thanks",
+        "change",
+        "i'm",
+        "got",
+        "changed"
+      ],
+      "train_side_support_count": 2566,
+      "training_example_ids": [
+        "twcs-f6cad043044f9a9567dc",
+        "twcs-de4af99d0b822190dc9f",
+        "twcs-ed81e547ae9a3f63cc6f",
+        "twcs-e5d6b5dc18190c34d240",
+        "twcs-174e65e820b657d2d99b"
+      ]
+    },
+    {
+      "display_name": "Subscription or plan",
+      "id": "subscription_or_plan",
+      "top_train_tokens": [
+        "premium",
+        "family",
+        "student",
+        "account",
+        "help",
+        "subscription",
+        "plan",
+        "just",
+        "i'm",
+        "free",
+        "hi",
+        "hulu",
+        "discount",
+        "charged",
+        "can't",
+        "thanks",
+        "cancel",
+        "need",
+        "month",
+        "trying"
+      ],
+      "train_side_support_count": 2431,
+      "training_example_ids": [
+        "twcs-362669d1ccad84c3f586",
+        "twcs-431671dc99da81476226",
+        "twcs-22e4a3ef128ef4e99faa",
+        "twcs-277122a1953954c57ee3",
+        "twcs-a64f3fd580be5eac9aa6"
+      ]
+    },
+    {
+      "display_name": "Billing or payment",
+      "id": "billing_or_payment",
+      "top_train_tokens": [
+        "charged",
+        "payment",
+        "card",
+        "premium",
+        "account",
+        "help",
+        "student",
+        "month",
+        "pay",
+        "just",
+        "money",
+        "hi",
+        "i'm",
+        "got",
+        "need",
+        "twice",
+        "credit",
+        "free",
+        "refund",
+        "update"
+      ],
+      "train_side_support_count": 1215,
+      "training_example_ids": [
+        "twcs-3768d867cce9ed811638",
+        "twcs-44be3305c4a504c1fc45",
+        "twcs-fbdd0ef288970147a842",
+        "twcs-aa507b58475f40729b4a",
+        "twcs-30e7f65366dc2b0e79e5"
+      ]
+    },
+    {
+      "display_name": "Library, playlist, or saved content",
+      "id": "library_playlist_or_saved_content",
+      "top_train_tokens": [
+        "songs",
+        "library",
+        "download",
+        "downloaded",
+        "saved",
+        "music",
+        "playlist",
+        "song",
+        "just",
+        "albums",
+        "time",
+        "playlists",
+        "limit",
+        "phone",
+        "like",
+        "album",
+        "queue",
+        "downloads",
+        "it's",
+        "help"
+      ],
+      "train_side_support_count": 491,
+      "training_example_ids": [
+        "twcs-9f80c5eb98831380cc90",
+        "twcs-e8e439563ede20eba477",
+        "twcs-42c9f97318809472b359",
+        "twcs-5cb54cc78007c0029b0f",
+        "twcs-45ab3795f6754668e9af"
+      ]
+    },
+    {
+      "display_name": "Content availability or metadata",
+      "id": "content_availability_or_metadata",
+      "top_train_tokens": [
+        "album",
+        "artist",
+        "new",
+        "albums",
+        "songs",
+        "thanks",
+        "artists",
+        "just",
+        "song",
+        "hey",
+        "release",
+        "like",
+        "thank",
+        "music",
+        "listen",
+        "page",
+        "track",
+        "available",
+        "lyrics",
+        "tracks"
+      ],
+      "train_side_support_count": 1356,
+      "training_example_ids": [
+        "twcs-dd43c0af73858ee69045",
+        "twcs-645df514787baf8ae6ba",
+        "twcs-82494e3b0b321816acfb",
+        "twcs-bdc0ea7f54b66838edc1",
+        "twcs-d409fe6227f7979f8bef"
+      ]
+    },
+    {
+      "display_name": "Feature request or product feedback",
+      "id": "feature_request_or_product_feedback",
+      "top_train_tokens": [
+        "feature",
+        "update",
+        "add",
+        "like",
+        "songs",
+        "bring",
+        "thanks",
+        "idea",
+        "song",
+        "music",
+        "wish",
+        "just",
+        "preview",
+        "don't",
+        "app",
+        "available",
+        "hey",
+        "updated",
+        "touch",
+        "thank"
+      ],
+      "train_side_support_count": 586,
+      "training_example_ids": [
+        "twcs-d940cdcda1b3e3891dee",
+        "twcs-3336c37c84b43d550ce5",
+        "twcs-c0133177cd44e2e4b2d9",
+        "twcs-75dbc739cf8624b964c2",
+        "twcs-51a861e252982069aa0b"
+      ]
+    },
+    {
+      "display_name": "Other, unclear, or non-support",
+      "id": "other_or_unclear",
+      "top_train_tokens": [
+        "thanks",
+        "music",
+        "help",
+        "just",
+        "thank",
+        "need",
+        "song",
+        "hey",
+        "songs",
+        "like",
+        "guys",
+        "dm",
+        "hi",
+        "available",
+        "listen",
+        "i'm",
+        "want",
+        "it's",
+        "know",
+        "love"
+      ],
+      "train_side_support_count": 4015,
+      "training_example_ids": [
+        "twcs-17246b47b3a1ca35c166",
+        "twcs-fe3364daa61024355b52",
+        "twcs-131fec1a0836422ba920",
+        "twcs-bd518b8450f1b434e4b7",
+        "twcs-bda316f48686406724a9"
+      ]
+    }
+  ],
+  "lexical_boundary_overlap": [
+    {
+      "left": "playback_or_app_behavior",
+      "right": "device_or_connectivity",
+      "top_token_jaccard": 0.37931
+    },
+    {
+      "left": "subscription_or_plan",
+      "right": "billing_or_payment",
+      "top_token_jaccard": 0.37931
+    },
+    {
+      "left": "content_availability_or_metadata",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.333333
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "library_playlist_or_saved_content",
+      "top_token_jaccard": 0.333333
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.333333
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "subscription_or_plan",
+      "top_token_jaccard": 0.290323
+    },
+    {
+      "left": "content_availability_or_metadata",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.290323
+    },
+    {
+      "left": "feature_request_or_product_feedback",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.290323
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "billing_or_payment",
+      "top_token_jaccard": 0.25
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.25
+    },
+    {
+      "left": "library_playlist_or_saved_content",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.212121
+    },
+    {
+      "left": "library_playlist_or_saved_content",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.212121
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.212121
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.176471
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.176471
+    },
+    {
+      "left": "subscription_or_plan",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.176471
+    },
+    {
+      "left": "billing_or_payment",
+      "right": "other_or_unclear",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "account_access_or_security",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "billing_or_payment",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "library_playlist_or_saved_content",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "subscription_or_plan",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "library_playlist_or_saved_content",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "account_access_or_security",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "subscription_or_plan",
+      "top_token_jaccard": 0.142857
+    },
+    {
+      "left": "playback_or_app_behavior",
+      "right": "billing_or_payment",
+      "top_token_jaccard": 0.111111
+    },
+    {
+      "left": "device_or_connectivity",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.081081
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "account_access_or_security",
+      "right": "library_playlist_or_saved_content",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "billing_or_payment",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "billing_or_payment",
+      "right": "library_playlist_or_saved_content",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "subscription_or_plan",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "subscription_or_plan",
+      "right": "feature_request_or_product_feedback",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "subscription_or_plan",
+      "right": "library_playlist_or_saved_content",
+      "top_token_jaccard": 0.052632
+    },
+    {
+      "left": "billing_or_payment",
+      "right": "content_availability_or_metadata",
+      "top_token_jaccard": 0.025641
+    }
+  ],
+  "method": {
+    "cluster_count": 12,
+    "clustering": "KMeans",
+    "feature_count": 6000,
+    "interpretation": "aggregate clusters plus deterministic lexical signal groups",
+    "random_state": 20260918,
+    "rows": 19793,
+    "word_features": "TF-IDF word unigrams+bigrams"
+  },
+  "phase": "2",
+  "source_split": "TRAIN",
+  "split_manifest_sha256": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999",
+  "taxonomy_version": "spotify-intents-v1",
+  "train_thread_count": 19793,
+  "train_thread_ids_sha256": "4c3f93d9ba9efd25b6bf22955233712d61f3127225b234b04bb0d8635a3b8ec5"
+}

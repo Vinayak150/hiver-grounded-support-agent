@@ -1,0 +1,18 @@
+{
+  "version": "spotify-temporal-v1",
+  "brand": "SpotifyCares",
+  "strategy": "temporal",
+  "ratios": {"TRAIN": 0.70, "DEVELOPMENT": 0.15, "GOLDEN_CANDIDATE": 0.15},
+  "exact_collision_policy": {
+    "customer_min_words": 1,
+    "brand_min_words": 8,
+    "action": "drop_from_later_split"
+  },
+  "near_duplicate_policy": {
+    "token_jaccard_threshold": 0.90,
+    "character_5gram_jaccard_threshold": 0.92,
+    "minimum_tokens": 4,
+    "bottom_k_signature_size": 12,
+    "action": "drop_from_later_split"
+  }
+}

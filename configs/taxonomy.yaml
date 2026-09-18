@@ -1,0 +1,89 @@
+{
+  "version": "spotify-intents-v1",
+  "brand": "SpotifyCares",
+  "source_split": "TRAIN",
+  "default_intent": "other_or_unclear",
+  "intents": [
+    {
+      "id": "playback_or_app_behavior",
+      "display_name": "Playback or app behavior",
+      "definition": "Playback failures, crashes, slowness, offline behavior, or unexpected app operation.",
+      "include_when": "The primary request is to make playback or the Spotify app function correctly.",
+      "exclude_when": "Use device_connectivity when the core issue is connecting Spotify to another device or network endpoint.",
+      "boundary_notes": "Prefer the narrower device intent when an external device or network handoff is causal.",
+      "common_signals": ["play", "playing", "pause", "skip", "offline", "crash", "stuck", "app", "shuffle", "sound"]
+    },
+    {
+      "id": "device_or_connectivity",
+      "display_name": "Device or connectivity",
+      "definition": "Connectivity, casting, synchronization, installation, and device-specific integration problems.",
+      "include_when": "A device, operating system, network, speaker, console, car, or cross-device connection is central.",
+      "exclude_when": "Use playback_or_app_behavior when no device or connection boundary is central.",
+      "boundary_notes": "Operating-system-only app crashes may remain playback/app behavior unless integration is central.",
+      "common_signals": ["connect", "wifi", "bluetooth", "speaker", "chromecast", "sonos", "device", "iphone", "android", "windows", "mac", "install"]
+    },
+    {
+      "id": "account_access_or_security",
+      "display_name": "Account access or security",
+      "definition": "Login, password, email identity, unauthorized access, and account recovery concerns.",
+      "include_when": "The customer cannot access an account or suspects compromise or identity changes.",
+      "exclude_when": "Use subscription_or_plan when access works and the issue is plan entitlement.",
+      "boundary_notes": "Security and ownership cases usually require escalation even when the intent is clear.",
+      "common_signals": ["login", "log in", "password", "email", "username", "hacked", "account", "sign in", "reset"]
+    },
+    {
+      "id": "subscription_or_plan",
+      "display_name": "Subscription or plan",
+      "definition": "Premium status, trials, student or family plans, invitations, upgrades, and cancellations.",
+      "include_when": "The main question concerns plan eligibility, membership state, or plan changes.",
+      "exclude_when": "Use billing_or_payment when the main issue is a charge, receipt, payment failure, or refund.",
+      "boundary_notes": "A missing Premium entitlement is subscription unless a completed charge is the core dispute.",
+      "common_signals": ["premium", "family", "student", "subscription", "trial", "upgrade", "cancel", "invite", "plan"]
+    },
+    {
+      "id": "billing_or_payment",
+      "display_name": "Billing or payment",
+      "definition": "Charges, payment methods, receipts, gift cards, refunds, and billing disputes.",
+      "include_when": "Money movement, a charge, a payment instrument, or a refund is the main concern.",
+      "exclude_when": "Use subscription_or_plan for plan features without a billing transaction problem.",
+      "boundary_notes": "Most transaction-specific cases need private lookup or action and are escalation candidates.",
+      "common_signals": ["charged", "charge", "payment", "pay", "refund", "receipt", "card", "billing", "gift card", "money"]
+    },
+    {
+      "id": "library_playlist_or_saved_content",
+      "display_name": "Library, playlist, or saved content",
+      "definition": "Playlist management, saved songs, downloads, local files, and missing personal library state.",
+      "include_when": "The request is about the customer's collection or organization of music.",
+      "exclude_when": "Use content_availability_or_metadata when catalog availability or artist metadata is the issue.",
+      "boundary_notes": "Missing saved items are library issues; globally missing tracks are catalog issues.",
+      "common_signals": ["playlist", "library", "saved", "download", "local files", "songs gone", "liked", "queue"]
+    },
+    {
+      "id": "content_availability_or_metadata",
+      "display_name": "Content availability or metadata",
+      "definition": "Missing catalog items, artist pages, releases, lyrics, podcasts, and incorrect content metadata.",
+      "include_when": "The issue concerns Spotify's catalog or descriptive metadata rather than a personal library.",
+      "exclude_when": "Use library_playlist_or_saved_content for user-created collections or saved-state loss.",
+      "boundary_notes": "Licensing availability and metadata corrections may be policy-sensitive or require escalation.",
+      "common_signals": ["artist", "album", "song removed", "missing song", "lyrics", "podcast", "release", "track", "metadata"]
+    },
+    {
+      "id": "feature_request_or_product_feedback",
+      "display_name": "Feature request or product feedback",
+      "definition": "Requests for new capabilities, interface changes, product criticism, and availability questions.",
+      "include_when": "The customer proposes or critiques product behavior without a specific broken support flow.",
+      "exclude_when": "Use another intent when a concrete malfunction, account, or transaction problem is primary.",
+      "boundary_notes": "A request to restore an intentionally removed feature stays feedback; a failed existing feature does not.",
+      "common_signals": ["feature", "please add", "why don't", "update", "feedback", "idea", "bring back", "when will", "wish"]
+    },
+    {
+      "id": "other_or_unclear",
+      "display_name": "Other, unclear, or non-support",
+      "definition": "Insufficient-context, ambiguous, multi-intent, non-support, or unsupported cases that cannot be assigned safely.",
+      "include_when": "No operational intent is sufficiently supported or several intents are inseparable.",
+      "exclude_when": "Use a specific intent whenever the primary support need is clear.",
+      "boundary_notes": "This class preserves abstention for noise, low context, true multi-intent, and out-of-domain cases.",
+      "common_signals": []
+    }
+  ]
+}

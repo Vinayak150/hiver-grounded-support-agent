@@ -1,1 +1,1 @@
-"""Grounded customer-support agent package (implementation begins after Phase 1)."""
+"""Evaluation-first infrastructure for a grounded customer-support agent."""

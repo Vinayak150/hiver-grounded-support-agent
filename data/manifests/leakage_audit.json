@@ -1,0 +1,18 @@
+{
+  "exact_collisions_before_remediation": 2206,
+  "final_exact_collisions": [],
+  "final_near_duplicates": [],
+  "near_duplicates_before_remediation": 8311,
+  "phase": "2",
+  "protected_boundaries_clean": true,
+  "remediation": "Later-split conflicting threads were excluded before manifests and candidate sampling.",
+  "split_manifest_sha256": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999",
+  "split_version": "spotify-temporal-v1",
+  "thresholds": {
+    "action": "drop_from_later_split",
+    "bottom_k_signature_size": 12,
+    "character_5gram_jaccard_threshold": 0.92,
+    "minimum_tokens": 4,
+    "token_jaccard_threshold": 0.9
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "brand": "SpotifyCares",
+  "customer_messages": 48543,
+  "exclusions": {
+    "brand_threads_without_inbound_customer": 3,
+    "relevant_threads_missing_required_timestamp": 0
+  },
+  "multi_turn_threads": 10500,
+  "phase": "2",
+  "processed_path": "data/processed/spotify_threads.jsonl",
+  "processed_sha256": "8847bea00fee7f7686c37231269594b31dd79d53abc7c5fff504a49cafabac92",
+  "schema": {
+    "thread_fields": [
+      "thread_id",
+      "root_tweet_id",
+      "message_count",
+      "customer_message_count",
+      "spotify_message_count",
+      "start_time",
+      "end_time",
+      "participant_count",
+      "turns"
+    ],
+    "turn_fields": [
+      "tweet_id",
+      "author_role",
+      "text",
+      "timestamp",
+      "parent_id"
+    ]
+  },
+  "source_sha256": "cd297fcfa1bf6f99938be242e8e578980bc6d1b96adc8691abec9a39175b03c0",
+  "spotify_messages": 43259,
+  "total_brand_threads": 28280,
+  "total_relevant_threads": 28277,
+  "usable_threads": 28277
+}
