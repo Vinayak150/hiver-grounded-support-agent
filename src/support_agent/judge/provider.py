@@ -51,6 +51,12 @@ def _is_daily_token_quota_error(message: str) -> bool:
     return bool(re.search(r"tokens per day|\bTPD\b", message, re.I))
 
 
+def _is_transient_generation_error(status_code: int, message: str) -> bool:
+    return status_code == 400 and bool(
+        re.search(r"parsing failed|failed_generation", message, re.I)
+    )
+
+
 def _retry_after_seconds(error: urllib.error.HTTPError, message: str) -> float | None:
     header = error.headers.get("Retry-After") if error.headers else None
     if header:
@@ -88,12 +94,15 @@ def _urllib_transport(
             response_message = ""
         retry_after = _retry_after_seconds(error, response_message)
         daily_token_quota = _is_daily_token_quota_error(response_message)
+        transient_generation = _is_transient_generation_error(error.code, response_message)
         response_message = _sanitize_provider_message(response_message)
         suffix = f": {response_message}" if response_message else ""
         raise ProviderError(
             f"Provider HTTP {error.code}{suffix}",
             status_code=error.code,
-            retryable=(error.code == 429 and not daily_token_quota) or error.code >= 500,
+            retryable=(error.code == 429 and not daily_token_quota)
+            or error.code >= 500
+            or transient_generation,
             retry_after_seconds=retry_after,
         ) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:

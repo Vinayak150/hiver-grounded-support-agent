@@ -15,6 +15,7 @@ from support_agent.judge.provider import (
     ProviderError,
     ProviderResponse,
     _is_daily_token_quota_error,
+    _is_transient_generation_error,
     _retry_after_seconds,
     _sanitize_provider_message,
 )
@@ -163,6 +164,8 @@ def test_provider_retry_delay_and_error_sanitization():
     assert JudgeRunner._retry_wait(provider_error, 0) == 255.38
     assert _is_daily_token_quota_error("tokens per day (TPD): Limit 200000")
     assert not _is_daily_token_quota_error("tokens per minute (TPM): Limit 8000")
+    assert _is_transient_generation_error(400, "Parsing failed: failed_generation")
+    assert not _is_transient_generation_error(400, "Invalid request parameter")
 
 
 def test_experiment_namespaces_and_swapped_prompts_do_not_collide(tmp_path):
