@@ -1,0 +1,143 @@
+"""Validated, retried and cached blinded judge execution."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from .cache import JudgeCache
+from .prompts import absolute_messages, pairwise_messages
+from .provider import OpenAICompatibleProvider, ProviderError
+from .schema import (
+    JudgeInput,
+    JudgeResult,
+    PairwiseResult,
+    judge_json_schema,
+    pairwise_json_schema,
+)
+
+
+class JudgeRunError(RuntimeError):
+    pass
+
+
+@dataclass
+class RunStats:
+    successful: int = 0
+    retries: int = 0
+    cache_hits: int = 0
+    failures: int = 0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    total_tokens: int = 0
+
+
+class JudgeRunner:
+    def __init__(self, provider, cache: JudgeCache, config: dict[str, object]) -> None:
+        self.provider: OpenAICompatibleProvider = provider
+        self.cache = cache
+        self.config = config
+        self.stats = RunStats()
+
+    def _usage(self, usage: dict[str, int] | None) -> None:
+        if usage:
+            for field in ("prompt_tokens", "completion_tokens", "total_tokens"):
+                setattr(self.stats, field, getattr(self.stats, field) + usage.get(field, 0))
+
+    def evaluate(self, item: JudgeInput, *, replicate: str = "primary") -> JudgeResult:
+        prompt_version = str(self.config["prompt_version"])
+        key_payload = {
+            "model": self.provider.model,
+            "rubric_version": self.config["rubric_version"],
+            "prompt_version": prompt_version,
+            "input": item.as_dict(),
+            "experiment_namespace": replicate,
+        }
+        key = self.cache.key(key_payload)
+        cached = self.cache.get(key)
+        if cached is not None:
+            self.stats.cache_hits += 1
+            return JudgeResult.from_json(str(cached["response_json"]))
+        messages = absolute_messages(
+            item,
+            model=self.provider.model,
+            rubric_version=str(self.config["rubric_version"]),
+            prompt_version=prompt_version,
+        )
+        errors = []
+        for attempt in range(int(self.config["max_retries"]) + 1):
+            if attempt:
+                self.stats.retries += 1
+            try:
+                response = self.provider.complete(messages, judge_json_schema(), "support_judge")
+                result = JudgeResult.from_json(response.text)
+                if result.case_id != item.case_id:
+                    raise ValueError("Judge case_id does not match input.")
+                if result.judge_model != self.provider.model:
+                    raise ValueError("Judge model metadata does not match configuration.")
+                if result.rubric_version != self.config["rubric_version"]:
+                    raise ValueError("Judge rubric metadata does not match configuration.")
+                if result.prompt_version != prompt_version:
+                    raise ValueError("Judge prompt metadata does not match configuration.")
+                self.cache.put(
+                    key,
+                    {
+                        "response_json": response.text,
+                        "usage": response.usage,
+                        "cache_key_version": "judge-cache-v1",
+                    },
+                )
+                self._usage(response.usage)
+                self.stats.successful += 1
+                return result
+            except (ProviderError, ValueError) as error:
+                errors.append(type(error).__name__)
+        self.stats.failures += 1
+        raise JudgeRunError(f"Judge failed after bounded retries: {','.join(errors)}")
+
+    def evaluate_pair(self, payload: dict[str, object], *, order: str) -> PairwiseResult:
+        prompt_version = str(self.config["pairwise_prompt_version"])
+        key_payload = {
+            "model": self.provider.model,
+            "rubric_version": self.config["rubric_version"],
+            "prompt_version": prompt_version,
+            "input": payload,
+            "experiment_namespace": f"order-bias-{order}",
+        }
+        key = self.cache.key(key_payload)
+        cached = self.cache.get(key)
+        if cached is not None:
+            self.stats.cache_hits += 1
+            return PairwiseResult.from_json(str(cached["response_json"]))
+        messages = pairwise_messages(
+            **payload,
+            model=self.provider.model,
+            rubric_version=str(self.config["rubric_version"]),
+            prompt_version=prompt_version,
+        )
+        for attempt in range(int(self.config["max_retries"]) + 1):
+            if attempt:
+                self.stats.retries += 1
+            try:
+                response = self.provider.complete(
+                    messages, pairwise_json_schema(), "support_pairwise_judge"
+                )
+                result = PairwiseResult.from_json(response.text)
+                if result.case_id != payload["case_id"]:
+                    raise ValueError("Pairwise case_id does not match input.")
+                if (
+                    result.judge_model != self.provider.model
+                    or result.rubric_version != self.config["rubric_version"]
+                    or result.prompt_version != prompt_version
+                ):
+                    raise ValueError("Pairwise judge metadata does not match configuration.")
+                self.cache.put(
+                    key,
+                    {"response_json": response.text, "usage": response.usage},
+                )
+                self._usage(response.usage)
+                self.stats.successful += 1
+                return result
+            except (ProviderError, ValueError):
+                continue
+        self.stats.failures += 1
+        raise JudgeRunError("Pairwise judge failed after bounded retries.")

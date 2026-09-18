@@ -4,7 +4,7 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 4 grounded agent complete on DEVELOPMENT; final evaluation remains blocked.** The deterministic agent combines a weak-label intent classifier, TRAIN-only hybrid retrieval, explicit risk and evidence gates, extractive grounded drafting, and a safety verifier. Phase 2.6's 200 protected cases remain untouched for optimization/evaluation and human confirmation remains at zero. No frozen predictions, benchmark scores, headline metrics, or human-agreement claims exist yet.
+**Phase 5A LLM-judge infrastructure complete but real judging is blocked on credentials.** The deterministic agent and protected 200-case DEVELOPMENT judge sample are ready. No supported API credential was available, so no judge scores, comparisons, repeatability claims, or order-bias results were fabricated. Phase 2.6's frozen 200 cases remain untouched and human confirmation remains at zero.
 
 Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
@@ -49,6 +49,9 @@ make annotate          # explicitly accept/correct suggestions as a human
 make baselines-dev     # generate both DEVELOPMENT-only baseline artifacts
 make train-agent       # verify TRAIN-only intent-classifier fitting
 make agent-dev         # generate proposed-agent DEVELOPMENT artifacts
+make judge-prepare     # create the protected 200-case DEVELOPMENT judge sample
+make judge-dev         # run real judging; requires configured provider credentials
+make judge-analyze     # analyze completed real judge results
 ```
 
 `make reproduce`, `make demo`, and `make rebuild` will be added only when their inputs, outputs, and claims can be made reproducible.
@@ -71,6 +74,14 @@ run allows 65 cases through every automation gate and escalates 2,529; these are
 coverage diagnostics, not correctness or safety measurements. See the
 [agent architecture](docs/AGENT_ARCHITECTURE.md) and
 [safety policy](docs/SAFETY_POLICY.md). Regenerate with `make agent-dev`.
+
+Phase 5A adds a blinded, schema-validated OpenAI-compatible judge adapter,
+content-addressed caching, repeatability/order-bias experiments, descriptive
+analysis, and future human-agreement utilities. The deterministic
+[sample manifest](results/dev_judge_sample_manifest.json) contains 200 shared
+DEVELOPMENT cases and all 65 proposed `AUTO_HANDLE` cases. Real judge execution is
+currently `BLOCKED_ON_LLM_CREDENTIALS`; see the [rubric](docs/LLM_JUDGE_RUBRIC.md)
+and [protocol](docs/LLM_JUDGE_PROTOCOL.md). No judge-result artifact exists yet.
 
 ## Integrity commitments
 

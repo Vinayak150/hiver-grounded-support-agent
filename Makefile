@@ -1,4 +1,4 @@
-.PHONY: test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev
+.PHONY: test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev judge-prepare judge-dev judge-analyze
 
 TWCS_INPUT ?= data/raw/twcs.csv
 PROFILE_CONFIG ?= configs/profiling.yaml
@@ -52,3 +52,12 @@ train-agent:
 
 agent-dev:
 	python3 scripts/run_agent.py
+
+judge-prepare:
+	python3 scripts/run_judge.py --prepare-only
+
+judge-dev:
+	python3 scripts/run_judge.py
+
+judge-analyze:
+	python3 scripts/analyze_judge.py
