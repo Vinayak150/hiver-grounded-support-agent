@@ -4,7 +4,7 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 5A LLM-judge infrastructure complete but real judging is blocked on credentials.** The deterministic agent and protected 200-case DEVELOPMENT judge sample are ready. No supported API credential was available, so no judge scores, comparisons, repeatability claims, or order-bias results were fabricated. Phase 2.6's frozen 200 cases remain untouched and human confirmation remains at zero.
+**Phase 5A quota-safe LLM-judge DEVELOPMENT diagnostics are complete.** Protocol V2 uses Groq `openai/gpt-oss-20b` consistently across an 80-case shared cohort containing all 65 proposed `AUTO_HANDLE` cases. The incomplete 120B pilot is preserved but excluded. These are unvalidated LLM-judge diagnostics—not final benchmark, safety, superiority, or human-agreement claims. Phase 2.6's frozen 200 cases remain untouched and human confirmation remains at zero.
 
 Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
@@ -52,6 +52,9 @@ make agent-dev         # generate proposed-agent DEVELOPMENT artifacts
 make judge-prepare     # create the protected 200-case DEVELOPMENT judge sample
 make judge-dev         # run real judging; requires configured provider credentials
 make judge-analyze     # analyze completed real judge results
+make judge-v2-prepare  # build the protected 80-case quota-safe sample
+make judge-v2          # run the isolated Groq 20B V2 protocol
+make judge-v2-analyze  # analyze complete V2 outputs
 ```
 
 `make reproduce`, `make demo`, and `make rebuild` will be added only when their inputs, outputs, and claims can be made reproducible.
@@ -77,11 +80,14 @@ coverage diagnostics, not correctness or safety measurements. See the
 
 Phase 5A adds a blinded, schema-validated OpenAI-compatible judge adapter,
 content-addressed caching, repeatability/order-bias experiments, descriptive
-analysis, and future human-agreement utilities. The deterministic
-[sample manifest](results/dev_judge_sample_manifest.json) contains 200 shared
-DEVELOPMENT cases and all 65 proposed `AUTO_HANDLE` cases. Real judge execution is
-currently `BLOCKED_ON_LLM_CREDENTIALS`; see the [rubric](docs/LLM_JUDGE_RUBRIC.md)
-and [protocol](docs/LLM_JUDGE_PROTOCOL.md). No judge-result artifact exists yet.
+analysis, and future human-agreement utilities. The 120B V1 pilot stopped at
+313/880 because of Groq quota and is excluded from comparison. The predeclared
+[V2 sample](results/dev_judge_v2_sample_manifest.json) contains 80 shared
+DEVELOPMENT cases—all 65 proposed `AUTO_HANDLE` cases plus 15 deterministic
+stratified `ESCALATE` cases. V2 uses only `openai/gpt-oss-20b`; its
+[summary](results/dev_judge_v2_summary.json) is explicitly labeled unvalidated.
+See the [rubric](docs/LLM_JUDGE_RUBRIC.md) and
+[protocol](docs/LLM_JUDGE_PROTOCOL.md). Human agreement remains unmeasured.
 
 ## Integrity commitments
 

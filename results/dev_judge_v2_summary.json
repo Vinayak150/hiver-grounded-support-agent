@@ -1,0 +1,573 @@
+{
+  "ai_provisional_used_as_gold": false,
+  "cumulative_judge_accounting": {
+    "failures": 0,
+    "pass_rule_corrections": 49,
+    "retries": 5,
+    "validated_judgments": 280
+  },
+  "failure_code_legend": {
+    "A": "unsupported action",
+    "B": "brand or context mismatch",
+    "C": "private account claim",
+    "D": "dangerous or misleading advice",
+    "E": "evidence contradiction",
+    "F": "fabricated evidence",
+    "G": "ungrounded claim",
+    "H": "unhelpful or incomplete",
+    "I": "PII or privacy risk",
+    "L": "unsupported policy claim",
+    "M": "broken or missing context",
+    "P": "payment or refund promise",
+    "R": "irrelevant response"
+  },
+  "frozen_evaluation_touched": false,
+  "human_gold_used": 0,
+  "human_judge_agreement_status": "NOT_YET_MEASURED",
+  "label": "UNVALIDATED LLM-JUDGE DEVELOPMENT DIAGNOSTICS",
+  "model": "openai/gpt-oss-20b",
+  "overall_pass_source": "deterministically derived from validated rubric scores",
+  "phase": "5A",
+  "phase5a_v1_status": "abandoned_incomplete_due_to_provider_quota",
+  "phase5a_v2_reason": "quota-safe predeclared evaluation protocol",
+  "prompt_version": "support-judge-compact-v2",
+  "proposed_auto_handle_diagnostics": {
+    "case_count": 65,
+    "critical_failure_count": 16,
+    "critical_failure_rate": 0.246154,
+    "critical_failure_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.24615384615384617,
+      "lower": 0.15384615384615385,
+      "sample_count": 65,
+      "seed": 20260918,
+      "upper": 0.35384615384615387
+    },
+    "dimensions": {
+      "brand_context": {
+        "distribution": {
+          "1": 46,
+          "3": 14,
+          "5": 5
+        },
+        "mean": 1.738462,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 1.7384615384615385,
+          "lower": 1.4615384615384615,
+          "sample_count": 65,
+          "seed": 20260918,
+          "upper": 2.046153846153846
+        },
+        "median": 1
+      },
+      "groundedness": {
+        "distribution": {
+          "1": 9,
+          "2": 30,
+          "3": 11,
+          "4": 8,
+          "5": 7
+        },
+        "mean": 2.6,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.6,
+          "lower": 2.3230769230769233,
+          "sample_count": 65,
+          "seed": 20260918,
+          "upper": 2.8923076923076922
+        },
+        "median": 2
+      },
+      "helpfulness": {
+        "distribution": {
+          "1": 18,
+          "2": 28,
+          "3": 8,
+          "4": 8,
+          "5": 3
+        },
+        "mean": 2.230769,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.230769230769231,
+          "lower": 1.9692307692307693,
+          "sample_count": 65,
+          "seed": 20260918,
+          "upper": 2.5076923076923077
+        },
+        "median": 2
+      },
+      "relevance": {
+        "distribution": {
+          "1": 11,
+          "2": 32,
+          "3": 5,
+          "4": 6,
+          "5": 11
+        },
+        "mean": 2.6,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.6,
+          "lower": 2.292307692307692,
+          "sample_count": 65,
+          "seed": 20260918,
+          "upper": 2.923076923076923
+        },
+        "median": 2
+      },
+      "safety": {
+        "distribution": {
+          "5": 65
+        },
+        "mean": 5,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 5.0,
+          "lower": 5.0,
+          "sample_count": 65,
+          "seed": 20260918,
+          "upper": 5.0
+        },
+        "median": 5
+      }
+    },
+    "failure_code_distribution": {
+      "A": 1,
+      "B": 1,
+      "G": 26,
+      "H": 29,
+      "R": 44
+    },
+    "grounding_failure_count": 50,
+    "overall_pass_rate": 0.169231,
+    "overall_pass_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.16923076923076924,
+      "lower": 0.0919230769230776,
+      "sample_count": 65,
+      "seed": 20260918,
+      "upper": 0.26153846153846155
+    },
+    "safety_failure_count": 1
+  },
+  "protocol": "phase5a-quota-safe-v2",
+  "provider": "groq",
+  "provider_calls": {
+    "cache_hits": 280,
+    "cached_input_tokens": 29696,
+    "completion_tokens": 36660,
+    "failures": 0,
+    "pass_rule_corrections": 49,
+    "prompt_tokens": 157215,
+    "retries": 5,
+    "successful": 0,
+    "total_tokens": 193875
+  },
+  "rubric_version": "support-response-rubric-v1",
+  "sample": {
+    "auto_handle": 65,
+    "escalate": 15,
+    "total": 80
+  },
+  "scientific_limitations": [
+    "Protocol V1 used GPT-OSS-120B but did not complete because of Groq quota.",
+    "V1 partial outputs are excluded from the reported comparison.",
+    "Protocol V2 was declared before inspecting or finalizing V1 scores.",
+    "V2 uses GPT-OSS-20B consistently for all systems.",
+    "The resource-constrained 80-case sample includes every proposed AUTO_HANDLE case.",
+    "Human agreement remains unmeasured."
+  ],
+  "split": "DEVELOPMENT",
+  "systems": {
+    "fixed": {
+      "case_count": 80,
+      "critical_failure_rate": 0.0625,
+      "critical_failure_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.0625,
+        "lower": 0.0125,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.125
+      },
+      "dimensions": {
+        "brand_context": {
+          "distribution": {
+            "1": 28,
+            "3": 47,
+            "4": 1,
+            "5": 4
+          },
+          "mean": 2.4125,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.4125,
+            "lower": 2.175,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 2.65
+          },
+          "median": 3.0
+        },
+        "groundedness": {
+          "distribution": {
+            "1": 3,
+            "2": 7,
+            "3": 28,
+            "4": 32,
+            "5": 10
+          },
+          "mean": 3.4875,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 3.4875,
+            "lower": 3.2875,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.6875
+          },
+          "median": 4.0
+        },
+        "helpfulness": {
+          "distribution": {
+            "1": 6,
+            "2": 13,
+            "3": 34,
+            "4": 25,
+            "5": 2
+          },
+          "mean": 3.05,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 3.05,
+            "lower": 2.85,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.237812499999998
+          },
+          "median": 3.0
+        },
+        "relevance": {
+          "distribution": {
+            "1": 2,
+            "2": 7,
+            "3": 5,
+            "4": 27,
+            "5": 39
+          },
+          "mean": 4.175,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 4.175,
+            "lower": 3.9375,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 4.3875
+          },
+          "median": 4.0
+        },
+        "safety": {
+          "distribution": {
+            "4": 1,
+            "5": 79
+          },
+          "mean": 4.9875,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 4.9875,
+            "lower": 4.9625,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 5.0
+          },
+          "median": 5.0
+        }
+      },
+      "failure_code_distribution": {
+        "A": 2,
+        "G": 8,
+        "H": 20,
+        "R": 8
+      },
+      "overall_pass_rate": 0.35,
+      "overall_pass_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.35,
+        "lower": 0.25,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.45
+      }
+    },
+    "lexical": {
+      "case_count": 80,
+      "critical_failure_rate": 0.3,
+      "critical_failure_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.3,
+        "lower": 0.2,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.4
+      },
+      "dimensions": {
+        "brand_context": {
+          "distribution": {
+            "1": 47,
+            "3": 23,
+            "5": 10
+          },
+          "mean": 2.075,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.075,
+            "lower": 1.775,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 2.3756249999999968
+          },
+          "median": 1.0
+        },
+        "groundedness": {
+          "distribution": {
+            "1": 13,
+            "2": 22,
+            "3": 15,
+            "4": 10,
+            "5": 20
+          },
+          "mean": 3.025,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 3.025,
+            "lower": 2.7125,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.3375
+          },
+          "median": 3.0
+        },
+        "helpfulness": {
+          "distribution": {
+            "1": 32,
+            "2": 17,
+            "3": 7,
+            "4": 16,
+            "5": 8
+          },
+          "mean": 2.3875,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.3875,
+            "lower": 2.075,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 2.7
+          },
+          "median": 2.0
+        },
+        "relevance": {
+          "distribution": {
+            "1": 14,
+            "2": 32,
+            "3": 2,
+            "4": 7,
+            "5": 25
+          },
+          "mean": 2.9625,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.9625,
+            "lower": 2.6125,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.3
+          },
+          "median": 2.0
+        },
+        "safety": {
+          "distribution": {
+            "4": 1,
+            "5": 79
+          },
+          "mean": 4.9875,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 4.9875,
+            "lower": 4.9625,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 5.0
+          },
+          "median": 5.0
+        }
+      },
+      "failure_code_distribution": {
+        "A": 2,
+        "G": 18,
+        "H": 42,
+        "R": 45
+      },
+      "overall_pass_rate": 0.2625,
+      "overall_pass_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.2625,
+        "lower": 0.1625,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.3625
+      }
+    },
+    "proposed": {
+      "case_count": 80,
+      "critical_failure_rate": 0.2,
+      "critical_failure_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.2,
+        "lower": 0.125,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.2875
+      },
+      "dimensions": {
+        "brand_context": {
+          "distribution": {
+            "1": 49,
+            "3": 24,
+            "5": 7
+          },
+          "mean": 1.95,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 1.95,
+            "lower": 1.675,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 2.225
+          },
+          "median": 1.0
+        },
+        "groundedness": {
+          "distribution": {
+            "1": 9,
+            "2": 32,
+            "3": 17,
+            "4": 13,
+            "5": 9
+          },
+          "mean": 2.7625,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.7625,
+            "lower": 2.5125,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.0125
+          },
+          "median": 2.0
+        },
+        "helpfulness": {
+          "distribution": {
+            "1": 18,
+            "2": 29,
+            "3": 14,
+            "4": 14,
+            "5": 5
+          },
+          "mean": 2.4875,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.4875,
+            "lower": 2.225,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 2.75
+          },
+          "median": 2.0
+        },
+        "relevance": {
+          "distribution": {
+            "1": 11,
+            "2": 33,
+            "3": 6,
+            "4": 10,
+            "5": 20
+          },
+          "mean": 2.9375,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 2.9375,
+            "lower": 2.625,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 3.25
+          },
+          "median": 2.0
+        },
+        "safety": {
+          "distribution": {
+            "5": 80
+          },
+          "mean": 5,
+          "mean_bootstrap_95_ci": {
+            "bootstrap_samples": 2000,
+            "confidence_level": 0.95,
+            "estimate": 5.0,
+            "lower": 5.0,
+            "sample_count": 80,
+            "seed": 20260918,
+            "upper": 5.0
+          },
+          "median": 5.0
+        }
+      },
+      "failure_code_distribution": {
+        "A": 1,
+        "B": 1,
+        "G": 30,
+        "H": 31,
+        "R": 45
+      },
+      "overall_pass_rate": 0.225,
+      "overall_pass_rate_bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.225,
+        "lower": 0.1375,
+        "sample_count": 80,
+        "seed": 20260918,
+        "upper": 0.3125
+      }
+    }
+  },
+  "v1_partial_results_used": false
+}

@@ -36,5 +36,6 @@
 | ADR-32 | Sample 200 shared DEVELOPMENT cases and include all 65 proposed automated cases. | Accepted | Stable stratification limits cost while deliberately scrutinizing every proposed automation decision; the frozen evaluation set remains excluded. |
 | ADR-33 | Block Phase 5A runtime results when no real provider credential exists. | Accepted | Codex reasoning and synthetic fixtures are not substitutes for real provider outputs; only infrastructure and the protected sample manifest may be committed. |
 | ADR-34 | Cache validated calls by blinded content and version metadata. | Accepted | Persistent content hashes prevent accidental duplicate spending; explicit repeatability namespaces are the documented exception for intentionally independent replicate calls. |
+| ADR-35 | Exclude the incomplete GPT-OSS-120B pilot and use a predeclared quota-safe GPT-OSS-20B V2 protocol. | Accepted | The 120B pilot stopped at 313/880 because of provider quota and was never finalized. V2 consistently judges the same 80 DEVELOPMENT cases per system, includes all 65 proposed AUTO_HANDLE cases, uses compact byte-stable prompts, and reports the smaller repeatability/order cohorts as limited diagnostics. |
 
 Future entries will be added only for non-obvious decisions supported by project evidence.

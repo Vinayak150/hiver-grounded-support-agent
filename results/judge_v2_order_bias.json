@@ -1,0 +1,13 @@
+{
+  "case_count": 8,
+  "first_position_preference_count": 7,
+  "first_position_tendency_excluding_ties": 0.5833333333333334,
+  "judgments": 16,
+  "label": "LLM POSITION / ORDER BIAS \u2014 SMALL DIAGNOSTIC COHORT",
+  "limitation": "N=8; limited statistical power, so absence of bias is not established.",
+  "paired_comparisons": 8,
+  "preference_flip_rate": 0.375,
+  "preference_flips": 3,
+  "second_position_preference_count": 5,
+  "tie_count": 4
+}

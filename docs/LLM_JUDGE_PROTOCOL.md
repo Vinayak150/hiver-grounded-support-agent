@@ -1,46 +1,58 @@
 # Phase 5A LLM judge protocol
 
-## Blinding and inputs
+## Scientific status
 
-Each request contains only the rubric, case ID, customer context, response, action,
-retrieved TRAIN evidence excerpts, and evidence IDs. System names, expected
-answers, earlier judgments, frozen labels, and AI provisional labels are excluded.
-System identity is attached only after the provider returns a validated judgment.
+Protocol V1 used Groq `openai/gpt-oss-120b` but stopped at 313 of 880 planned
+judgments because of provider quota. Those partial outputs remain in the ignored
+cache for auditability but were never finalized or inspected to select V2 cases or
+thresholds. They are excluded from every reported comparison.
 
-## DEVELOPMENT sampling
+Protocol V2 was declared as a quota-safe resource-constrained protocol before V2
+results were analyzed. It uses Groq `openai/gpt-oss-20b` for every final Phase 5A
+judgment and preserves the five-dimension `support-response-rubric-v1`. All V2
+outputs are labeled **UNVALIDATED LLM-JUDGE DEVELOPMENT DIAGNOSTICS**.
 
-The deterministic sample contains 200 shared DEVELOPMENT case IDs. All 65 proposed
-`AUTO_HANDLE` cases are included. The other 135 cases are selected by stable hash
-and round-robin strata over predicted intent, evidence sufficiency, risk presence,
-and challenge-like lexical characteristics. All three systems use these same IDs.
+## Blinding, sample, and prompt
 
-Repeatability uses a stable 100-case proposed-agent subset and three passes. The
-first pass reuses the primary cached judgment; passes two and three are explicit
-repeatability replicates. This intentional exception receives separate cache
-namespaces while preserving the exact same blinded prompt. It is reported as LLM
-self-consistency, never human agreement.
+The V2 sample contains exactly 80 DEVELOPMENT IDs: every one of the 65 proposed
+`AUTO_HANDLE` cases and 15 deterministic `ESCALATE` cases selected by stable-hash
+round-robin strata over predicted intent, evidence sufficiency, risk presence, and
+lexical challenge flags. All three systems use the same IDs. Frozen final cases,
+human annotations, AI provisional labels, system names, expected answers, and
+earlier judgments are absent from provider inputs.
 
-Order bias uses 40 stable cases comparing lexical and proposed responses. A stable
-hash decides which anonymous response is A in the first call; the second call swaps
-the order. Preference-flip rate is reported. Provider inputs never include system
-names.
+The byte-stable compact prompt places the role, rubric, pass rule, critical-failure
+definitions, and output contract before case-specific content. The case suffix has
+only sanitized customer context, candidate reply, action, and at most two concise
+TRAIN evidence excerpts. Cache keys include model, rubric and prompt versions,
+exact input, settings, experiment namespace, and a prompt/schema fingerprint.
 
-## Provider, validation, and cache
+The judge returns five 1–5 scores, critical failure, short failure codes, and a
+brief rationale under strict JSON schema. `overall_pass` is deterministically
+derived from the validated scores and critical-failure flag according to the
+rubric; corrections of inconsistent returned booleans are counted in the run
+manifest. Temperature is zero, reasoning effort is low, and maximum completion is
+256 tokens.
 
-The OpenAI-compatible adapter uses a configured model, temperature 0, strict JSON
-schema, a 60-second timeout, and at most two retries after the initial attempt.
-Credentials and optional base URLs come from environment variables. Cache keys
-cover model, rubric/prompt versions, exact blinded input, and experiment namespace.
-Validated responses and provider-reported token usage are cached; credentials are
-never serialized. Cost remains null unless explicit pricing and provider usage are
-both available.
+## Validity diagnostics
 
-As of the Phase 5A infrastructure commit, no supported credential is configured.
-Therefore only the protected sample manifest is generated; judge result,
-repeatability, order-bias, and score-summary artifacts must not be fabricated.
+Main judging is 80 cases × three systems, ordered proposed, lexical, then fixed.
+Repeatability uses 12 predeclared proposed-agent cases (eight `AUTO_HANDLE`, four
+`ESCALATE`) and three passes; the main result is pass one and two independent
+namespaces provide the extra 24 calls. This N=12 result is LLM self-consistency,
+not human agreement.
 
-## Interpretation
+Order bias uses eight predeclared cases and two anonymous proposed-vs-lexical calls
+with swapped positions. N=8 has limited power; a low flip rate could not establish
+absence of bias.
 
-Future outputs must be labeled **UNVALIDATED LLM-JUDGE DEVELOPMENT DIAGNOSTICS**.
-They cannot support final accuracy, safety, trustworthiness, human agreement, or a
-headline metric. `HUMAN_JUDGE_AGREEMENT_STATUS` remains `NOT_YET_MEASURED`.
+## Protection and interpretation
+
+The provider credential is environment-only. Every validated response is cached
+immediately; credentials are never serialized. The 200 frozen final-evaluation
+IDs remain untouched, human gold used is zero, and AI provisional labels are not
+truth. No Phase 4 threshold is tuned from these results.
+
+V2 is a smaller, deliberately automation-heavy DEVELOPMENT diagnostic. It cannot
+support final accuracy, safety, trustworthiness, or superiority claims. Human
+agreement remains `NOT_YET_MEASURED` and must be collected independently later.

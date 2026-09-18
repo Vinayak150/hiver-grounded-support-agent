@@ -36,6 +36,7 @@ class ProviderError(RuntimeError):
 class ProviderResponse:
     text: str
     usage: dict[str, int] | None
+    rate_limits: dict[str, str] | None = None
 
 
 Transport = Callable[[str, dict[str, str], bytes, float], dict[str, Any]]
@@ -82,7 +83,11 @@ def _urllib_transport(
     request = urllib.request.Request(url, data=body, headers=headers, method="POST")
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310
-            return json.loads(response.read().decode("utf-8"))
+            payload = json.loads(response.read().decode("utf-8"))
+            payload["_response_headers"] = {
+                key.casefold(): value for key, value in response.headers.items()
+            }
+            return payload
     except urllib.error.HTTPError as error:
         response_message = ""
         try:
@@ -176,7 +181,22 @@ class OpenAICompatibleProvider:
                 for key in ("prompt_tokens", "completion_tokens", "total_tokens")
                 if isinstance(raw_usage.get(key), int)
             }
-        return ProviderResponse(text=text, usage=usage)
+            prompt_details = raw_usage.get("prompt_tokens_details")
+            if isinstance(prompt_details, dict) and isinstance(
+                prompt_details.get("cached_tokens"), int
+            ):
+                usage["cached_input_tokens"] = int(prompt_details["cached_tokens"])
+            elif isinstance(raw_usage.get("prompt_cache_hit_tokens"), int):
+                usage["cached_input_tokens"] = int(raw_usage["prompt_cache_hit_tokens"])
+        raw_headers = response.get("_response_headers")
+        rate_limits = None
+        if isinstance(raw_headers, dict):
+            rate_limits = {
+                str(key): str(value)
+                for key, value in raw_headers.items()
+                if str(key).startswith("x-ratelimit-") or str(key) == "retry-after"
+            }
+        return ProviderResponse(text=text, usage=usage, rate_limits=rate_limits)
 
 
 def provider_from_environment(

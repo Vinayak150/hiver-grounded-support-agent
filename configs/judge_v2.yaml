@@ -1,0 +1,41 @@
+{
+  "version": "phase5a-quota-safe-v2",
+  "phase5a_v1_status": "abandoned_incomplete_due_to_provider_quota",
+  "phase5a_v2_reason": "quota-safe predeclared evaluation protocol",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "max_completion_tokens": 256,
+  "timeout_seconds": 60,
+  "max_retries": 2,
+  "rubric_version": "support-response-rubric-v1",
+  "prompt_version": "support-judge-compact-v2",
+  "pairwise_prompt_version": "support-pairwise-compact-v2",
+  "sample_seed": "phase5a-v2-dev-20260918",
+  "development_sample_size": 80,
+  "auto_handle_sample_size": 65,
+  "escalate_sample_size": 15,
+  "repeatability_sample_size": 12,
+  "repeatability_auto_handle_size": 8,
+  "repeatability_escalate_size": 4,
+  "repeatability_passes": 3,
+  "order_bias_sample_size": 8,
+  "maximum_evidence_excerpts": 2,
+  "customer_context_characters": 220,
+  "reply_characters": 240,
+  "evidence_excerpt_characters": 80,
+  "cache_directory": "results/generated/judge_v2_cache",
+  "bootstrap_samples": 2000,
+  "bootstrap_confidence_level": 0.95,
+  "daily_token_budget": 200000,
+  "daily_token_safety_fraction": 0.95,
+  "estimation_case_count": 2,
+  "providers": {
+    "groq": {
+      "api_key_env": "GROQ_API_KEY",
+      "base_url_env": "GROQ_BASE_URL",
+      "default_base_url": "https://api.groq.com/openai/v1"
+    }
+  }
+}

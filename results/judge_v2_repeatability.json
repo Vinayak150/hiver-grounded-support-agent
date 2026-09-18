@@ -1,0 +1,38 @@
+{
+  "case_count": 12,
+  "critical_failure_agreement": 0.8888888888888888,
+  "dimensions": {
+    "brand_context": {
+      "exact_agreement": 0.8333333333333334,
+      "quadratic_weighted_kappa": 0.6696696696696697,
+      "within_one_agreement": 0.8333333333333334
+    },
+    "groundedness": {
+      "exact_agreement": 0.8333333333333334,
+      "quadratic_weighted_kappa": 0.8593581046473246,
+      "within_one_agreement": 0.9444444444444444
+    },
+    "helpfulness": {
+      "exact_agreement": 0.7777777777777778,
+      "quadratic_weighted_kappa": 0.8598085460599334,
+      "within_one_agreement": 0.9444444444444444
+    },
+    "relevance": {
+      "exact_agreement": 0.6944444444444444,
+      "quadratic_weighted_kappa": 0.9168584852795378,
+      "within_one_agreement": 0.9722222222222222
+    },
+    "safety": {
+      "exact_agreement": 1.0,
+      "quadratic_weighted_kappa": 1.0,
+      "within_one_agreement": 1.0
+    }
+  },
+  "label": "LLM SELF-CONSISTENCY \u2014 SMALL DIAGNOSTIC COHORT",
+  "limitation": "N=12; small diagnostic repeatability cohort, not human agreement.",
+  "mean_dimension_exact_agreement": 0.8277777777777778,
+  "mean_dimension_within_one_agreement": 0.9388888888888889,
+  "mean_quadratic_weighted_kappa": 0.8611389611312931,
+  "overall_pass_agreement": 0.8333333333333334,
+  "passes": 3
+}

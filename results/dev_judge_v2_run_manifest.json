@@ -1,0 +1,50 @@
+{
+  "ai_provisional_used_as_gold": false,
+  "cumulative_judge_accounting": {
+    "failures": 0,
+    "pass_rule_corrections": 49,
+    "retries": 5,
+    "validated_judgments": 280
+  },
+  "frozen_evaluation_touched": false,
+  "human_gold_used": 0,
+  "last_rate_limits": {},
+  "main_results": 240,
+  "model": "openai/gpt-oss-20b",
+  "order_bias_results": 16,
+  "output_hashes": {
+    "judge_results": "6d3408823fffe3240620c8168a5df46016530f949a074325c409da55c4d20edb",
+    "order_bias_raw": "256387049b31248d642cfed74d130f3f480711f538ed349f6f53d8ab3c048c3e"
+  },
+  "overall_pass_source": "deterministically derived from validated rubric scores",
+  "pairwise_prompt_version": "support-pairwise-compact-v2",
+  "phase": "5A",
+  "phase5a_v1_status": "abandoned_incomplete_due_to_provider_quota",
+  "phase5a_v2_reason": "quota-safe predeclared evaluation protocol",
+  "prompt_version": "support-judge-compact-v2",
+  "protocol": "phase5a-quota-safe-v2",
+  "provider": "groq",
+  "provider_calls": {
+    "cache_hits": 280,
+    "cached_input_tokens": 29696,
+    "completion_tokens": 36660,
+    "failures": 0,
+    "pass_rule_corrections": 49,
+    "prompt_tokens": 157215,
+    "retries": 5,
+    "successful": 0,
+    "total_tokens": 193875
+  },
+  "repeatability_additional_results": 24,
+  "rubric_version": "support-response-rubric-v1",
+  "split": "DEVELOPMENT",
+  "token_efficiency": {
+    "cached_input_tokens": 29696,
+    "counted_tokens": 164179,
+    "input_tokens": 157215,
+    "output_tokens": 36660,
+    "total_tokens": 193875
+  },
+  "v1_partial_results_used": false,
+  "validated_logical_judgments": 280
+}

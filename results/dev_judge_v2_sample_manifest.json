@@ -1,0 +1,880 @@
+{
+  "auto_handle_count": 65,
+  "case_count": 80,
+  "cases": [
+    {
+      "case_id": "twcs-00df52837fc9aae8e1b8",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "e68581cdee986398d8652dcb4a9c42bcc8d3351c55e65eb5d1b10d36f544fbf8"
+    },
+    {
+      "case_id": "twcs-00e91b04f80edeb5eca9",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "d41c778c563cdbddb13cddfb98f920fc2a4c4f11be26ba3f477f23782cba3f3d"
+    },
+    {
+      "case_id": "twcs-00ec4815eb9e75f6c443",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "aa2926cc3711fe461a642aa204e5e07f58dc30268cdf5c0e952ebb7d3fcfdcf5"
+    },
+    {
+      "case_id": "twcs-074cc5fccc888c51835e",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "8439e5813a9f7cf24bd5fa268872066f611f2f9779810bce077f9990791131de"
+    },
+    {
+      "case_id": "twcs-0a541665c93bd94c41f1",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "ef9bbb5448c28819825bc696ea27cc8585a688d0b9902e13823e9a31e4410b35"
+    },
+    {
+      "case_id": "twcs-0ea067d0e84ece97fd0c",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "library_playlist_or_saved_content",
+      "sampling_rank": "590205a6e59869f7f208eb90d8d14d6f16d3e6ef57d427da426e2d9aa10aaded"
+    },
+    {
+      "case_id": "twcs-1114abfe1eabbf9e545f",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "d28732011d613e02cd118eb2c12dd8179ed5caa9f47813b1ba956c7b70c0bd0c"
+    },
+    {
+      "case_id": "twcs-12c98d88046e953419f8",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "6feb5a106faab4f2693ec4a89acd30f90f07ed78d4e6bc594e5a88137f039dc5"
+    },
+    {
+      "case_id": "twcs-167bbfcfda1a878667ee",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "4a462f9a3a4442643970e3b75d8e60b48b714de0bed6be4050695aa4ef4cbb95"
+    },
+    {
+      "case_id": "twcs-17a62830c73f257d251a",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "77b098c1ebeca914b708c51582000285e35d32e04d395496c8379050522f8cca"
+    },
+    {
+      "case_id": "twcs-202aeff7379620000b9b",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "8b2d0daec4d94a0d1082b7916096fdd9e8c4995d9d653a00c33cda56a1279e97"
+    },
+    {
+      "case_id": "twcs-22b0db62a8d157b83e5a",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "b507b6752ee6bd26a769b373b1745a51e0ea3fcf91516b0b3ec4930fc95d873a"
+    },
+    {
+      "case_id": "twcs-2460af692029260b04cc",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "device_or_connectivity",
+      "sampling_rank": "bd10f806e4e5d6f58e9a18bdfb3880cad8a51c9ecb718cc5c8abd5b29b9292c4"
+    },
+    {
+      "case_id": "twcs-2543d9aef5c76f76a479",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "c73eac6e3fce29b2e47f30fae295cf65613374d559bbd28ebb4f3c0156226256"
+    },
+    {
+      "case_id": "twcs-26585c6eadae60c0e3de",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "7bd94aca75e28daf8a6b898b7d15c59198b4ca8f9a5d580ba4b8fa642c3a7d6f"
+    },
+    {
+      "case_id": "twcs-3034f881469607d64cff",
+      "challenge_flags": [
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "4a1cf96fda2038da1b344ad882421d61a5c61274a274bf81e4b86d2eaf535252"
+    },
+    {
+      "case_id": "twcs-31ae3690027aeccfa393",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "d60ea440336313242e50133d9171f65b289e57d61a3db638daa31a34a852a1b6"
+    },
+    {
+      "case_id": "twcs-3416c4c5d477e444fd41",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "4a1a736afc319dcf35d1eb390f2d4ae5b98d01dc114deb455b78f0912bc480ab"
+    },
+    {
+      "case_id": "twcs-34dfe0b90b54b0aa2d23",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "acaaaa1363ea00d057a98989859b3ce216b4533655f8ae615536d165b797ca3b"
+    },
+    {
+      "case_id": "twcs-3552d5c0b04d6324819d",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "device_or_connectivity",
+      "sampling_rank": "b44b2ead291155dc6838dd7659dbec704037c3161db7968497278dd5e1f71791"
+    },
+    {
+      "case_id": "twcs-35dc5cfe4121024e3b1d",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "92e71846140f9f1ac1f53155e083d958a2970ec4b4eedd756863756fa54b59bb"
+    },
+    {
+      "case_id": "twcs-43d9a558aa9ddd767140",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "83fba90dfcbd4dc559d2c3a9fc9eb51b4f65d8265f435acc64bfeff4b591bf90"
+    },
+    {
+      "case_id": "twcs-44ad7b86a4383c53f9bb",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "031f0caebc6f54ac345430c52b03630dbae95049fb1e28538196dbb38358c27b"
+    },
+    {
+      "case_id": "twcs-45989bfa618e75a8c8cb",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "acb707a017d9016b03ffa7fd3e0b7a37693c1e3026333fb881539ea1cf583112"
+    },
+    {
+      "case_id": "twcs-47ad8c5332a5af19a345",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "b89eee86f7cb54fd1a484beb7fee03b5c49eaf18c16bb319f69a0548f302f5b5"
+    },
+    {
+      "case_id": "twcs-4a5770af112216bc021c",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "device_or_connectivity",
+      "sampling_rank": "0c9c7b2a56d679e7fb375245d7ac5add0b84e90fb0bcff30233ac0f85f4b4442"
+    },
+    {
+      "case_id": "twcs-5427ea324dcb535eb783",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "db780d87888dec47f586e6977ea8b4c3b13dd98c32426be2ef7de40893487b0d"
+    },
+    {
+      "case_id": "twcs-5aade51b60264f76ed60",
+      "challenge_flags": [
+        "MULTI_CLAUSE",
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "234a486f33f9cd9b2abae63994575d75a4cf94d3e50a3c9ed5dcc33f726aca5a"
+    },
+    {
+      "case_id": "twcs-5d3a50324d3a04297e3f",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "a4d594b3a173df3bea80fccd8774c9b9d1835e0bf2955a5bf3502a75f2d3e1d8"
+    },
+    {
+      "case_id": "twcs-5f00f625bfb90032f262",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "bf48455efb2c39bdeaf949f365d94069bc919c4bd6f31d6142eb701c76040ac6"
+    },
+    {
+      "case_id": "twcs-632cff54e295f9833e5d",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "6acf7b0052d91e26f1b063cfb49d055ecdd483871c2e07b3d0e3452b7a8a24d4"
+    },
+    {
+      "case_id": "twcs-71c55983e5e43fbcff26",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "0893f2d8eb37de8aec9d686bdb62a727795a9e3e642006821f4d4a9ac653b372"
+    },
+    {
+      "case_id": "twcs-7541588cba0e2a5c479f",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "0eeb2d40b8bf56f268bd49f911b8fdb70a8c0352a938fa2b73e5fb7339ca5100"
+    },
+    {
+      "case_id": "twcs-78c025666629bac837aa",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "541f82f93f5f51dc9fee87d6601749de7b6eb021c90d2eee76ed23ca728ef9e0"
+    },
+    {
+      "case_id": "twcs-7a20f54e5a512cc9b0b4",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "3421635e561d9782ff05d51d2baab7e347624fbb0f5e1279ec8f0b55f949811b"
+    },
+    {
+      "case_id": "twcs-7b24ae4775c65323a550",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "3cc11f433786c36b2ef6bac9706775d63fb466c2da8186b962fd28eb3cbbde65"
+    },
+    {
+      "case_id": "twcs-7d3d6219e305afb014aa",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": false,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "content_availability_or_metadata",
+      "sampling_rank": "be88e4f61662272bbf8016bf396d7cbe7800394134153eb6b3623b11405c15f6"
+    },
+    {
+      "case_id": "twcs-7d8fb45b1a4bda81bb9a",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "0c5ff03ea241e65eed8dc5037c7b18afce67a217e0b7c72fba9981253027ceac"
+    },
+    {
+      "case_id": "twcs-7e0221216612d8db5102",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE",
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "1af1f6aa07f2dc1b442b2f21fe3b8a7e3ba95e712c1d64179ea25e3e39d37874"
+    },
+    {
+      "case_id": "twcs-8b3ba2ac97227646b191",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "923d55cc74fb12b98646e62cbc0a3638d58db39ba6dc756f10106f2bae381c04"
+    },
+    {
+      "case_id": "twcs-903c0be9aefd67b81a59",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "92729a393f6794999b392a340a9c61aefeb6f4b2f8915b351b9a81ba7e126768"
+    },
+    {
+      "case_id": "twcs-91ec2a8379b680955edd",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE",
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "c1610af2c3b2bc008ed87de50a3939d5a7cb928fb91bbac2bb0835bc5c228179"
+    },
+    {
+      "case_id": "twcs-94475a977b248a79d6ba",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "899cdffcefe1c68301a719f3ef7a353f7e92e17b9d92acfc3f1919906d7372ca"
+    },
+    {
+      "case_id": "twcs-958c6d7185cd712c685b",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "54ccbfce0587be79a0a7e7c28af36d33201cacc74cd10bf80f415a08869717bf"
+    },
+    {
+      "case_id": "twcs-9b5147e867230f3d1be5",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "fb97bceb2a379a504d1e1d86777d2dc259815d88eddc0cccf8858d6892483da9"
+    },
+    {
+      "case_id": "twcs-a0c8e4c589bba95f76f0",
+      "challenge_flags": [
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "cf4eb1d49211e08eced9c140f1ff14a02ae4295174b675e636648f99c77aa664"
+    },
+    {
+      "case_id": "twcs-a121b0b739e2dc98e657",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "a324c45c086d4d6885ba52d418a771f58f55f3686f77afcb4c0371b90c29f5c0"
+    },
+    {
+      "case_id": "twcs-a1fbbd61bd5e25191a67",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "bda9d4cc2c1074d80bf8b6058badddf2ce1898e4de26bbe1de044e9f50b97622"
+    },
+    {
+      "case_id": "twcs-a37a18f7f061311da048",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "4ed4d175e2690cfba8f2c8cd1c2906728b371396cda1b4c919df2bd0833e26fc"
+    },
+    {
+      "case_id": "twcs-a584ff3beae95448b28c",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "211fad713140b085840863f46c03aa8e49080b505686b04915301f59bc819e40"
+    },
+    {
+      "case_id": "twcs-a8ae2f857e059c86dfa7",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "104f36916e66ba6e05fd62721ccdd1b8e51327cad68fd831caba15855fc446a8"
+    },
+    {
+      "case_id": "twcs-a9f15f8d48bf5d22891a",
+      "challenge_flags": [
+        "MULTI_CLAUSE",
+        "RISK_TERMS"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "1ab21c8678e86fe587db5b42877477c4baf5447411ba28e8418ccad6a7bc9316"
+    },
+    {
+      "case_id": "twcs-ab32b59f7eb98fb9c0d1",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "730ad7250213aed2058a6a96ab90088a35e9c86bf01844952e62470da6434b3c"
+    },
+    {
+      "case_id": "twcs-b365e7798764213730a2",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "1c3cb3f7af58c5369b18af78b94f7fb740569dacbd04a7aae59d074c521530c3"
+    },
+    {
+      "case_id": "twcs-b411eb95d420693e3a95",
+      "challenge_flags": [],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "f4b986332665c47fb9b2dd03720e44d8be1a5e85a4107d5124e058410ee09a1f"
+    },
+    {
+      "case_id": "twcs-b4f07443b9a9548574f0",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "f888b2be198f0065cc2178377554895d6a907bbf2c572e3552897504060b704d"
+    },
+    {
+      "case_id": "twcs-b501d0d8aa3b0f395645",
+      "challenge_flags": [
+        "UNUSUALLY_LONG"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "ce01ea4bf8edb4507c6daa013033f04d78e154f73db9b19f744bd9c72d9f3237"
+    },
+    {
+      "case_id": "twcs-b832fe5248a689d06ecf",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "f4c08d772b908414b6f9865edbef791960559b8c24944964418462674bf5c19d"
+    },
+    {
+      "case_id": "twcs-bbfb960364678af919b7",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "384ef2381f4cddbb39e37f8800f801ffb9a9f20151f5c619425339cbe41233d7"
+    },
+    {
+      "case_id": "twcs-bc064dbd01dd8a29bdf7",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "e5f9c2b4a9a02ec02bc96a4c355439b79b5a52f9dbf06511133ff5ea7384b2b0"
+    },
+    {
+      "case_id": "twcs-be5e702960abc7f91eea",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "account_access_or_security",
+      "sampling_rank": "92d40769bc3650cd876e6380445754bd470d879fe77f75819f1e558bde300a06"
+    },
+    {
+      "case_id": "twcs-c70f54a95044aa64a928",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "ba9b57f874496726435039b650cc8ad2f034f02d5516dc5dc8ed4fe1c417db40"
+    },
+    {
+      "case_id": "twcs-cc65a0ab1c5590d4dab4",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "0237702312b149542a1020cb5a4883862a1d896d3da85aa8a9c2dc2dbab27aea"
+    },
+    {
+      "case_id": "twcs-ce913a4ac0fc14841cf2",
+      "challenge_flags": [
+        "VERY_SHORT"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "5c0eff1eac7c94425d1ca5d8cb7e1a787dc788780f5d13f1c845f6b4c99d1c37"
+    },
+    {
+      "case_id": "twcs-d5a867a4d692ed77a1df",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "96ebbccf80ff21e9b558bd1608b14de628ca1e9a285c01cce77216a5dcb3caea"
+    },
+    {
+      "case_id": "twcs-dabeec051ce653bf29bf",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "16018ee8e0b08600549196b7fc869f35637575eef377df1e08f58a179a94c84f"
+    },
+    {
+      "case_id": "twcs-dc48d83451f615505ce0",
+      "challenge_flags": [
+        "UNUSUALLY_LONG",
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "device_or_connectivity",
+      "sampling_rank": "6668d95cb95f7bd57be313cf3fc0abdf2e207d099472cc50e29c7fedef27f767"
+    },
+    {
+      "case_id": "twcs-dd25863371860713bc03",
+      "challenge_flags": [],
+      "evidence_sufficient": false,
+      "has_risk_tags": false,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "content_availability_or_metadata",
+      "sampling_rank": "c539a7dd95359d74dbce054b476344bfab6e1f195166d49d0b09f323d5f02f21"
+    },
+    {
+      "case_id": "twcs-e08530195cfe5667eb3f",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "605090690779517fc9021e79b1e03abef18973097f93694744aab226e3e0ba50"
+    },
+    {
+      "case_id": "twcs-e4c9608086d4001c0b8e",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "9b109c7cd1c7abb64034a5d0ed0b68df0548e43154c6f7468a3063378618e61b"
+    },
+    {
+      "case_id": "twcs-e4dbd68f6115cabc9386",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "subscription_or_plan",
+      "sampling_rank": "354a0604e6698389d9dd932e03b641b4bc42d8e12b5f391feeab6b8ede76ed4f"
+    },
+    {
+      "case_id": "twcs-e56060afdb1f215e3afa",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "f3fe68f9d0e0cd73c2c4f8ac7cf4a7126649d64027b93ae9fddabd80cb789ce1"
+    },
+    {
+      "case_id": "twcs-ea8180cc76203c6ee3d4",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "804bedce1dfecdd30ffcb527ee4413fcde54ec13c512f56796f4796a012e0873"
+    },
+    {
+      "case_id": "twcs-ee99975b7df1da5c1a00",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "38d8acc2f11f98cc8e3dfbc9cd5db8737058faab0e59a0331903e45c6b28cbcc"
+    },
+    {
+      "case_id": "twcs-f0e1713bf79063372fca",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "feature_request_or_product_feedback",
+      "sampling_rank": "302a34ce897922254b90039b4d5e5eb974161a50e19273def105e329dfe6c8d7"
+    },
+    {
+      "case_id": "twcs-f7ba4d33d4358fe2891f",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "playback_or_app_behavior",
+      "sampling_rank": "9c4145e9fe4211b650e75c27221a7ee60acbe5585ca83050ce89fd73466daf1d"
+    },
+    {
+      "case_id": "twcs-f97b6d099c810b264998",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "16adf7e9b6b534acb70635c51d3df0e5d16691efd959a138082317e70499f710"
+    },
+    {
+      "case_id": "twcs-fc466216bf9ca569b339",
+      "challenge_flags": [],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "library_playlist_or_saved_content",
+      "sampling_rank": "9c5128acbe5dc51f8e74a5821c3e3662fccdb7cba0ec88911057ac59f7506bbd"
+    },
+    {
+      "case_id": "twcs-fc7e02ae366256f8636e",
+      "challenge_flags": [
+        "MULTI_CLAUSE"
+      ],
+      "evidence_sufficient": true,
+      "has_risk_tags": false,
+      "proposed_action": "AUTO_HANDLE",
+      "proposed_intent": "other_or_unclear",
+      "sampling_rank": "5ec9ff92c89f74d259749bd58545e08835e2126fbdaa3372226d41d2882af959"
+    },
+    {
+      "case_id": "twcs-fdea672736c849d4a2f7",
+      "challenge_flags": [],
+      "evidence_sufficient": false,
+      "has_risk_tags": true,
+      "proposed_action": "ESCALATE",
+      "proposed_intent": "billing_or_payment",
+      "sampling_rank": "5a011c894a3308caf534e7f5f725fe0f4519c45c12a3aeb95db622e547d95399"
+    }
+  ],
+  "escalate_count": 15,
+  "estimation_case_ids": [
+    "twcs-f7ba4d33d4358fe2891f",
+    "twcs-a9f15f8d48bf5d22891a"
+  ],
+  "order_bias": {
+    "case_ids": [
+      "twcs-4a5770af112216bc021c",
+      "twcs-94475a977b248a79d6ba",
+      "twcs-a0c8e4c589bba95f76f0",
+      "twcs-b501d0d8aa3b0f395645",
+      "twcs-dabeec051ce653bf29bf",
+      "twcs-ee99975b7df1da5c1a00",
+      "twcs-f0e1713bf79063372fca",
+      "twcs-fc466216bf9ca569b339"
+    ],
+    "comparisons_per_case": 2
+  },
+  "phase": "5A",
+  "phase5a_v1_status": "abandoned_incomplete_due_to_provider_quota",
+  "phase5a_v2_reason": "quota-safe predeclared evaluation protocol",
+  "protection": {
+    "ai_provisional_used_as_gold": false,
+    "development_only": true,
+    "frozen_evaluation_judged": false,
+    "human_gold_used": 0
+  },
+  "protocol": "phase5a-quota-safe-v2",
+  "repeatability": {
+    "case_ids": [
+      "twcs-0ea067d0e84ece97fd0c",
+      "twcs-2460af692029260b04cc",
+      "twcs-31ae3690027aeccfa393",
+      "twcs-34dfe0b90b54b0aa2d23",
+      "twcs-3552d5c0b04d6324819d",
+      "twcs-44ad7b86a4383c53f9bb",
+      "twcs-5427ea324dcb535eb783",
+      "twcs-7d3d6219e305afb014aa",
+      "twcs-b411eb95d420693e3a95",
+      "twcs-b501d0d8aa3b0f395645",
+      "twcs-f0e1713bf79063372fca",
+      "twcs-fc466216bf9ca569b339"
+    ],
+    "label": "small diagnostic",
+    "passes": 3
+  },
+  "sample_seed": "phase5a-v2-dev-20260918",
+  "sampling_method": "All proposed AUTO_HANDLE cases plus stable-hash round-robin strata over intent, evidence sufficiency, risk presence, and lexical challenge flags.",
+  "source_hashes": {
+    "judge_config": "019ec4be545715430809583c9e1d7438bd611b10ba5792460efa2017e2368971",
+    "proposed_predictions": "f35d461dd9f678ee453bc78c09b39f29f51a6a218a898aa2fdf5153f73ce768f",
+    "split_manifest": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999"
+  },
+  "split": "DEVELOPMENT",
+  "status": "PREDECLARED_BEFORE_V2_OUTPUTS",
+  "strata": {
+    "evidence_sufficient": {
+      "False": 15,
+      "True": 65
+    },
+    "intent": {
+      "account_access_or_security": 7,
+      "billing_or_payment": 6,
+      "content_availability_or_metadata": 2,
+      "device_or_connectivity": 4,
+      "feature_request_or_product_feedback": 1,
+      "library_playlist_or_saved_content": 2,
+      "other_or_unclear": 29,
+      "playback_or_app_behavior": 16,
+      "subscription_or_plan": 13
+    },
+    "risk_presence": {
+      "False": 67,
+      "True": 13
+    }
+  },
+  "v1_partial_results_used": false
+}
