@@ -4,7 +4,7 @@ An independently implemented, evaluation-first customer-support agent for the Hi
 
 ## Current status
 
-**Phase 2.6 evaluation set frozen; human confirmation is pending.** Phase 1.5 froze `SpotifyCares` as the final brand. Phase 2 reconstructed 28,277 usable Spotify support threads, produced leakage-clean chronological splits, explored a nine-intent train-only taxonomy, and prepared a 300-item candidate queue. Phase 2.6 deterministically froze 200 evaluation cases (160 representative, 40 challenge), protected their IDs, and generated 200 separately stored `AI_PROVISIONAL` suggestions. The golden annotation file intentionally contains zero finalized rows. No benchmark, model, retrieval index, human-agreement claim, or headline performance/safety metric exists yet.
+**Phase 3 baseline and evaluation infrastructure complete; final evaluation remains blocked.** Phase 2.6 froze 200 protected evaluation cases and human confirmation remains at zero. Phase 3 adds a fixed always-escalate baseline, a TRAIN-only lexical neighbor baseline, reusable label-driven metrics, and deterministic bootstrap utilities. It generated DEVELOPMENT engineering artifacts only. No frozen predictions, benchmark scores, human-agreement claims, or final-agent components exist yet.
 
 Two external repositories supplied as architectural references were reviewed at a high level. No source code, labels, results, prompts, or evaluation artifacts were copied. See [CITATIONS.md](CITATIONS.md).
 
@@ -23,11 +23,10 @@ The core safety constraint is that historical support replies are evidence of pa
 configs/       versioned configuration and frozen evaluation manifests
 data/          ignored source/processed text; tracked manifests and annotation queue
 docs/          plans, decision log, annotation protocol, and final report
-evaluation/    evaluation harness (not implemented yet)
-results/       profiling, audit, and train-only taxonomy artifacts
-scripts/       reproducible profiling, extraction, split, audit, and annotation commands
-src/           installable data, taxonomy, and annotation modules
-tests/         deterministic data-engineering and annotation-integrity tests
+results/       profiling, audits, taxonomy, and DEVELOPMENT baseline artifacts
+scripts/       reproducible data, annotation, and baseline commands
+src/           data, taxonomy, annotation, baseline, and evaluation modules
+tests/         deterministic data, leakage, baseline, metric, and statistics tests
 ```
 
 ## Commands available now
@@ -47,6 +46,7 @@ make provisional-labels # create separate AI_PROVISIONAL suggestions
 make provisional-audit  # audit provisional distributions and contradictions
 make phase2-6          # regenerate the three Phase 2.6 artifacts above
 make annotate          # explicitly accept/correct suggestions as a human
+make baselines-dev     # generate both DEVELOPMENT-only baseline artifacts
 ```
 
 `make reproduce`, `make demo`, and `make rebuild` will be added only when their inputs, outputs, and claims can be made reproducible.
@@ -59,7 +59,9 @@ Phase 2 adds the [Spotify extraction manifest](data/manifests/spotify_threads_ma
 
 Phase 2.6 adds the [final 200-case manifest](data/manifests/final_golden_candidate_manifest.json), [unlabeled frozen cases](data/annotations/final_golden_candidates.csv), separate [AI provisional suggestions](data/annotations/ai_provisional_labels.csv), and [provisional audit](results/provisional_label_audit.json). These suggestions are review aids, never gold labels. The annotation file currently contains **0 human labels**, and `GOLDEN_SET_STATUS` remains `AWAITING_HUMAN_CONFIRMATION` until at least 150 cases are explicitly confirmed by the author.
 
-The raw TWCS export and reconstructed thread JSONL remain ignored and uncommitted. See [the split protocol](docs/SPLIT_PROTOCOL.md), [taxonomy](docs/TAXONOMY.md), and [annotation guide](docs/ANNOTATION_GUIDE.md) for definitions and limitations. No final model or evaluation metric exists yet.
+The raw TWCS export and reconstructed thread JSONL remain ignored and uncommitted. See [the split protocol](docs/SPLIT_PROTOCOL.md), [taxonomy](docs/TAXONOMY.md), and [annotation guide](docs/ANNOTATION_GUIDE.md) for definitions and limitations. No final model or reported gold-dependent evaluation metric exists yet.
+
+Phase 3 adds deterministic DEVELOPMENT predictions for the [fixed baseline](results/dev_baseline_fixed.jsonl) and [lexical baseline](results/dev_baseline_lexical.jsonl), plus a [generation manifest](results/dev_baseline_manifest.json). The metric library is implemented but no gold-dependent metric has been computed. See [baseline documentation](docs/BASELINES.md) and the [evaluation protocol](docs/EVALUATION_PROTOCOL.md).
 
 ## Integrity commitments
 

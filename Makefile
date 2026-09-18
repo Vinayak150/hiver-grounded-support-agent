@@ -1,4 +1,4 @@
-.PHONY: test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6
+.PHONY: test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev
 
 TWCS_INPUT ?= data/raw/twcs.csv
 PROFILE_CONFIG ?= configs/profiling.yaml
@@ -43,3 +43,6 @@ provisional-audit:
 	python3 scripts/audit_provisional_labels.py
 
 phase2-6: freeze-evaluation provisional-labels provisional-audit
+
+baselines-dev:
+	python3 scripts/run_baselines.py

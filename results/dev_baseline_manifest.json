@@ -1,0 +1,58 @@
+{
+  "ai_provisional_labels_used_as_gold": false,
+  "baseline_version": "spotify-phase3-baselines-v1",
+  "brand": "SpotifyCares",
+  "development_prediction_count": 2594,
+  "development_thread_ids_sha256": "6a565839f25f94f48c8e70122f24d027e5ec2637a4ccb4df7c5af1c5399e8ee0",
+  "fixed_baseline": {
+    "action": "ESCALATE",
+    "fixed_intent": "playback_or_app_behavior",
+    "intent_source": "largest TRAIN-side lexical signal group; not a human-labelled majority",
+    "output_sha256": "7121e6d016e000cfd1ba71fece02ed7efd33383da26976d35c2a1cf1473ae8cb",
+    "prediction_count": 2594,
+    "system_name": "fixed-intent-always-escalate-v1"
+  },
+  "frozen_evaluation_predictions_generated": false,
+  "headline_metrics_computed": false,
+  "human_gold_labels_used": 0,
+  "lexical_baseline": {
+    "calibration": {
+      "development_count": 2594,
+      "maximum": 0.85,
+      "method": "Configured DEVELOPMENT top-1 similarity quantile, bounded by fixed floors/ceilings; no labels or accuracy optimization.",
+      "minimum": 0.3,
+      "raw_quantile": 0.359356,
+      "requested_quantile": 0.75,
+      "threshold": 0.359356,
+      "top_similarity_quantiles": {
+        "0.0": 0.085012,
+        "0.25": 0.233629,
+        "0.5": 0.284938,
+        "0.75": 0.359356,
+        "1.0": 1.0
+      }
+    },
+    "features": "word (1,2) and character (3,5) TF-IDF cosine similarity",
+    "output_sha256": "4bd37281ca744afa15827e681e2585a655282f7668be337c152cf0838c9f0ab9",
+    "predicted_action_distribution": {
+      "AUTO_HANDLE": 559,
+      "ESCALATE": 2035
+    },
+    "prediction_count": 2594,
+    "system_name": "train-lexical-neighbor-v1",
+    "top_k": 3
+  },
+  "phase": "3",
+  "prediction_split": "DEVELOPMENT",
+  "source_corpus_sha256": "8847bea00fee7f7686c37231269594b31dd79d53abc7c5fff504a49cafabac92",
+  "source_split_manifest_sha256": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999",
+  "train_partition_count": 19793,
+  "train_retrieval_corpus": {
+    "excluded_template_cap_excess": 934,
+    "excluded_unusable_public_reply": 5705,
+    "input_train_threads": 19793,
+    "retrieval_corpus_threads": 13154,
+    "unique_normalized_reply_templates": 11887
+  },
+  "train_thread_ids_sha256": "4c3f93d9ba9efd25b6bf22955233712d61f3127225b234b04bb0d8635a3b8ec5"
+}

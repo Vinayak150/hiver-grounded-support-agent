@@ -1,0 +1,15 @@
+{
+  "version": "spotify-evaluation-v1",
+  "bootstrap": {
+    "seed": 20260918,
+    "samples": 2000,
+    "confidence_level": 0.95
+  },
+  "intent_labels_source": "configs/taxonomy.yaml",
+  "actions": ["AUTO_HANDLE", "ESCALATE"],
+  "correct_and_safe_automation_requires": [
+    "human_gold_intent",
+    "human_gold_action",
+    "human_response_quality_evidence"
+  ]
+}

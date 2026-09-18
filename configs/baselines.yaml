@@ -1,0 +1,54 @@
+{
+  "version": "spotify-phase3-baselines-v1",
+  "development_split": "DEVELOPMENT",
+  "fixed": {
+    "system_name": "fixed-intent-always-escalate-v1",
+    "intent": "playback_or_app_behavior",
+    "intent_source": "largest TRAIN-side lexical signal group; not a human-labelled majority",
+    "reply": "Thanks for reaching out. A support specialist should review this request before any account-specific guidance or action is provided."
+  },
+  "lexical": {
+    "system_name": "train-lexical-neighbor-v1",
+    "word_ngram_range": [1, 2],
+    "character_ngram_range": [3, 5],
+    "word_weight": 0.6,
+    "character_weight": 0.4,
+    "word_max_features": 20000,
+    "character_max_features": 30000,
+    "minimum_document_frequency": 2,
+    "top_k": 3,
+    "minimum_reply_words": 8,
+    "maximum_exact_reply_template_occurrences": 3,
+    "development_similarity_quantile": 0.75,
+    "similarity_threshold_floor": 0.30,
+    "similarity_threshold_ceiling": 0.85,
+    "private_reply_markers": [
+      "send us a dm",
+      "send me a dm",
+      "dm us",
+      "direct message",
+      "email address",
+      "username",
+      "take a look backstage",
+      "look under the hood",
+      "contact our",
+      "contact us"
+    ],
+    "query_risk_markers": [
+      "hacked",
+      "hack",
+      "breach",
+      "password",
+      "email address",
+      "username",
+      "charged",
+      "charge",
+      "payment",
+      "refund",
+      "credit card",
+      "debit card",
+      "my account"
+    ],
+    "safe_escalation_reply": "Thanks for explaining the issue. This request should be reviewed by a support specialist because it may require private information, current policy, or internal account tools."
+  }
+}
