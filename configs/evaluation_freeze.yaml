@@ -1,0 +1,20 @@
+{
+  "freeze_version": "spotify-final-golden-v1",
+  "candidate_count": 200,
+  "representative_count": 160,
+  "challenge_count": 40,
+  "seed": "spotify-phase2.6-freeze-v1",
+  "time_bins": 4,
+  "internal_duplicate_policy": {
+    "token_jaccard_threshold": 0.90,
+    "character_5gram_jaccard_threshold": 0.92
+  },
+  "provisional": {
+    "prompt_version": "spotify-provisional-v1",
+    "model_name": "OpenAI Codex / deterministic taxonomy-risk rubric",
+    "low_intent_confidence": 0.60,
+    "low_action_confidence": 0.60,
+    "similarity_audit_token_threshold": 0.80,
+    "similarity_audit_character_threshold": 0.85
+  }
+}

@@ -7,7 +7,16 @@ import os
 import tempfile
 from pathlib import Path
 
-from .schema import ANNOTATION_FIELDS, CANDIDATE_FIELDS, CandidateCase, HumanAnnotation
+from .schema import (
+    AI_PROVISIONAL_FIELDS,
+    ANNOTATION_FIELDS,
+    CANDIDATE_FIELDS,
+    FROZEN_CANDIDATE_FIELDS,
+    AIProvisionalLabel,
+    CandidateCase,
+    FrozenCandidate,
+    HumanAnnotation,
+)
 
 
 def load_candidates(path: Path) -> list[CandidateCase]:
@@ -21,6 +30,38 @@ def load_candidates(path: Path) -> list[CandidateCase]:
     if len({row.thread_id for row in rows}) != len(rows):
         raise ValueError("Candidate queue contains duplicate thread IDs.")
     return rows
+
+
+def load_frozen_candidates(path: Path) -> list[FrozenCandidate]:
+    with path.open("r", encoding="utf-8", newline="") as stream:
+        reader = csv.DictReader(stream)
+        if tuple(reader.fieldnames or ()) != FROZEN_CANDIDATE_FIELDS:
+            raise ValueError("Frozen candidate schema does not match the Phase 2.6 contract.")
+        rows = [FrozenCandidate(**row) for row in reader]
+    if len({row.case_id for row in rows}) != len(rows):
+        raise ValueError("Frozen candidates contain duplicate case IDs.")
+    if len({row.thread_id for row in rows}) != len(rows):
+        raise ValueError("Frozen candidates contain duplicate thread IDs.")
+    return rows
+
+
+def load_ai_provisional_labels(path: Path) -> dict[str, AIProvisionalLabel]:
+    with path.open("r", encoding="utf-8", newline="") as stream:
+        reader = csv.DictReader(stream)
+        if tuple(reader.fieldnames or ()) != AI_PROVISIONAL_FIELDS:
+            raise ValueError("AI provisional schema does not match the Phase 2.6 contract.")
+        rows = [AIProvisionalLabel(**row) for row in reader]
+    if len({row.case_id for row in rows}) != len(rows):
+        raise ValueError("AI provisional labels contain duplicate case IDs.")
+    return {row.case_id: row for row in rows}
+
+
+def golden_set_status(confirmed_count: int, minimum: int = 150) -> str:
+    return (
+        "READY_FOR_FINAL_EVALUATION"
+        if confirmed_count >= minimum
+        else "AWAITING_HUMAN_CONFIRMATION"
+    )
 
 
 class AnnotationStore:
@@ -58,7 +99,8 @@ class AnnotationStore:
         next_case = next(
             (case.case_id for case in candidates if case.case_id not in completed), None
         )
-        return len(completed), len(candidates), next_case
+        completed_in_queue = sum(case.case_id in completed for case in candidates)
+        return completed_in_queue, len(candidates), next_case
 
     def _write(self, rows: list[HumanAnnotation]) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)

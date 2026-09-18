@@ -2,22 +2,30 @@
 
 ## Current status
 
-Phase 2 created a blinded queue of 300 candidates: 240 representative cases and 60
-challenge cases. `golden_annotations.csv` contains a header and **zero finalized
-labels**. Only the project author should create rows through the local CLI.
+Phase 2 created a blinded queue of 300 candidates. Phase 2.6 deterministically
+froze exactly 200 final evaluation candidates: 160 representative and 40 challenge
+cases. It also created 200 separate `AI_PROVISIONAL` suggestions to accelerate
+later review. `golden_annotations.csv` contains a header and **zero finalized
+labels**. Only the project author can create rows through the local CLI.
 
-Start with a 20-case pilot using the exact command:
+When the author is ready, start with a 20-case review pilot using:
 
 ```bash
-python3 scripts/annotate.py --limit 20
+python3 scripts/annotate.py --review-provisional --limit 20
 ```
 
 Review pilot boundary problems before continuing, but do not inspect model results
-or final-golden performance. Resume with `make annotate`; see progress with:
+or final-golden performance. Resume with `make annotate`; see frozen-set progress
+with:
 
 ```bash
-python3 scripts/annotate.py --progress
+python3 scripts/annotate.py --review-provisional --progress
 ```
+
+Review mode displays the suggestion in a clearly marked `AI PROVISIONAL` section.
+The author may accept, correct, defer, or quit. Acceptance still requires typing
+`CONFIRM`; an `UNSURE` suggestion cannot be accepted and must be corrected. No
+suggestion is ever auto-accepted.
 
 ## What to label
 
@@ -64,9 +72,10 @@ version `spotify-temporal-v1`. The software cannot create a finalized row withou
 explicit interactive input. Candidate proxy fields are not shown as intent/action
 suggestions, and no machine suggestion is saved beside the annotation.
 
-The 300-case queue is larger than the target 200-case final set so the author can
-defer noise while preserving coverage. Final selection and any agreement study
-belong to later work after genuine human annotation; they are not Phase 2 claims.
+The original 300-case queue remains provenance for the protected 200-case freeze.
+The final set status is `AWAITING_HUMAN_CONFIRMATION` until at least 150 explicit
+human confirmations exist. Provisional distributions and any future agreement
+study are not final evaluation results.
 
 Candidate text is historical public TWCS content, sanitized for URLs, handles,
 email-like strings, and long numeric identifiers. It is committed only because the

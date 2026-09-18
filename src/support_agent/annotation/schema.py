@@ -19,6 +19,34 @@ class CandidateCase:
 
 
 @dataclass(frozen=True)
+class FrozenCandidate:
+    case_id: str
+    thread_id: str
+    customer_message: str
+    conversation_context: str
+    candidate_type: str
+    timestamp: str
+    taxonomy_version: str
+    split_version: str
+    sampling_version: str
+
+
+@dataclass(frozen=True)
+class AIProvisionalLabel:
+    case_id: str
+    suggested_intent: str
+    intent_confidence: str
+    suggested_action: str
+    action_confidence: str
+    suggested_risk_tags: str
+    short_reason: str
+    uncertainty_flags: str
+    model_name: str
+    prompt_version: str
+    annotation_source: str = "AI_PROVISIONAL"
+
+
+@dataclass(frozen=True)
 class HumanAnnotation:
     case_id: str
     thread_id: str
@@ -36,6 +64,8 @@ class HumanAnnotation:
 
 
 CANDIDATE_FIELDS = tuple(CandidateCase.__dataclass_fields__)
+FROZEN_CANDIDATE_FIELDS = tuple(FrozenCandidate.__dataclass_fields__)
+AI_PROVISIONAL_FIELDS = tuple(AIProvisionalLabel.__dataclass_fields__)
 ANNOTATION_FIELDS = tuple(HumanAnnotation.__dataclass_fields__)
 
 
@@ -53,6 +83,42 @@ def validate_candidate(case: CandidateCase) -> None:
             raise ValueError(f"Candidate field is required: {field}")
     if case.sampling_bucket not in {"REPRESENTATIVE", "CHALLENGE"}:
         raise ValueError(f"Invalid sampling bucket: {case.sampling_bucket}")
+
+
+def validate_frozen_candidate(case: FrozenCandidate) -> None:
+    for field in FROZEN_CANDIDATE_FIELDS:
+        if not getattr(case, field).strip():
+            raise ValueError(f"Frozen candidate field is required: {field}")
+    if case.candidate_type not in {"REPRESENTATIVE", "CHALLENGE"}:
+        raise ValueError(f"Invalid candidate type: {case.candidate_type}")
+
+
+def validate_ai_provisional_label(
+    label: AIProvisionalLabel,
+    intent_ids: set[str],
+    actions: set[str],
+    risk_tags: set[str],
+) -> None:
+    if label.annotation_source != "AI_PROVISIONAL":
+        raise ValueError("AI suggestions must declare annotation_source=AI_PROVISIONAL.")
+    if label.suggested_intent not in intent_ids | {"UNSURE"}:
+        raise ValueError(f"Invalid suggested intent: {label.suggested_intent}")
+    if label.suggested_action not in actions | {"UNSURE"}:
+        raise ValueError(f"Invalid suggested action: {label.suggested_action}")
+    for field in ("intent_confidence", "action_confidence"):
+        value = float(getattr(label, field))
+        if not 0.0 <= value <= 1.0:
+            raise ValueError(f"Confidence must be between zero and one: {field}")
+    supplied_tags = {tag for tag in label.suggested_risk_tags.split("|") if tag}
+    unknown = supplied_tags - risk_tags
+    if unknown:
+        raise ValueError(f"Invalid provisional risk tags: {', '.join(sorted(unknown))}")
+    if (
+        not label.short_reason.strip()
+        or not label.model_name.strip()
+        or not label.prompt_version.strip()
+    ):
+        raise ValueError("Provisional labels require a reason, model name, and prompt version.")
 
 
 def validate_annotation(
@@ -81,7 +147,7 @@ def validate_annotation(
 
 
 def build_human_annotation(
-    case: CandidateCase,
+    case: CandidateCase | FrozenCandidate,
     explicit_human_input: bool,
     **values: str,
 ) -> HumanAnnotation:
