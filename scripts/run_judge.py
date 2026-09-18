@@ -131,6 +131,11 @@ def main() -> int:
     parser.add_argument(
         "--order-output", type=Path, default=Path("results/dev_judge_order_bias.jsonl")
     )
+    parser.add_argument(
+        "--run-manifest-output",
+        type=Path,
+        default=Path("results/dev_judge_run_manifest.json"),
+    )
     arguments = parser.parse_args()
     config = json.loads(arguments.config.read_text(encoding="utf-8"))
     split_manifest = json.loads(
@@ -174,6 +179,17 @@ def main() -> int:
     train_map = {case_id: thread_map[case_id] for case_id in train_ids}
     runner = JudgeRunner(provider, JudgeCache(Path(str(config["cache_directory"]))), config)
     records = []
+    completed = 0
+
+    def report_progress(stage: str) -> None:
+        if completed % 25 == 0:
+            print(
+                f"Progress stage={stage} completed={completed}/880 "
+                f"validated={runner.stats.successful} cache_hits={runner.stats.cache_hits} "
+                f"retries={runner.stats.retries}",
+                flush=True,
+            )
+
     sample_ids = [str(item["case_id"]) for item in manifest["cases"]]
     for system, rows in indexed.items():
         for case_id in sample_ids:
@@ -188,7 +204,18 @@ def main() -> int:
                 ),
             )
             result = runner.evaluate(item)
-            records.append({"system": system, "run_id": "primary", **result.as_dict()})
+            records.append(
+                {
+                    "provider": str(config["provider"]),
+                    "system": system,
+                    "run_id": "primary",
+                    **result.as_dict(),
+                }
+            )
+            completed += 1
+            report_progress("absolute-primary")
+    # Persist the complete three-system comparison before optional validity experiments.
+    write_jsonl(arguments.results_output, records)
     for pass_number in range(2, int(config["repeatability_passes"]) + 1):
         for case_id in manifest["repeatability"]["case_ids"]:
             source = indexed["proposed"][case_id]
@@ -203,8 +230,15 @@ def main() -> int:
             )
             result = runner.evaluate(item, replicate=f"repeat-{pass_number}")
             records.append(
-                {"system": "proposed", "run_id": f"repeat-{pass_number}", **result.as_dict()}
+                {
+                    "provider": str(config["provider"]),
+                    "system": "proposed",
+                    "run_id": f"repeat-{pass_number}",
+                    **result.as_dict(),
+                }
             )
+            completed += 1
+            report_progress("repeatability")
     write_jsonl(arguments.results_output, records)
     # Pairwise calls are deliberately separated; system identity is attached only after return.
     order_records = []
@@ -234,13 +268,42 @@ def main() -> int:
             result = runner.evaluate_pair(payload, order=label)
             order_records.append(
                 {
+                    "provider": str(config["provider"]),
                     "order": label,
                     "a_system": "proposed" if pair[0] is proposed_item else "lexical",
                     "b_system": "proposed" if pair[1] is proposed_item else "lexical",
                     **result.__dict__,
                 }
             )
+            completed += 1
+            report_progress("order-bias")
     write_jsonl(arguments.order_output, order_records)
+    write_json(
+        arguments.run_manifest_output,
+        {
+            "phase": "5A",
+            "split": "DEVELOPMENT",
+            "provider": config["provider"],
+            "model": provider.model,
+            "reasoning_effort": config.get("reasoning_effort"),
+            "max_completion_tokens": config.get("max_completion_tokens"),
+            "rubric_version": config["rubric_version"],
+            "prompt_version": config["prompt_version"],
+            "pairwise_prompt_version": config["pairwise_prompt_version"],
+            "logical_absolute_results": len(records),
+            "logical_order_bias_results": len(order_records),
+            "provider_calls": runner.stats.__dict__,
+            "estimated_cost": None,
+            "credential_persisted": False,
+            "frozen_evaluation_touched": False,
+            "human_gold_used": 0,
+            "ai_provisional_used_as_gold": False,
+            "output_hashes": {
+                "judge_results": sha256_file(arguments.results_output),
+                "order_bias_raw": sha256_file(arguments.order_output),
+            },
+        },
+    )
     print(json.dumps(runner.stats.__dict__, sort_keys=True))
     return 0
 

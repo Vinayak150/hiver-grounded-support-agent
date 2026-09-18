@@ -2283,7 +2283,7 @@
   "sample_seed": "phase5a-dev-20260918",
   "sampling_method": "All proposed AUTO_HANDLE cases plus stable-hash round-robin strata over intent, evidence sufficiency, risk presence, and lexical challenge flags.",
   "source_hashes": {
-    "judge_config": "6002d67134823ac577afd3518e2f36ce59cb0e86d1d9c6611ac5d8d4819569bd",
+    "judge_config": "510b38c3b45917e766e7870667735d40c132b8565481137c05cc5fe5db972a37",
     "proposed_predictions": "f35d461dd9f678ee453bc78c09b39f29f51a6a218a898aa2fdf5153f73ce768f",
     "split_manifest": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999"
   },

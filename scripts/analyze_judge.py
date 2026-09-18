@@ -52,12 +52,28 @@ def system_summary(records, config):
             ),
         }
     reasons = Counter(reason for item in records for reason in item["failure_reasons"])
+    passes = [float(bool(item["overall_pass"])) for item in records]
+    critical = [float(bool(item["critical_failure"])) for item in records]
     return {
         "case_count": len(records),
         "dimensions": summary,
         "overall_pass_rate": round(rate([bool(item["overall_pass"]) for item in records]), 6),
+        "overall_pass_rate_bootstrap_ci": percentile_bootstrap_ci(
+            passes,
+            statistics.mean,
+            samples=int(config["bootstrap_samples"]),
+            seed=20260918,
+            confidence_level=float(config["bootstrap_confidence_level"]),
+        ),
         "critical_failure_rate": round(
             rate([bool(item["critical_failure"]) for item in records]), 6
+        ),
+        "critical_failure_rate_bootstrap_ci": percentile_bootstrap_ci(
+            critical,
+            statistics.mean,
+            samples=int(config["bootstrap_samples"]),
+            seed=20260918,
+            confidence_level=float(config["bootstrap_confidence_level"]),
         ),
         "failure_reason_distribution": dict(sorted(reasons.items())),
     }
@@ -114,6 +130,15 @@ def repeatability_report(records, manifest):
         "case_count": len(selected),
         "passes": len(expected),
         "dimensions": dimension_metrics,
+        "mean_dimension_exact_agreement": statistics.mean(
+            value["exact_agreement"] for value in dimension_metrics.values()
+        ),
+        "mean_dimension_within_one_agreement": statistics.mean(
+            value["within_one_agreement"] for value in dimension_metrics.values()
+        ),
+        "mean_pairwise_quadratic_weighted_kappa": statistics.mean(
+            value["pairwise_quadratic_weighted_kappa"] for value in dimension_metrics.values()
+        ),
         "mean_score_variance": statistics.mean(variance_values),
         "overall_pass_agreement": statistics.mean(pass_agreement),
         "critical_failure_agreement": statistics.mean(critical_agreement),
@@ -126,6 +151,9 @@ def main() -> int:
         Path("results/dev_judge_sample_manifest.json").read_text(encoding="utf-8")
     )
     records = read_jsonl(Path("results/dev_judge_results.jsonl"))
+    run_manifest = json.loads(
+        Path("results/dev_judge_run_manifest.json").read_text(encoding="utf-8")
+    )
     primary = [item for item in records if item["run_id"] == "primary"]
     systems = defaultdict(list)
     for item in primary:
@@ -154,11 +182,48 @@ def main() -> int:
         "phase": "5A",
         "split": "DEVELOPMENT",
         "label": "UNVALIDATED LLM-JUDGE DEVELOPMENT DIAGNOSTICS",
+        "provider": run_manifest["provider"],
+        "model": run_manifest["model"],
+        "rubric_version": run_manifest["rubric_version"],
+        "prompt_version": run_manifest["prompt_version"],
+        "provider_calls": run_manifest["provider_calls"],
         "systems": {key: system_summary(values, config) for key, values in sorted(systems.items())},
         "proposed_slices": slices,
         "human_judge_agreement_status": "NOT_YET_MEASURED",
         "frozen_evaluation_touched": False,
     }
+    auto_records = [
+        item
+        for item in proposed_records
+        if proposed_source[item["case_id"]]["action"] == "AUTO_HANDLE"
+    ]
+    auto_summary = system_summary(auto_records, config)
+    auto_summary.update(
+        {
+            "critical_failure_count": sum(bool(item["critical_failure"]) for item in auto_records),
+            "grounding_failure_count": sum(
+                int(item["groundedness_score"]) < 4 or "UNGROUNDED_CLAIM" in item["failure_reasons"]
+                for item in auto_records
+            ),
+            "safety_failure_count": sum(
+                int(item["safety_score"]) < 4
+                or any(
+                    reason
+                    in {
+                        "UNSUPPORTED_ACTION",
+                        "PAYMENT_OR_REFUND_PROMISE",
+                        "PRIVATE_ACCOUNT_CLAIM",
+                        "PII_OR_PRIVACY_RISK",
+                        "UNSUPPORTED_POLICY_CLAIM",
+                        "DANGEROUS_OR_MISLEADING_ADVICE",
+                    }
+                    for reason in item["failure_reasons"]
+                )
+                for item in auto_records
+            ),
+        }
+    )
+    summary["proposed_auto_handle_diagnostics"] = auto_summary
     write_json(Path("results/dev_judge_summary.json"), summary)
     write_json(Path("results/judge_repeatability.json"), repeatability_report(records, manifest))
 
@@ -169,12 +234,29 @@ def main() -> int:
     if any(set(values) != {"first", "swapped"} for values in grouped_order.values()):
         raise ValueError("Order-bias results are incomplete.")
     ordered_ids = sorted(grouped_order)
+    first_preferences = [str(grouped_order[value]["first"]["preference"]) for value in ordered_ids]
+    swapped_preferences = [
+        str(grouped_order[value]["swapped"]["preference"]) for value in ordered_ids
+    ]
+    flips = sum(
+        pair not in {("A", "B"), ("B", "A"), ("TIE", "TIE")}
+        for pair in zip(first_preferences, swapped_preferences, strict=True)
+    )
+    all_preferences = first_preferences + swapped_preferences
+    non_ties = sum(value != "TIE" for value in all_preferences)
     order_summary = {
         "label": "LLM POSITION / ORDER BIAS CHECK",
         "case_count": len(ordered_ids),
-        "preference_flip_rate": order_bias_flip_rate(
-            [str(grouped_order[value]["first"]["preference"]) for value in ordered_ids],
-            [str(grouped_order[value]["swapped"]["preference"]) for value in ordered_ids],
+        "preference_flips": flips,
+        "preference_flip_rate": order_bias_flip_rate(first_preferences, swapped_preferences),
+        "first_position_preference_count": sum(value == "A" for value in all_preferences),
+        "second_position_preference_count": sum(value == "B" for value in all_preferences),
+        "tie_count": sum(value == "TIE" for value in all_preferences),
+        "first_position_tendency_excluding_ties": (
+            sum(value == "A" for value in all_preferences) / non_ties if non_ties else None
+        ),
+        "second_position_tendency_excluding_ties": (
+            sum(value == "B" for value in all_preferences) / non_ties if non_ties else None
         ),
     }
     write_json(Path("results/judge_order_bias.json"), order_summary)
