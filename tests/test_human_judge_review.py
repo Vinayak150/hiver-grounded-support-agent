@@ -302,12 +302,17 @@ def test_only_frozen_sample_keys_can_be_saved(tmp_path: Path) -> None:
 
 
 def test_production_manifest_reconstructs_exact_40_v2_inputs() -> None:
+    corpus_path = ROOT / "data/processed/spotify_threads.jsonl"
+    if not corpus_path.exists():
+        pytest.skip(
+            "requires the local processed TWCS corpus, which is intentionally gitignored"
+        )
     manifest = json.loads(
         (ROOT / "data/manifests/human_judge_agreement_sample.json").read_text(
             encoding="utf-8"
         )
     )
-    items = load_review_items(manifest["selected_keys"])
+    items = load_review_items(manifest["selected_keys"], corpus_path=corpus_path)
     assert len(items) == 40
     assert Counter(item.system for item in items) == {
         "proposed": 14,
