@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import UTC, datetime
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,8 @@ class HumanAnnotation:
     difficulty: str
     risk_tags: str
     annotation_notes: str
+    annotator: str
+    reviewed_at: str
     annotation_source: str = "human"
     status: str = "FINALIZED"
 
@@ -132,6 +135,14 @@ def validate_annotation(
         raise ValueError("Finalized annotations must declare annotation_source=human.")
     if annotation.status != "FINALIZED":
         raise ValueError("Saved annotation rows must be FINALIZED.")
+    if annotation.annotator != "candidate":
+        raise ValueError("Human gold must identify annotator=candidate.")
+    try:
+        reviewed_at = datetime.fromisoformat(annotation.reviewed_at)
+    except ValueError as error:
+        raise ValueError("Human gold requires a valid reviewed_at timestamp.") from error
+    if reviewed_at.tzinfo is None:
+        raise ValueError("Human gold reviewed_at timestamp must include a timezone.")
     if annotation.gold_intent not in intent_ids:
         raise ValueError(f"Invalid gold intent: {annotation.gold_intent}")
     if annotation.gold_action not in actions:
@@ -149,6 +160,7 @@ def validate_annotation(
 def build_human_annotation(
     case: CandidateCase | FrozenCandidate,
     explicit_human_input: bool,
+    annotator: str = "candidate",
     **values: str,
 ) -> HumanAnnotation:
     if not explicit_human_input:
@@ -165,4 +177,6 @@ def build_human_annotation(
         difficulty=values["difficulty"],
         risk_tags=values.get("risk_tags", ""),
         annotation_notes=values.get("annotation_notes", ""),
+        annotator=annotator,
+        reviewed_at=datetime.now(UTC).isoformat(),
     )

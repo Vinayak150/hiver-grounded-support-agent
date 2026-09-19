@@ -1,0 +1,6 @@
+case_id,response_quality_approved,reason,annotation_source,status
+spotify-gold-candidate-133,true,It asks for the right details to investigate the content issue and does not make any unsupported claims.,human,FINALIZED
+spotify-gold-candidate-180,true,"The customer gave no details, so asking what is happening and for device information is a relevant and safe first step.",human,FINALIZED
+spotify-gold-candidate-189,true,"It asks for the account country, which is a reasonable first step for checking why the track is unavailable.",human,FINALIZED
+spotify-gold-candidate-248,true,It asks for the device and Spotify details needed to troubleshoot the Chromecast casting issue.,human,FINALIZED
+spotify-gold-candidate-293,true,"It asks for additional diagnostic information, although it focuses on the web player rather than the Windows app issue.",human,FINALIZED

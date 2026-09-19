@@ -5,35 +5,44 @@
 Phase 2 created a blinded queue of 300 candidates. Phase 2.6 deterministically
 froze exactly 200 final evaluation candidates: 160 representative and 40 challenge
 cases. It also created 200 separate `AI_PROVISIONAL` suggestions to accelerate
-later review. `golden_annotations.csv` contains a header and **zero finalized
-labels**. Only the project author can create rows through the local CLI.
+later review. `golden_annotations.csv` now contains **200 human-entered, finalized
+labels** created by the project author.
 
-When the author is ready, start with a 20-case review pilot using:
+AI decision-support was used during part of the manual labeling process. Assistance
+status was not recorded reliably per row, so the dataset does not claim that any
+specific row was unaided or that the 200 rows are independent human judgments. The
+dataset-level disclosure is
+[`golden_annotation_provenance.md`](../data/annotations/golden_annotation_provenance.md).
 
-```bash
-python3 scripts/annotate.py --review-provisional --limit 20
-```
-
-Review pilot boundary problems before continuing, but do not inspect model results
-or final-golden performance. Resume with `make annotate`; see frozen-set progress
-with:
+The completed frozen-set review used:
 
 ```bash
-python3 scripts/annotate.py --review-provisional --progress
+make annotate-gold
 ```
 
-Review mode displays the suggestion in a clearly marked `AI PROVISIONAL` section.
-The author may accept, correct, defer, or quit. Acceptance still requires typing
-`CONFIRM`; an `UNSURE` suggestion cannot be accepted and must be corrected. No
-suggestion is ever auto-accepted.
+The tool saves every decision atomically and resumes at the first unfinished case.
+For a short sitting, use `python3 scripts/annotate.py --human-gold --limit 20`.
+Check progress without entering review mode using:
+
+```bash
+python3 scripts/annotate.py --human-gold --progress
+```
+
+The CLI's human-gold mode does not display the stored AI provisional intent or action
+before a row is saved. After the atomic save, it may report only whether intent/action
+matched or differed from the separate stored suggestion; that comparison never edits
+the row. This software-level blinding must not be interpreted as proof that the overall
+annotation process was unaided, because AI decision-support was used during part of
+manual labeling. The deprecated `--review-provisional` flag is a blind alias; bulk
+acceptance is unavailable.
 
 ## What to label
 
-Each case displays a sanitized customer message and up to six recent conversation
-turns. Choose exactly one taxonomy intent, one action, one difficulty, optional
-risk tags, and a short action reason. Defer rather than guess when context is
-insufficient. The CLI saves each finalized case atomically, refuses duplicate case
-IDs, and resumes at the first unfinished case.
+Each case displays the sanitized customer message and customer-only context needed
+to label the same request seen by the agent; historical Spotify replies are hidden.
+Choose exactly one taxonomy intent and action, then record difficulty, optional risk
+tags, and a short reason. Use `p` at the intent prompt to correct the previous saved
+case, or `q` to stop safely. The CLI refuses duplicates and resumes automatically.
 
 ### `AUTO_HANDLE`
 
@@ -66,16 +75,21 @@ billing/refund action, PII, outdated-policy risk, or unresolved ambiguity.
 
 ## Integrity and versioning
 
-Every finalized row records `annotation_source=human`, taxonomy version
-`spotify-intents-v1`, sampling version `spotify-golden-candidates-v1`, and split
-version `spotify-temporal-v1`. The software cannot create a finalized row without
-explicit interactive input. Candidate proxy fields are not shown as intent/action
-suggestions, and no machine suggestion is saved beside the annotation.
+Every finalized row records `annotation_source=human`, `annotator=candidate`, a
+timezone-aware `reviewed_at` timestamp, taxonomy version `spotify-intents-v1`,
+sampling version `spotify-golden-candidates-v1`, and split version
+`spotify-temporal-v1`. The software cannot create a finalized row without explicit
+interactive input. In this dataset, `annotation_source=human` establishes that the
+human reviewer entered and finalized the stored decision. It does **not** establish
+that the decision was independently or unaidedly produced. Because row-level
+assistance provenance was not captured, the project does not retroactively classify
+individual rows as assisted or unassisted.
 
 The original 300-case queue remains provenance for the protected 200-case freeze.
-The final set status is `AWAITING_HUMAN_CONFIRMATION` until at least 150 explicit
-human confirmations exist. Provisional distributions and any future agreement
-study are not final evaluation results.
+The Phase 6B target was all 200 frozen cases even though the fail-closed minimum was
+150. `make validate-gold` passed at 200/200 before the frozen evaluation was run.
+Provisional-label distributions and the separate measured human–LLM agreement study
+are not substitutes for the gold labels or final benchmark results.
 
 Candidate text is historical public TWCS content, sanitized for URLs, handles,
 email-like strings, and long numeric identifiers. It is committed only because the

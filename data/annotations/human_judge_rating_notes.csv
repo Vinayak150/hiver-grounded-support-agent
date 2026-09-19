@@ -1,0 +1,41 @@
+case_id,system,critical_failure,note
+twcs-00df52837fc9aae8e1b8,lexical,true,The customer is asking about a missing artist
+twcs-00e91b04f80edeb5eca9,lexical,false,The customer provided a link/image which the system likely cannot interpret.
+twcs-074cc5fccc888c51835e,fixed,true,
+twcs-0a541665c93bd94c41f1,lexical,true,
+twcs-0ea067d0e84ece97fd0c,fixed,true,"The reply uses internal, robotic system language"
+twcs-0ea067d0e84ece97fd0c,lexical,false,
+twcs-1114abfe1eabbf9e545f,fixed,true,Same as previous escalations:
+twcs-12c98d88046e953419f8,proposed,true,
+twcs-202aeff7379620000b9b,lexical,false,The customer provided a link/image and used profanity.
+twcs-2460af692029260b04cc,proposed,true,The bot completely ignores the customer's initial tweet and additional context where they explicitly stated the exact problem
+twcs-2543d9aef5c76f76a479,fixed,true,The customer is just letting the brand know they sent a DM.
+twcs-35dc5cfe4121024e3b1d,fixed,true,
+twcs-44ad7b86a4383c53f9bb,fixed,true,The customer is reporting a general website outage.
+twcs-47ad8c5332a5af19a345,proposed,true,"Assumes a technical issue by asking for device/OS before the customer even states their problem, ignoring the request to DM."
+twcs-4a5770af112216bc021c,proposed,true,The customer already explained exactly what is happening
+twcs-5427ea324dcb535eb783,lexical,true,Breaks the fourth wall by exposing internal system
+twcs-5aade51b60264f76ed60,lexical,true,The reply breaks the fourth wall by exposing internal system routing logic
+twcs-7a20f54e5a512cc9b0b4,lexical,true,"The customer explicitly stated they are seeing ""error 600"". The bot asking ""is your family member getting any error messages?"" shows it completely ignored the customer's initial tweet, creating a frustrating loop and making the brand look inattentive."
+twcs-8b3ba2ac97227646b191,fixed,true,The customer is asking a simple FAQ about how gift cards work.
+twcs-8b3ba2ac97227646b191,lexical,true,
+twcs-91ec2a8379b680955edd,fixed,false,Safe escalation
+twcs-91ec2a8379b680955edd,proposed,true,"The reply breaks the fourth wall by explicitly mentioning ""public historical evidence"" and ""safe automated answer."""
+twcs-958c6d7185cd712c685b,proposed,true,
+twcs-9b5147e867230f3d1be5,proposed,true,
+twcs-a1fbbd61bd5e25191a67,lexical,false,
+twcs-a1fbbd61bd5e25191a67,proposed,true,
+twcs-a37a18f7f061311da048,lexical,true,
+twcs-a8ae2f857e059c86dfa7,proposed,false,"The customer provided a very vague complaint about the app being ""slow."" Asking for more specific details about what exactly is happening (e.g., buffering, laggy UI, slow startup) is a reasonable and necessary first step to begin troubleshooting."
+twcs-ab32b59f7eb98fb9c0d1,proposed,false,The customer provided a link/image and used profanity.
+twcs-b501d0d8aa3b0f395645,proposed,true,Breaks the fourth wall completely by exposing internal system logic
+twcs-cc65a0ab1c5590d4dab4,lexical,true,The reply completely breaks the fourth wall by exposing internal system routing logic
+twcs-ce913a4ac0fc14841cf2,lexical,true,The reply breaks the fourth wall by exposing internal system routing logic (
+twcs-dabeec051ce653bf29bf,fixed,true,The customer is reporting an app bug with the iOS beta.
+twcs-dabeec051ce653bf29bf,proposed,true,The customer already provided their Spotify version (8.4.27.895) in the context.
+twcs-e4c9608086d4001c0b8e,fixed,true,
+twcs-f7ba4d33d4358fe2891f,fixed,true,"Escalates a self-resolved issue with robotic, internal-facing language while entirely ignoring the customer's update."
+twcs-f7ba4d33d4358fe2891f,proposed,true,Ignored the additional context where the customer said the issue was already resolved.
+twcs-f97b6d099c810b264998,fixed,true,
+twcs-fc466216bf9ca569b339,proposed,true,
+twcs-fdea672736c849d4a2f7,fixed,true,

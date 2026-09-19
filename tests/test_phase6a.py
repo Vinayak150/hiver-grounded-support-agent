@@ -47,6 +47,8 @@ def _valid_row() -> dict[str, str]:
         "difficulty": "MEDIUM",
         "risk_tags": "AMBIGUOUS",
         "annotation_notes": "Test fixture.",
+        "annotator": "candidate",
+        "reviewed_at": "2026-09-19T12:00:00+00:00",
         "annotation_source": "human",
         "status": "FINALIZED",
     }
@@ -63,12 +65,12 @@ def test_final_system_manifest_freezes_original_phase4() -> None:
     assert manifest["protection"]["phase41_is_default"] is False
 
 
-def test_current_gold_gate_is_blocked_at_zero() -> None:
+def test_current_gold_gate_is_ready_at_200() -> None:
     result = _gate(ROOT / "data/annotations/golden_annotations.csv")
-    assert result.status == "BLOCKED"
-    assert result.human_label_count == 0
+    assert result.status == "READY"
+    assert result.human_label_count == 200
     assert result.required_minimum == 150
-    assert result.final_evaluation_ready is False
+    assert result.final_evaluation_ready is True
 
 
 def test_gold_gate_rejects_ai_provisional_as_human(tmp_path: Path) -> None:
@@ -90,10 +92,14 @@ def test_gold_gate_refuses_fewer_than_150_human_rows(tmp_path: Path) -> None:
 
 
 def test_final_eval_fails_before_generating_predictions(tmp_path: Path) -> None:
+    incomplete_gold = tmp_path / "incomplete_gold.csv"
+    _write_gold(incomplete_gold, [])
     completed = subprocess.run(
         [
             sys.executable,
             "scripts/run_final_evaluation.py",
+            "--gold",
+            str(incomplete_gold),
             "--output-dir",
             str(tmp_path / "final"),
         ],
@@ -135,5 +141,5 @@ def test_submission_validator_separates_engineering_and_gold(tmp_path: Path) -> 
     assert completed.returncode == 0, completed.stdout + completed.stderr
     result = json.loads(output.read_text(encoding="utf-8"))
     assert result["engineering_submission_ready"] is True
-    assert result["final_evaluation_ready"] is False
-    assert result["human_gold_count"] == 0
+    assert result["final_evaluation_ready"] is True
+    assert result["human_gold_count"] == 200

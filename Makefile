@@ -1,4 +1,4 @@
-.PHONY: setup test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev judge-prepare judge-dev judge-analyze judge-v2-prepare judge-v2 judge-v2-analyze final-system demo validate-gold final-eval judge-agreement validate-submission
+.PHONY: setup test lint plan profile spotify taxonomy splits annotation-queue annotate annotate-gold review-response-quality review-human-judge leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev judge-prepare judge-dev judge-analyze judge-v2-prepare judge-v2 judge-v2-analyze final-system demo validate-gold final-eval judge-agreement validate-submission
 
 TWCS_INPUT ?= data/raw/twcs.csv
 PROFILE_CONFIG ?= configs/profiling.yaml
@@ -34,7 +34,16 @@ annotation-queue:
 	python3 scripts/build_annotation_queue.py
 
 annotate:
-	python3 scripts/annotate.py --review-provisional
+	python3 scripts/annotate.py --human-gold
+
+annotate-gold:
+	python3 scripts/annotate.py --human-gold
+
+review-response-quality:
+	python3 scripts/review_response_quality.py
+
+review-human-judge:
+	python3 scripts/review_human_judge.py
 
 freeze-evaluation:
 	python3 scripts/freeze_evaluation_set.py

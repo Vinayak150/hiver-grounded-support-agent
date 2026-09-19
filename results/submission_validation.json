@@ -31,16 +31,14 @@
     },
     "tests": {
       "passed": true,
-      "test_count": 95
+      "test_count": 126
     }
   },
   "engineering_blockers": [],
   "engineering_submission_ready": true,
-  "final_evaluation_blockers": [
-    "Human annotation count must be between 150 and 250."
-  ],
-  "final_evaluation_ready": false,
-  "human_gold_count": 0,
+  "final_evaluation_blockers": [],
+  "final_evaluation_ready": true,
+  "human_gold_count": 200,
   "phase": "6A",
   "required_human_gold_minimum": 150
 }

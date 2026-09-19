@@ -1,0 +1,217 @@
+{
+  "binary_pass_agreement": {
+    "confusion_table": {
+      "labels": [
+        false,
+        true
+      ],
+      "matrix": [
+        [
+          25,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    "exact_agreement": 0.7
+  },
+  "dimensions": {
+    "brand_context": {
+      "exact_agreement": 0.225,
+      "spearman": -0.18518578454677634,
+      "weighted_cohen_kappa": -0.0393258426966292,
+      "within_one_agreement": 0.55
+    },
+    "groundedness": {
+      "exact_agreement": 0.225,
+      "spearman": 0.10806232157030429,
+      "weighted_cohen_kappa": 0.059266227657572945,
+      "within_one_agreement": 0.425
+    },
+    "helpfulness": {
+      "exact_agreement": 0.3,
+      "spearman": 0.05433221174867815,
+      "weighted_cohen_kappa": 0.12007332722273134,
+      "within_one_agreement": 0.525
+    },
+    "relevance": {
+      "exact_agreement": 0.275,
+      "spearman": 0.24990407696139902,
+      "weighted_cohen_kappa": 0.15069301091123555,
+      "within_one_agreement": 0.475
+    },
+    "safety": {
+      "exact_agreement": 0.925,
+      "spearman": 0.0,
+      "weighted_cohen_kappa": 0.0,
+      "within_one_agreement": 0.975
+    }
+  },
+  "matched_keys": [
+    {
+      "case_id": "twcs-00df52837fc9aae8e1b8",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-00e91b04f80edeb5eca9",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-074cc5fccc888c51835e",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-0a541665c93bd94c41f1",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-0ea067d0e84ece97fd0c",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-0ea067d0e84ece97fd0c",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-1114abfe1eabbf9e545f",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-12c98d88046e953419f8",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-202aeff7379620000b9b",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-2460af692029260b04cc",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-2543d9aef5c76f76a479",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-35dc5cfe4121024e3b1d",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-44ad7b86a4383c53f9bb",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-47ad8c5332a5af19a345",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-4a5770af112216bc021c",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-5427ea324dcb535eb783",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-5aade51b60264f76ed60",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-7a20f54e5a512cc9b0b4",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-8b3ba2ac97227646b191",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-8b3ba2ac97227646b191",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-91ec2a8379b680955edd",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-91ec2a8379b680955edd",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-958c6d7185cd712c685b",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-9b5147e867230f3d1be5",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-a1fbbd61bd5e25191a67",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-a1fbbd61bd5e25191a67",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-a37a18f7f061311da048",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-a8ae2f857e059c86dfa7",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-ab32b59f7eb98fb9c0d1",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-b501d0d8aa3b0f395645",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-cc65a0ab1c5590d4dab4",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-ce913a4ac0fc14841cf2",
+      "system": "lexical"
+    },
+    {
+      "case_id": "twcs-dabeec051ce653bf29bf",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-dabeec051ce653bf29bf",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-e4c9608086d4001c0b8e",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-f7ba4d33d4358fe2891f",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-f7ba4d33d4358fe2891f",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-f97b6d099c810b264998",
+      "system": "fixed"
+    },
+    {
+      "case_id": "twcs-fc466216bf9ca569b339",
+      "system": "proposed"
+    },
+    {
+      "case_id": "twcs-fdea672736c849d4a2f7",
+      "system": "fixed"
+    }
+  ],
+  "matched_rating_count": 40,
+  "status": "MEASURED"
+}

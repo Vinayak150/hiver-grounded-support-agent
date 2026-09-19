@@ -94,6 +94,17 @@ class AnnotationStore:
         rows[annotation.case_id] = annotation
         self._write([rows[key] for key in sorted(rows)])
 
+    def replace(self, annotation: HumanAnnotation, explicit_human_input: bool) -> None:
+        """Atomically replace one existing row after an explicit human correction."""
+
+        if not explicit_human_input:
+            raise ValueError("Cannot replace a finalized row without explicit human input.")
+        rows = self.load()
+        if annotation.case_id not in rows:
+            raise ValueError(f"Cannot correct an unannotated case: {annotation.case_id}")
+        rows[annotation.case_id] = annotation
+        self._write([rows[key] for key in sorted(rows)])
+
     def progress(self, candidates: list[CandidateCase]) -> tuple[int, int, str | None]:
         completed = self.load()
         next_case = next(

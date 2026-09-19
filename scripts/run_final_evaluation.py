@@ -202,6 +202,96 @@ def _remap(
     return payload
 
 
+def load_frozen_partitions(
+    corpus: Path, paths: dict[str, Path]
+) -> tuple[object, list[object], dict[str, str], list[object], list[object], list[object], dict]:
+    """Load the protected partitions and verify the frozen Phase 4 system contract."""
+
+    final_system_path = Path("data/manifests/final_system_manifest.json")
+    final_system = json.loads(final_system_path.read_text(encoding="utf-8"))
+    if (
+        final_system["final_system_version"]
+        != "spotify-grounded-agent-v1.0-final-candidate"
+        or final_system["retained_candidate"] != "ORIGINAL_PHASE_4"
+        or final_system["phase41_status"] != "REJECTED"
+        or final_system["file_hashes"]["agent_config"]
+        != sha256_file(Path("configs/agent.yaml"))
+    ):
+        raise ValueError("The frozen original Phase 4 final-system contract is invalid.")
+
+    taxonomy = load_taxonomy(paths["taxonomy"])
+    candidates = load_frozen_candidates(paths["candidates"])
+    thread_to_case = {candidate.thread_id: candidate.case_id for candidate in candidates}
+    split_manifest = json.loads(paths["splits"].read_text(encoding="utf-8"))
+    train_ids = set(split_manifest["thread_ids"]["TRAIN"])
+    development_ids = set(split_manifest["thread_ids"]["DEVELOPMENT"])
+    final_ids = set(thread_to_case)
+    if train_ids & development_ids or (train_ids | development_ids) & final_ids:
+        raise ValueError("Protected TRAIN/DEVELOPMENT/frozen partitions overlap.")
+    needed = train_ids | development_ids | final_ids
+    thread_map = {
+        thread.thread_id: thread for thread in read_threads(corpus) if thread.thread_id in needed
+    }
+    if set(thread_map) != needed:
+        raise ValueError("Protected partitions do not reconcile with the processed corpus.")
+    train = [thread_map[value] for value in sorted(train_ids)]
+    development = [thread_map[value] for value in sorted(development_ids)]
+    final = [thread_map[candidate.thread_id] for candidate in candidates]
+    return (
+        taxonomy,
+        candidates,
+        thread_to_case,
+        train,
+        development,
+        final,
+        final_system,
+    )
+
+
+def generate_final_proposed_predictions(
+    train,
+    development,
+    final,
+    taxonomy,
+    final_system: dict,
+    thread_to_case: dict[str, str],
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    """Generate the exact frozen proposed outputs and human-review details."""
+
+    agent_config = load_agent_config(Path("configs/agent.yaml"))
+    classifier = IntentClassifier.fit(train, taxonomy, agent_config["classifier"])
+    retriever = HybridRetriever.fit(train, taxonomy, agent_config["retrieval"])
+    dev_intents = classifier.predict_many(development)
+    dev_retrievals = retriever.retrieve_many(
+        development, [prediction.intent for prediction in dev_intents]
+    )
+    thresholds = calibrate_thresholds(dev_intents, dev_retrievals, agent_config["calibration"])
+    if thresholds.as_dict() != final_system["development_only_calibrated_thresholds"]:
+        raise ValueError("Agent DEVELOPMENT thresholds no longer match the final-system manifest.")
+    final_intents = classifier.predict_many(final)
+    final_retrievals = retriever.retrieve_many(
+        final, [prediction.intent for prediction in final_intents]
+    )
+    agent = GroundedSupportAgent(classifier, retriever, thresholds, agent_config)
+    agent_outputs = agent.run_many(final, final_intents, final_retrievals)
+    proposed_rows = [
+        _remap(
+            output.to_prediction().as_dict(),
+            thread_to_case,
+            "spotify-grounded-agent-v1.0-final-candidate",
+        )
+        for output in agent_outputs
+    ]
+    review_rows = []
+    for output, prediction in zip(agent_outputs, proposed_rows, strict=True):
+        detail = output.as_dict()
+        detail["case_id"] = prediction["case_id"]
+        detail["system_version"] = prediction["system_name"]
+        detail["evidence_ids"] = prediction["evidence_ids"]
+        review_rows.append(detail)
+    return proposed_rows, review_rows
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path, default=Path("data/processed/spotify_threads.jsonl"))
@@ -241,37 +331,15 @@ def main() -> int:
         return 2
 
     final_system_path = Path("data/manifests/final_system_manifest.json")
-    final_system = json.loads(final_system_path.read_text(encoding="utf-8"))
-    if (
-        final_system["final_system_version"]
-        != "spotify-grounded-agent-v1.0-final-candidate"
-        or final_system["retained_candidate"] != "ORIGINAL_PHASE_4"
-        or final_system["phase41_status"] != "REJECTED"
-        or final_system["file_hashes"]["agent_config"]
-        != sha256_file(Path("configs/agent.yaml"))
-    ):
-        raise ValueError("The frozen original Phase 4 final-system contract is invalid.")
-
-    taxonomy = load_taxonomy(paths["taxonomy"])
-    candidates = load_frozen_candidates(paths["candidates"])
-    thread_to_case = {candidate.thread_id: candidate.case_id for candidate in candidates}
-    split_manifest = json.loads(paths["splits"].read_text(encoding="utf-8"))
-    train_ids = set(split_manifest["thread_ids"]["TRAIN"])
-    development_ids = set(split_manifest["thread_ids"]["DEVELOPMENT"])
-    final_ids = set(thread_to_case)
-    if train_ids & development_ids or (train_ids | development_ids) & final_ids:
-        raise ValueError("Protected TRAIN/DEVELOPMENT/frozen partitions overlap.")
-    needed = train_ids | development_ids | final_ids
-    thread_map = {
-        thread.thread_id: thread
-        for thread in read_threads(arguments.corpus)
-        if thread.thread_id in needed
-    }
-    if set(thread_map) != needed:
-        raise ValueError("Protected partitions do not reconcile with the processed corpus.")
-    train = [thread_map[value] for value in sorted(train_ids)]
-    development = [thread_map[value] for value in sorted(development_ids)]
-    final = [thread_map[candidate.thread_id] for candidate in candidates]
+    (
+        taxonomy,
+        candidates,
+        thread_to_case,
+        train,
+        development,
+        final,
+        final_system,
+    ) = load_frozen_partitions(arguments.corpus, paths)
 
     baseline_config = json.loads(Path("configs/baselines.yaml").read_text(encoding="utf-8"))
     fixed = FixedBaseline(baseline_config["fixed"])
@@ -301,30 +369,14 @@ def main() -> int:
         for thread, neighbors in zip(final, final_neighbors, strict=True)
     ]
 
-    agent_config = load_agent_config(Path("configs/agent.yaml"))
-    classifier = IntentClassifier.fit(train, taxonomy, agent_config["classifier"])
-    retriever = HybridRetriever.fit(train, taxonomy, agent_config["retrieval"])
-    dev_intents = classifier.predict_many(development)
-    dev_retrievals = retriever.retrieve_many(
-        development, [prediction.intent for prediction in dev_intents]
+    proposed_rows, _ = generate_final_proposed_predictions(
+        train,
+        development,
+        final,
+        taxonomy,
+        final_system,
+        thread_to_case,
     )
-    thresholds = calibrate_thresholds(dev_intents, dev_retrievals, agent_config["calibration"])
-    if thresholds.as_dict() != final_system["development_only_calibrated_thresholds"]:
-        raise ValueError("Agent DEVELOPMENT thresholds no longer match the final-system manifest.")
-    final_intents = classifier.predict_many(final)
-    final_retrievals = retriever.retrieve_many(
-        final, [prediction.intent for prediction in final_intents]
-    )
-    agent = GroundedSupportAgent(classifier, retriever, thresholds, agent_config)
-    agent_outputs = agent.run_many(final, final_intents, final_retrievals)
-    proposed_rows = [
-        _remap(
-            output.to_prediction().as_dict(),
-            thread_to_case,
-            "spotify-grounded-agent-v1.0-final-candidate",
-        )
-        for output in agent_outputs
-    ]
 
     gold = AnnotationStore(arguments.gold).load()
     ordered_case_ids = [candidate.case_id for candidate in candidates if candidate.case_id in gold]
