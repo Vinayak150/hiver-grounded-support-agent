@@ -1,7 +1,10 @@
-.PHONY: test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev judge-prepare judge-dev judge-analyze judge-v2-prepare judge-v2 judge-v2-analyze
+.PHONY: setup test lint plan profile spotify taxonomy splits annotation-queue annotate leakage-audit freeze-evaluation provisional-labels provisional-audit phase2-6 baselines-dev train-agent agent-dev judge-prepare judge-dev judge-analyze judge-v2-prepare judge-v2 judge-v2-analyze final-system demo validate-gold final-eval judge-agreement validate-submission
 
 TWCS_INPUT ?= data/raw/twcs.csv
 PROFILE_CONFIG ?= configs/profiling.yaml
+
+setup:
+	python3 -m pip install -e '.[dev]'
 
 test: lint
 	python3 -m pytest
@@ -70,3 +73,21 @@ judge-v2:
 
 judge-v2-analyze:
 	python3 scripts/analyze_judge_v2.py
+
+final-system:
+	python3 scripts/build_final_system_manifest.py
+
+demo:
+	python3 scripts/run_demo.py
+
+validate-gold:
+	python3 scripts/validate_gold.py
+
+final-eval: validate-gold
+	python3 scripts/run_final_evaluation.py
+
+judge-agreement:
+	python3 scripts/run_judge_agreement.py
+
+validate-submission:
+	python3 scripts/validate_submission.py --run-tests

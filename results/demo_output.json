@@ -1,0 +1,34 @@
+{
+  "fixture_type": "SYNTHETIC_SANITIZED_DEMO_NOT_BENCHMARK_DATA",
+  "outputs": [
+    {
+      "action": "AUTO_HANDLE",
+      "case_id": "demo-safe-playback",
+      "customer_message": "The app keeps pausing on my Android phone after an update.",
+      "intent": "playback_or_app_behavior",
+      "reason_codes": [],
+      "reply": "Try restarting the app, then log out and log back in.",
+      "retrieved_evidence_ids": [
+        "demo-evidence-playback-01",
+        "demo-evidence-device-01"
+      ],
+      "top_demo_similarity": 0.454545
+    },
+    {
+      "action": "ESCALATE",
+      "case_id": "demo-security-escalation",
+      "customer_message": "My account was hacked and the email address changed.",
+      "intent": "account_access_or_security",
+      "reason_codes": [
+        "SECURITY_RISK",
+        "PRIVATE_ACCOUNT_REQUIRED"
+      ],
+      "reply": "Thanks for explaining the issue. A support specialist should review this request because the available public historical evidence is not sufficient for a safe automated answer.",
+      "retrieved_evidence_ids": [
+        "demo-evidence-security-01"
+      ],
+      "top_demo_similarity": 0.444444
+    }
+  ],
+  "warning": "Structural demo only; not benchmark evaluation or final-system scoring."
+}

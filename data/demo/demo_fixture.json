@@ -1,0 +1,35 @@
+{
+  "fixture_type": "SYNTHETIC_SANITIZED_DEMO_NOT_BENCHMARK_DATA",
+  "cases": [
+    {
+      "case_id": "demo-safe-playback",
+      "customer_message": "The app keeps pausing on my Android phone after an update.",
+      "evidence": [
+        {
+          "evidence_id": "demo-evidence-playback-01",
+          "customer_pattern": "app keeps pausing android update",
+          "historical_reply": "Try restarting the app, then log out and log back in.",
+          "intent": "playback_or_app_behavior"
+        },
+        {
+          "evidence_id": "demo-evidence-device-01",
+          "customer_pattern": "speaker cannot connect bluetooth",
+          "historical_reply": "Try reconnecting Bluetooth and restarting the speaker.",
+          "intent": "device_or_connectivity"
+        }
+      ]
+    },
+    {
+      "case_id": "demo-security-escalation",
+      "customer_message": "My account was hacked and the email address changed.",
+      "evidence": [
+        {
+          "evidence_id": "demo-evidence-security-01",
+          "customer_pattern": "account hacked email changed",
+          "historical_reply": "A support specialist can help with account recovery.",
+          "intent": "account_access_or_security"
+        }
+      ]
+    }
+  ]
+}

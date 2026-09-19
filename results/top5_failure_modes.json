@@ -1,0 +1,78 @@
+{
+  "phase": "6A",
+  "source": "results/dev_failure_audit.json",
+  "scope": "DEVELOPMENT_ONLY",
+  "frozen_evaluation_cases_used": 0,
+  "failure_modes": [
+    {
+      "rank": 1,
+      "name": "Extractive grounding and judge mismatch",
+      "count": 33,
+      "support_denominator": 48,
+      "case_ids": [
+        "twcs-0ea067d0e84ece97fd0c",
+        "twcs-00ec4815eb9e75f6c443",
+        "twcs-9b5147e867230f3d1be5"
+      ],
+      "sanitized_example": "A reply copied from retrieved historical evidence was still scored as insufficiently grounded, often while its relevance or usefulness was genuinely weak.",
+      "hypothesis": "The rubric mixed source entailment with answer adequacy, while exact extraction alone could not ensure that the evidence matched the customer's actual need.",
+      "next_fix": "Use human adjudication to separate evidence entailment from answer coverage, then train or calibrate those checks independently."
+    },
+    {
+      "rank": 2,
+      "name": "Low answer coverage",
+      "count": 27,
+      "support_denominator": 48,
+      "case_ids": [
+        "twcs-0ea067d0e84ece97fd0c",
+        "twcs-d5a867a4d692ed77a1df",
+        "twcs-e4dbd68f6115cabc9386"
+      ],
+      "sanitized_example": "A customer unable to download songs received only a question about country, leaving the reported failure unanswered.",
+      "hypothesis": "High lexical evidence scores admitted historically plausible replies whose semantic coverage of the current request was too narrow.",
+      "next_fix": "After human error analysis, add an answer-coverage model or evidence-synthesis step that must address the customer's primary proposition."
+    },
+    {
+      "rank": 3,
+      "name": "Generic or context-redundant replies",
+      "count": 21,
+      "support_denominator": 48,
+      "case_ids": [
+        "twcs-00ec4815eb9e75f6c443",
+        "twcs-dabeec051ce653bf29bf",
+        "twcs-e08530195cfe5667eb3f"
+      ],
+      "sanitized_example": "A customer had already supplied device and software details, but the response asked for the same details again.",
+      "hypothesis": "The retriever favored frequent clarification templates without comparing requested slots against information already present in context.",
+      "next_fix": "Add context-slot completion checks and penalize clarification questions whose requested facts are already supplied."
+    },
+    {
+      "rank": 4,
+      "name": "Critical-label protocol violations",
+      "count": 16,
+      "support_denominator": 48,
+      "case_ids": [
+        "twcs-b832fe5248a689d06ecf",
+        "twcs-35dc5cfe4121024e3b1d",
+        "twcs-0ea067d0e84ece97fd0c"
+      ],
+      "sanitized_example": "Several judgments marked a response critical without a declared critical failure code; one action-code judgment conflicted with exact supplied evidence.",
+      "hypothesis": "The compact judge sometimes violated its own schema-level relationship between critical status and failure codes.",
+      "next_fix": "Require human adjudication and reject judge records whose critical flag cannot be reconciled with the declared critical-code policy."
+    },
+    {
+      "rank": 5,
+      "name": "Generic safe-reply judge bias",
+      "count": 10,
+      "support_denominator": 48,
+      "case_ids": [
+        "twcs-e08530195cfe5667eb3f",
+        "twcs-bc064dbd01dd8a29bdf7",
+        "twcs-167bbfcfda1a878667ee"
+      ],
+      "sanitized_example": "The fixed no-claim handoff passed while a more specific proposed reply failed, even when neither actually resolved the issue.",
+      "hypothesis": "The judge rewarded generic safety and low factual exposure more consistently than issue resolution or useful next steps.",
+      "next_fix": "Measure judge-human agreement and report safety, usefulness, and automation value separately rather than relying on one pass flag."
+    }
+  ]
+}

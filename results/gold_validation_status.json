@@ -1,0 +1,11 @@
+{
+  "allowed_maximum": 250,
+  "errors": [
+    "Human annotation count must be between 150 and 250."
+  ],
+  "final_evaluation_ready": false,
+  "frozen_candidate_count": 200,
+  "human_label_count": 0,
+  "required_minimum": 150,
+  "status": "BLOCKED"
+}

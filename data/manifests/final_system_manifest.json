@@ -1,0 +1,279 @@
+{
+  "brand": "SpotifyCares",
+  "calibration": {
+    "customer_similarity_bounds": [
+      0.2,
+      0.8
+    ],
+    "customer_similarity_quantile": 0.65,
+    "intent_confidence_bounds": [
+      0.35,
+      0.85
+    ],
+    "intent_confidence_quantile": 0.4,
+    "intent_margin_bounds": [
+      0.03,
+      0.5
+    ],
+    "intent_margin_quantile": 0.4,
+    "maximum_template_concentration": 0.6,
+    "method": "Bounded DEVELOPMENT distribution quantiles only; no correctness labels.",
+    "minimum_intent_agreement": 0.6,
+    "retrieval_score_bounds": [
+      0.3,
+      0.8
+    ],
+    "retrieval_score_quantile": 0.65
+  },
+  "classifier": {
+    "character_max_features": 20000,
+    "character_ngram_range": [
+      3,
+      5
+    ],
+    "character_weight": 0.4,
+    "class_weight": "balanced",
+    "maximum_iterations": 250,
+    "minimum_document_frequency": 3,
+    "random_state": 20260918,
+    "regularization_c": 1.0,
+    "word_max_features": 15000,
+    "word_ngram_range": [
+      1,
+      2
+    ],
+    "word_weight": 0.6
+  },
+  "default_config": "configs/agent.yaml",
+  "development_only_calibrated_thresholds": {
+    "customer_similarity": 0.278691,
+    "intent_confidence": 0.508586,
+    "intent_margin": 0.324335,
+    "maximum_template_concentration": 0.6,
+    "minimum_intent_agreement": 0.6,
+    "retrieval_score": 0.546156
+  },
+  "file_hashes": {
+    "agent_config": "c7eceb93cd097ddf45a484a15e02b53106316cdf8dc21aba705425b2bf11386d",
+    "classifier_implementation": "0b4e5bf0e83100e75bab5b1d49a0b70b7cfba17f1137516f1510db1e49ff0d6e",
+    "frozen_candidate_manifest": "bfc37d746a2c6350ca0da43f84fdfd75c4e6896e82b842f14a176cef7a93cf8a",
+    "generator_implementation": "1444704f6cea902c2e2cb1d6388e6ba7a7ec3fef6abbc9f6500903dde995cce2",
+    "orchestrator_implementation": "f6d9db9120dbbca1fe1b52e0a91ae8973a9e2fc58db58b21f891e0b69b6c1cff",
+    "phase4_development_manifest": "def9dac6d4d2438fc5a77191c010700bd4ad19390f8ad11a169ff2097c32a9e7",
+    "phase5b_comparison": "faeddc88f7d71d129bc6b14c480da875a4adc6a691b60240825ba41c38773309",
+    "retriever_implementation": "39e30853885fc42451f26e4375651a154c29d098925f89bfaa4ffecd74b72edc",
+    "risk_implementation": "93d8b0bbfa9df040de9d168582b6427cb2225f99699d1562a2e69fdf1a98fca2",
+    "split_manifest": "ffad1d4cd833f8622634e29a97ef11a54d752086b9013e894c40f4bdc9903999",
+    "taxonomy": "8010968160ef743a80f5bf3e5766b06d5d40165c690cfe9067abed7eedefe011",
+    "verifier_implementation": "6fc1a9d73a6a8aa604492624628e15d2b0296c3f3405f8b71d685f55e9a86bb4"
+  },
+  "final_system_version": "spotify-grounded-agent-v1.0-final-candidate",
+  "frozen": true,
+  "generation": {
+    "allowed_response_markers": [
+      "try ",
+      "restart",
+      "reinstall",
+      "log out",
+      "log back",
+      "clear the cache",
+      "incognito",
+      "different browser",
+      "go to settings",
+      "going to settings",
+      "open settings",
+      "update the app",
+      "turn off",
+      "enable ",
+      "disable ",
+      "reconnect"
+    ],
+    "blocked_noisy_markers": [
+      " here:",
+      "here's some more info",
+      "email at",
+      "email us",
+      "via email at",
+      "continue chatting there",
+      "send us",
+      "send me",
+      "check your inbox",
+      "sorry to hear",
+      "thanks for the kind words",
+      "give us a shout",
+      "case #",
+      "case number",
+      "digit case",
+      "...",
+      "\u2026"
+    ],
+    "maximum_characters": 420,
+    "maximum_sentences": 2,
+    "mode": "deterministic_extractive",
+    "safe_escalation_reply": "Thanks for explaining the issue. A support specialist should review this request because the available public historical evidence is not sufficient for a safe automated answer."
+  },
+  "hash_algorithm": "sha256",
+  "implementation_version": "spotify-grounded-agent-v1",
+  "phase": "6A",
+  "phase41_status": "REJECTED",
+  "protection": {
+    "ai_provisional_used_as_gold": false,
+    "calibration_split": "DEVELOPMENT",
+    "classifier_training_split": "TRAIN",
+    "frozen_evaluation_used_for_optimization": false,
+    "human_gold_used_for_model_selection": 0,
+    "phase41_is_default": false,
+    "retrieval_corpus_split": "TRAIN"
+  },
+  "retained_candidate": "ORIGINAL_PHASE_4",
+  "retrieval": {
+    "candidate_pool": 40,
+    "character_max_features": 30000,
+    "character_ngram_range": [
+      3,
+      5
+    ],
+    "maximum_exact_reply_template_occurrences": 2,
+    "minimum_document_frequency": 2,
+    "minimum_reply_words": 8,
+    "private_reply_markers": [
+      "send us a dm",
+      "send us another dm",
+      "send me a dm",
+      "dm us",
+      "direct message",
+      " dm",
+      "check your inbox",
+      "email",
+      "email address",
+      "username",
+      "take a look backstage",
+      "look under the hood",
+      "contact our",
+      "contact us"
+    ],
+    "top_k": 5,
+    "weights": {
+      "character_similarity": 0.23,
+      "context_compatibility": 0.1,
+      "intent_compatibility": 0.2,
+      "reply_quality": 0.15,
+      "template_penalty": 0.1,
+      "word_similarity": 0.32
+    },
+    "word_max_features": 20000,
+    "word_ngram_range": [
+      1,
+      2
+    ]
+  },
+  "risk_rules": {
+    "account_specific_markers": [
+      "can't log in",
+      "cannot log in",
+      "my subscription",
+      "my premium",
+      "my account"
+    ],
+    "ambiguous_intent_margin": 0.08,
+    "low_context_maximum_tokens": 5,
+    "payment_markers": [
+      "charged",
+      "charge",
+      "payment",
+      "credit card",
+      "debit card",
+      "paypal"
+    ],
+    "pii_markers": [
+      "email address",
+      "username",
+      "phone number",
+      "<email>"
+    ],
+    "policy_sensitive_markers": [
+      "eligible",
+      "eligibility",
+      "policy",
+      "available in my country",
+      "gift card country"
+    ],
+    "private_lookup_markers": [
+      "my account",
+      "check my",
+      "look into my",
+      "account details"
+    ],
+    "refund_markers": [
+      "refund",
+      "money back",
+      "reimburse"
+    ],
+    "security_markers": [
+      "hacked",
+      "hack",
+      "breach",
+      "compromised",
+      "unauthorized"
+    ]
+  },
+  "verifier": {
+    "minimum_evidence_token_coverage": 0.8,
+    "payment_promise_markers": [
+      "will refund",
+      "refund has been",
+      "payment has been reversed",
+      "credited your"
+    ],
+    "policy_claim_markers": [
+      "at this time",
+      "can only",
+      "not eligible",
+      "due to licensing",
+      "licensing allows",
+      "isn't available",
+      "is not available",
+      "don't have any info",
+      "don't have any news",
+      "in partnership with",
+      "available for users",
+      "available to stream",
+      "available only"
+    ],
+    "private_inspection_markers": [
+      "backstage",
+      "look into your account",
+      "check your account",
+      "internal tools",
+      "send us another dm",
+      "send us a dm",
+      "send me a dm",
+      "dm us",
+      "check your inbox",
+      "case #",
+      "case number",
+      "digit case"
+    ],
+    "unsupported_action_markers": [
+      "we have refunded",
+      "we've refunded",
+      "we have cancelled",
+      "we've cancelled",
+      "we fixed",
+      "we've fixed",
+      "we sent",
+      "we've sent",
+      "we'll make it available",
+      "we will make it available",
+      "we're launching",
+      "we are launching",
+      "we'll be on the lookout",
+      "we've let our devs",
+      "we have let our devs",
+      "keep everyone posted",
+      "we are looking into",
+      "we're looking into"
+    ],
+    "version": "grounding-verifier-v1"
+  }
+}

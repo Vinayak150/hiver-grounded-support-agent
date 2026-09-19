@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "documentation": {
+      "curated_decision_count": 15,
+      "passed": true,
+      "report_sections_present": true
+    },
+    "final_system": {
+      "hash_mismatches": [],
+      "passed": true
+    },
+    "frozen_evaluation": {
+      "case_count": 200,
+      "passed": true,
+      "train_development_overlap": 0
+    },
+    "phase41_rejected": {
+      "passed": true
+    },
+    "raw_data_untracked": {
+      "passed": true,
+      "tracked": []
+    },
+    "required_files": {
+      "missing": [],
+      "passed": true
+    },
+    "secret_scan": {
+      "findings": [],
+      "passed": true
+    },
+    "tests": {
+      "passed": true,
+      "test_count": 95
+    }
+  },
+  "engineering_blockers": [],
+  "engineering_submission_ready": true,
+  "final_evaluation_blockers": [
+    "Human annotation count must be between 150 and 250."
+  ],
+  "final_evaluation_ready": false,
+  "human_gold_count": 0,
+  "phase": "6A",
+  "required_human_gold_minimum": 150
+}
