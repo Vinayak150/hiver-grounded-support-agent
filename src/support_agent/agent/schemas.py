@@ -25,6 +25,7 @@ class AgentOutput:
     grounding_passed: bool
     latency_ms: float | None
     system_version: str
+    evidence_ids: tuple[str, ...] | None = None
 
     def validate(self) -> None:
         if not all(
@@ -54,10 +55,20 @@ class AgentOutput:
         payload["retrieved_cases"] = [case.as_dict() for case in self.retrieved_cases]
         payload["reason_codes"] = list(self.reason_codes)
         payload["risk_tags"] = list(self.risk_tags)
+        if self.evidence_ids is None:
+            payload.pop("evidence_ids")
+        else:
+            payload["evidence_ids"] = list(self.evidence_ids)
         return payload
 
     def to_prediction(self) -> Prediction:
-        evidence_ids = (self.retrieved_cases[0].thread_id,) if self.action == "AUTO_HANDLE" else ()
+        evidence_ids = (
+            self.evidence_ids
+            if self.evidence_ids is not None
+            else (self.retrieved_cases[0].thread_id,)
+            if self.action == "AUTO_HANDLE"
+            else ()
+        )
         return Prediction(
             case_id=self.case_id,
             system_name=self.system_version,

@@ -1,0 +1,479 @@
+{
+  "comparison_inclusion_rule": "Include a case iff both original and revised validated judgments exist.",
+  "completed_case_ids": [
+    "twcs-0e9d99272e5ff110b24a",
+    "twcs-121da6ff1ddc7e15c897",
+    "twcs-13a12f9eabc345f66022",
+    "twcs-1499395db323575adc03",
+    "twcs-1961403a14c0746d0944",
+    "twcs-2528e4dc317ec6739f8f",
+    "twcs-2a07c6e9496d52d76589",
+    "twcs-34520b1efd32d66b6fc7",
+    "twcs-3d77ae1507d360303955",
+    "twcs-3e36bdd964882fb4e250",
+    "twcs-43412e131763d5034486",
+    "twcs-45ee2d7ab2952c8a96e0",
+    "twcs-4a1ed662256324d1837e",
+    "twcs-4b603a975150793bab18",
+    "twcs-5172c7dc0e248dcb3899",
+    "twcs-5234631538e343b9f6ad",
+    "twcs-5ebd3c26afcb3126e930",
+    "twcs-65730a0fae26e350ff10",
+    "twcs-674f929200d2abe2d1f4",
+    "twcs-6931b45299bc8e174d83",
+    "twcs-6ad95debeb7da5fa1c34",
+    "twcs-6b219339c5e8c7ffacec",
+    "twcs-6de0d72b2d27496ffa0a",
+    "twcs-6df4d77cb2bc312476dd",
+    "twcs-73adb781deb593a3cbce",
+    "twcs-83606dd4514c18eeb090",
+    "twcs-8c10846f155a69b4af05",
+    "twcs-8e287e57e3a5708861d7",
+    "twcs-913cf0a4b91d9267eee4",
+    "twcs-96622aefc34bceb3051e",
+    "twcs-97d17aa853c1e7389ef0",
+    "twcs-9b6a8e4f64358a3e349d",
+    "twcs-9bfa4a2fda5ecc14efa5",
+    "twcs-a29821d6808529e791ea",
+    "twcs-a3c8b301746fcbd65583",
+    "twcs-a3ed8750986b64aa4df6",
+    "twcs-acd782c2060869f62cac",
+    "twcs-acf587fbf769127d0e1f",
+    "twcs-ae329df4a61a2775de2d",
+    "twcs-b15d5629b546d8abf38e",
+    "twcs-b3134c0df56652abe79d",
+    "twcs-b453aad1b1473ea2007e",
+    "twcs-b5667dc9045345e2dfb4",
+    "twcs-be80e68e3c81299fde96",
+    "twcs-c58b529fce26f03b9aee"
+  ],
+  "completed_pairs": 45,
+  "completion_rate": 0.75,
+  "label": "RESOURCE-CONSTRAINED DEVELOPMENT COMPLETE-PAIR COHORT",
+  "missing_case_ids": [
+    "twcs-c91d20fb65efcd8c3998",
+    "twcs-cd330d46e310cb931d0c",
+    "twcs-cdab471468ff9cd97b2e",
+    "twcs-d5f329271ac74f258aff",
+    "twcs-d7c2960e448407ae0898",
+    "twcs-d801cf65abcd0c023fed",
+    "twcs-de31c32c176a7efb2045",
+    "twcs-e011af1a8545f44461c6",
+    "twcs-e0f0b2182eb7cc7a0529",
+    "twcs-e66031c036c170392dc3",
+    "twcs-e71d906bdaa6d1e68456",
+    "twcs-ec053a83ec80bf3296c2",
+    "twcs-f267d5456f6530f4133f",
+    "twcs-f8e8fe6e332c5039da3c",
+    "twcs-fc0563f5c855fbd296ff"
+  ],
+  "missing_pairs": 15,
+  "original_holdout_size": 60,
+  "phase": "5B",
+  "pre_judge_missingness_audit": {
+    "bucket_definitions": {
+      "intent_confidence": [
+        "LOW_<0.50",
+        "MID_0.50_0.75",
+        "HIGH_>=0.75"
+      ],
+      "retrieval_score": [
+        "LOW_<0.50",
+        "MID_0.50_0.60",
+        "HIGH_>=0.60"
+      ]
+    },
+    "completed_distribution": {
+      "evidence_sufficient": {
+        "False": {
+          "count": 21,
+          "rate": 0.466667
+        },
+        "True": {
+          "count": 24,
+          "rate": 0.533333
+        }
+      },
+      "intent_confidence_bucket": {
+        "HIGH_>=0.75": {
+          "count": 6,
+          "rate": 0.133333
+        },
+        "LOW_<0.50": {
+          "count": 15,
+          "rate": 0.333333
+        },
+        "MID_0.50_0.75": {
+          "count": 24,
+          "rate": 0.533333
+        }
+      },
+      "phase41_changed": {
+        "False": {
+          "count": 30,
+          "rate": 0.666667
+        },
+        "True": {
+          "count": 15,
+          "rate": 0.333333
+        }
+      },
+      "predicted_intent": {
+        "account_access_or_security": {
+          "count": 2,
+          "rate": 0.044444
+        },
+        "billing_or_payment": {
+          "count": 1,
+          "rate": 0.022222
+        },
+        "content_availability_or_metadata": {
+          "count": 5,
+          "rate": 0.111111
+        },
+        "device_or_connectivity": {
+          "count": 6,
+          "rate": 0.133333
+        },
+        "feature_request_or_product_feedback": {
+          "count": 3,
+          "rate": 0.066667
+        },
+        "library_playlist_or_saved_content": {
+          "count": 7,
+          "rate": 0.155556
+        },
+        "other_or_unclear": {
+          "count": 7,
+          "rate": 0.155556
+        },
+        "playback_or_app_behavior": {
+          "count": 5,
+          "rate": 0.111111
+        },
+        "subscription_or_plan": {
+          "count": 9,
+          "rate": 0.2
+        }
+      },
+      "retrieval_score_bucket": {
+        "HIGH_>=0.60": {
+          "count": 11,
+          "rate": 0.244444
+        },
+        "LOW_<0.50": {
+          "count": 4,
+          "rate": 0.088889
+        },
+        "MID_0.50_0.60": {
+          "count": 30,
+          "rate": 0.666667
+        }
+      },
+      "revised_action": {
+        "AUTO_HANDLE": {
+          "count": 15,
+          "rate": 0.333333
+        },
+        "ESCALATE": {
+          "count": 30,
+          "rate": 0.666667
+        }
+      },
+      "risk_presence": {
+        "False": {
+          "count": 33,
+          "rate": 0.733333
+        },
+        "True": {
+          "count": 12,
+          "rate": 0.266667
+        }
+      }
+    },
+    "distribution_differences": [
+      {
+        "absolute_percentage_point_difference": 26.6667,
+        "completed_rate": 0.133333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.4,
+        "value": "HIGH_>=0.75"
+      },
+      {
+        "absolute_percentage_point_difference": 26.6666,
+        "completed_rate": 0.333333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.066667,
+        "value": "LOW_<0.50"
+      },
+      {
+        "absolute_percentage_point_difference": 15.5556,
+        "completed_rate": 0.155556,
+        "field": "predicted_intent",
+        "missing_rate": 0.0,
+        "value": "library_playlist_or_saved_content"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.666667,
+        "field": "phase41_changed",
+        "missing_rate": 0.533333,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.333333,
+        "field": "phase41_changed",
+        "missing_rate": 0.466667,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.333333,
+        "field": "revised_action",
+        "missing_rate": 0.466667,
+        "value": "AUTO_HANDLE"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.666667,
+        "field": "revised_action",
+        "missing_rate": 0.533333,
+        "value": "ESCALATE"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3333,
+        "completed_rate": 0.066667,
+        "field": "predicted_intent",
+        "missing_rate": 0.2,
+        "value": "feature_request_or_product_feedback"
+      },
+      {
+        "absolute_percentage_point_difference": 8.8889,
+        "completed_rate": 0.244444,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.333333,
+        "value": "HIGH_>=0.60"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.466667,
+        "field": "evidence_sufficient",
+        "missing_rate": 0.4,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.533333,
+        "field": "evidence_sufficient",
+        "missing_rate": 0.6,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.2,
+        "field": "predicted_intent",
+        "missing_rate": 0.266667,
+        "value": "subscription_or_plan"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.666667,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.6,
+        "value": "MID_0.50_0.60"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.733333,
+        "field": "risk_presence",
+        "missing_rate": 0.8,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.266667,
+        "field": "risk_presence",
+        "missing_rate": 0.2,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6666,
+        "completed_rate": 0.133333,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "device_or_connectivity"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4445,
+        "completed_rate": 0.022222,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "billing_or_payment"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.044444,
+        "field": "predicted_intent",
+        "missing_rate": 0.0,
+        "value": "account_access_or_security"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.155556,
+        "field": "predicted_intent",
+        "missing_rate": 0.2,
+        "value": "other_or_unclear"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.111111,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "playback_or_app_behavior"
+      },
+      {
+        "absolute_percentage_point_difference": 2.2222,
+        "completed_rate": 0.111111,
+        "field": "predicted_intent",
+        "missing_rate": 0.133333,
+        "value": "content_availability_or_metadata"
+      },
+      {
+        "absolute_percentage_point_difference": 2.2222,
+        "completed_rate": 0.088889,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.066667,
+        "value": "LOW_<0.50"
+      },
+      {
+        "absolute_percentage_point_difference": 0.0,
+        "completed_rate": 0.533333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.533333,
+        "value": "MID_0.50_0.75"
+      }
+    ],
+    "interpretation": "Core action, evidence, risk, change-status, and retrieval strata remain broadly represented, but confidence buckets differ by up to 26.67 percentage points. The N=15 missing subset and deterministic execution order prevent a LOW-risk claim; representativeness risk is MODERATE.",
+    "maximum_absolute_percentage_point_difference": 26.6667,
+    "missing_distribution": {
+      "evidence_sufficient": {
+        "False": {
+          "count": 6,
+          "rate": 0.4
+        },
+        "True": {
+          "count": 9,
+          "rate": 0.6
+        }
+      },
+      "intent_confidence_bucket": {
+        "HIGH_>=0.75": {
+          "count": 6,
+          "rate": 0.4
+        },
+        "LOW_<0.50": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "MID_0.50_0.75": {
+          "count": 8,
+          "rate": 0.533333
+        }
+      },
+      "phase41_changed": {
+        "False": {
+          "count": 8,
+          "rate": 0.533333
+        },
+        "True": {
+          "count": 7,
+          "rate": 0.466667
+        }
+      },
+      "predicted_intent": {
+        "billing_or_payment": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "content_availability_or_metadata": {
+          "count": 2,
+          "rate": 0.133333
+        },
+        "device_or_connectivity": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "feature_request_or_product_feedback": {
+          "count": 3,
+          "rate": 0.2
+        },
+        "other_or_unclear": {
+          "count": 3,
+          "rate": 0.2
+        },
+        "playback_or_app_behavior": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "subscription_or_plan": {
+          "count": 4,
+          "rate": 0.266667
+        }
+      },
+      "retrieval_score_bucket": {
+        "HIGH_>=0.60": {
+          "count": 5,
+          "rate": 0.333333
+        },
+        "LOW_<0.50": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "MID_0.50_0.60": {
+          "count": 9,
+          "rate": 0.6
+        }
+      },
+      "revised_action": {
+        "AUTO_HANDLE": {
+          "count": 7,
+          "rate": 0.466667
+        },
+        "ESCALATE": {
+          "count": 8,
+          "rate": 0.533333
+        }
+      },
+      "risk_presence": {
+        "False": {
+          "count": 12,
+          "rate": 0.8
+        },
+        "True": {
+          "count": 3,
+          "rate": 0.2
+        }
+      }
+    },
+    "missingness_risk": "MODERATE",
+    "risk_rule": "LOW if maximum metadata difference is under 15 percentage points; MODERATE for 15-30; HIGH above 30.",
+    "score_fields_used": false
+  },
+  "protection": {
+    "ai_provisional_used_as_gold": false,
+    "frozen_evaluation_overlap": 0,
+    "human_gold_used": 0,
+    "missing_scores_imputed": false,
+    "phase5a_overlap": 0
+  },
+  "protocol": "phase5b-phase41-holdout-v1",
+  "reason_for_missingness": "provider_daily_token_quota_exhaustion",
+  "source_hashes": {
+    "frozen_manifest": "bfc37d746a2c6350ca0da43f84fdfd75c4e6896e82b842f14a176cef7a93cf8a",
+    "judge_results": "49790e76739906a1749eead362f333b80a188087338634512bd3dd835482ac4d",
+    "original_holdout_manifest": "03250a01a4599b187b9bf11a0baac118715200c6fec5a8ba9c9f9289a2465675",
+    "phase5a_sample": "f558001632c6e79ca8731e631a36614515109bf8baaa25c6e0abeede009ad60a",
+    "revised_predictions": "06a8e6616e07777a929b9ab8dc159a3a5caa7575d06e804ca7c8ebf528ca9502"
+  }
+}

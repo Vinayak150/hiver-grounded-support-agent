@@ -1,0 +1,80 @@
+{
+  "action_distribution": {
+    "AUTO_HANDLE": 59,
+    "ESCALATE": 2535
+  },
+  "action_rates": {
+    "AUTO_HANDLE": 0.022745,
+    "ESCALATE": 0.977255
+  },
+  "escalation_reason_distribution": {
+    "AMBIGUOUS_INTENT": 1038,
+    "GROUNDING_FAILURE": 355,
+    "INSUFFICIENT_EVIDENCE": 1816,
+    "INTENT_RETRIEVAL_MISMATCH": 37,
+    "LOW_CONTEXT": 22,
+    "LOW_INTENT_CONFIDENCE": 1038,
+    "MISSING_EVIDENCE": 355,
+    "PAYMENT_ACTION_REQUIRED": 264,
+    "PRIVATE_ACCOUNT_REQUIRED": 483,
+    "SECURITY_RISK": 38,
+    "UNSUPPORTED_POLICY_RISK": 7
+  },
+  "evidence_sufficient_count": 414,
+  "evidence_sufficient_rate": 0.159599,
+  "grounding_verifier_failure_distribution": {
+    "GROUNDING_FAILURE": 355,
+    "MISSING_EVIDENCE": 355
+  },
+  "intent_confidence_quantiles": {
+    "0.0": 0.165923,
+    "0.25": 0.425198,
+    "0.5": 0.57049,
+    "0.75": 0.747589,
+    "1.0": 0.998418
+  },
+  "intent_margin_quantiles": {
+    "0.0": 0.000509,
+    "0.25": 0.195464,
+    "0.5": 0.417471,
+    "0.75": 0.652546,
+    "1.0": 0.998062
+  },
+  "interpretation": "Engineering diagnostics only; no human-label accuracy claims.",
+  "latency": {
+    "reason": "Disabled so byte-identical deterministic artifacts can be verified.",
+    "recorded": false
+  },
+  "phase": "4",
+  "predicted_intent_distribution": {
+    "account_access_or_security": 353,
+    "billing_or_payment": 194,
+    "content_availability_or_metadata": 278,
+    "device_or_connectivity": 166,
+    "feature_request_or_product_feedback": 96,
+    "library_playlist_or_saved_content": 92,
+    "other_or_unclear": 534,
+    "playback_or_app_behavior": 523,
+    "subscription_or_plan": 358
+  },
+  "prediction_count": 2594,
+  "reply_diversity": {
+    "unique_replies": 42,
+    "unique_reply_rate": 0.016191
+  },
+  "split": "DEVELOPMENT",
+  "top_customer_similarity_quantiles": {
+    "0.0": 0.055679,
+    "0.25": 0.187878,
+    "0.5": 0.240109,
+    "0.75": 0.314782,
+    "1.0": 1.0
+  },
+  "top_retrieval_score_quantiles": {
+    "0.0": 0.34762,
+    "0.25": 0.50412,
+    "0.5": 0.526775,
+    "0.75": 0.562527,
+    "1.0": 0.95625
+  }
+}

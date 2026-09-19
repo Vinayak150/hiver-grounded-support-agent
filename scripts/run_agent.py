@@ -16,6 +16,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from support_agent.agent.config import load_agent_config  # noqa: E402
 from support_agent.agent.evidence import calibrate_thresholds  # noqa: E402
 from support_agent.agent.orchestrator import GroundedSupportAgent  # noqa: E402
 from support_agent.classification.classifier import IntentClassifier  # noqa: E402
@@ -64,7 +65,8 @@ def main() -> int:
     )
     arguments = parser.parse_args()
 
-    config = json.loads(arguments.config.read_text(encoding="utf-8"))
+    raw_config = json.loads(arguments.config.read_text(encoding="utf-8"))
+    config = load_agent_config(arguments.config)
     split_manifest = json.loads(arguments.splits.read_text(encoding="utf-8"))
     taxonomy = load_taxonomy(arguments.taxonomy)
     train_ids = set(split_manifest["thread_ids"]["TRAIN"])
@@ -185,6 +187,11 @@ def main() -> int:
             "agent_config": sha256_file(arguments.config),
             "train_ids": _ids_sha256(train_ids),
             "development_ids": _ids_sha256(development_ids),
+            **(
+                {"agent_base_config": sha256_file(Path(str(raw_config["extends"])))}
+                if raw_config.get("extends")
+                else {}
+            ),
         },
         "output_hashes": {
             "predictions": sha256_file(arguments.output),

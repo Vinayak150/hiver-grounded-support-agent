@@ -1,0 +1,13 @@
+{
+  "extends": "configs/agent.yaml",
+  "version": "spotify-grounded-agent-v1.1",
+  "generation": {
+    "mode": "deterministic_extractive_v41",
+    "evidence_case_limit": 2
+  },
+  "verifier": {
+    "version": "grounding-verifier-v1.1",
+    "verify_answer_coverage": true,
+    "referenced_evidence_only": true
+  }
+}

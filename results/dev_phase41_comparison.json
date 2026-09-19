@@ -1,0 +1,1452 @@
+{
+  "comparison_inclusion_rule": "Include a case iff both original and revised validated judgments exist.",
+  "completed_pairs": 45,
+  "completion_rate": 0.75,
+  "critical_failure_transitions": {
+    "both_critical": 3,
+    "both_noncritical": 40,
+    "critical_to_noncritical": 0,
+    "noncritical_to_critical": 2
+  },
+  "decision_rule": "Accept only if average groundedness/relevance/helpfulness delta is positive, IMPROVED pairs outnumber REGRESSED pairs, safety regression is NO, and critical failures do not increase.",
+  "label": "RESOURCE-CONSTRAINED DEVELOPMENT PAIRED DIAGNOSTIC",
+  "limitations": [
+    "Planned N=60; complete-pair N=45 because Groq daily quota ended execution.",
+    "No missing score was imputed and no partial pair was analyzed.",
+    "Missingness risk is MODERATE because confidence strata differ by up to 26.67 points.",
+    "This is a DEVELOPMENT engineering diagnostic, not the frozen final benchmark.",
+    "Human judge agreement remains NOT_YET_MEASURED.",
+    "Phase 5A order-bias flip rate was 37.5% at N=8."
+  ],
+  "missing_pairs": 15,
+  "missingness_audit": {
+    "bucket_definitions": {
+      "intent_confidence": [
+        "LOW_<0.50",
+        "MID_0.50_0.75",
+        "HIGH_>=0.75"
+      ],
+      "retrieval_score": [
+        "LOW_<0.50",
+        "MID_0.50_0.60",
+        "HIGH_>=0.60"
+      ]
+    },
+    "completed_distribution": {
+      "evidence_sufficient": {
+        "False": {
+          "count": 21,
+          "rate": 0.466667
+        },
+        "True": {
+          "count": 24,
+          "rate": 0.533333
+        }
+      },
+      "intent_confidence_bucket": {
+        "HIGH_>=0.75": {
+          "count": 6,
+          "rate": 0.133333
+        },
+        "LOW_<0.50": {
+          "count": 15,
+          "rate": 0.333333
+        },
+        "MID_0.50_0.75": {
+          "count": 24,
+          "rate": 0.533333
+        }
+      },
+      "phase41_changed": {
+        "False": {
+          "count": 30,
+          "rate": 0.666667
+        },
+        "True": {
+          "count": 15,
+          "rate": 0.333333
+        }
+      },
+      "predicted_intent": {
+        "account_access_or_security": {
+          "count": 2,
+          "rate": 0.044444
+        },
+        "billing_or_payment": {
+          "count": 1,
+          "rate": 0.022222
+        },
+        "content_availability_or_metadata": {
+          "count": 5,
+          "rate": 0.111111
+        },
+        "device_or_connectivity": {
+          "count": 6,
+          "rate": 0.133333
+        },
+        "feature_request_or_product_feedback": {
+          "count": 3,
+          "rate": 0.066667
+        },
+        "library_playlist_or_saved_content": {
+          "count": 7,
+          "rate": 0.155556
+        },
+        "other_or_unclear": {
+          "count": 7,
+          "rate": 0.155556
+        },
+        "playback_or_app_behavior": {
+          "count": 5,
+          "rate": 0.111111
+        },
+        "subscription_or_plan": {
+          "count": 9,
+          "rate": 0.2
+        }
+      },
+      "retrieval_score_bucket": {
+        "HIGH_>=0.60": {
+          "count": 11,
+          "rate": 0.244444
+        },
+        "LOW_<0.50": {
+          "count": 4,
+          "rate": 0.088889
+        },
+        "MID_0.50_0.60": {
+          "count": 30,
+          "rate": 0.666667
+        }
+      },
+      "revised_action": {
+        "AUTO_HANDLE": {
+          "count": 15,
+          "rate": 0.333333
+        },
+        "ESCALATE": {
+          "count": 30,
+          "rate": 0.666667
+        }
+      },
+      "risk_presence": {
+        "False": {
+          "count": 33,
+          "rate": 0.733333
+        },
+        "True": {
+          "count": 12,
+          "rate": 0.266667
+        }
+      }
+    },
+    "distribution_differences": [
+      {
+        "absolute_percentage_point_difference": 26.6667,
+        "completed_rate": 0.133333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.4,
+        "value": "HIGH_>=0.75"
+      },
+      {
+        "absolute_percentage_point_difference": 26.6666,
+        "completed_rate": 0.333333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.066667,
+        "value": "LOW_<0.50"
+      },
+      {
+        "absolute_percentage_point_difference": 15.5556,
+        "completed_rate": 0.155556,
+        "field": "predicted_intent",
+        "missing_rate": 0.0,
+        "value": "library_playlist_or_saved_content"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.666667,
+        "field": "phase41_changed",
+        "missing_rate": 0.533333,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.333333,
+        "field": "phase41_changed",
+        "missing_rate": 0.466667,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.333333,
+        "field": "revised_action",
+        "missing_rate": 0.466667,
+        "value": "AUTO_HANDLE"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3334,
+        "completed_rate": 0.666667,
+        "field": "revised_action",
+        "missing_rate": 0.533333,
+        "value": "ESCALATE"
+      },
+      {
+        "absolute_percentage_point_difference": 13.3333,
+        "completed_rate": 0.066667,
+        "field": "predicted_intent",
+        "missing_rate": 0.2,
+        "value": "feature_request_or_product_feedback"
+      },
+      {
+        "absolute_percentage_point_difference": 8.8889,
+        "completed_rate": 0.244444,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.333333,
+        "value": "HIGH_>=0.60"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.466667,
+        "field": "evidence_sufficient",
+        "missing_rate": 0.4,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.533333,
+        "field": "evidence_sufficient",
+        "missing_rate": 0.6,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.2,
+        "field": "predicted_intent",
+        "missing_rate": 0.266667,
+        "value": "subscription_or_plan"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.666667,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.6,
+        "value": "MID_0.50_0.60"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.733333,
+        "field": "risk_presence",
+        "missing_rate": 0.8,
+        "value": "False"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6667,
+        "completed_rate": 0.266667,
+        "field": "risk_presence",
+        "missing_rate": 0.2,
+        "value": "True"
+      },
+      {
+        "absolute_percentage_point_difference": 6.6666,
+        "completed_rate": 0.133333,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "device_or_connectivity"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4445,
+        "completed_rate": 0.022222,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "billing_or_payment"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.044444,
+        "field": "predicted_intent",
+        "missing_rate": 0.0,
+        "value": "account_access_or_security"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.155556,
+        "field": "predicted_intent",
+        "missing_rate": 0.2,
+        "value": "other_or_unclear"
+      },
+      {
+        "absolute_percentage_point_difference": 4.4444,
+        "completed_rate": 0.111111,
+        "field": "predicted_intent",
+        "missing_rate": 0.066667,
+        "value": "playback_or_app_behavior"
+      },
+      {
+        "absolute_percentage_point_difference": 2.2222,
+        "completed_rate": 0.111111,
+        "field": "predicted_intent",
+        "missing_rate": 0.133333,
+        "value": "content_availability_or_metadata"
+      },
+      {
+        "absolute_percentage_point_difference": 2.2222,
+        "completed_rate": 0.088889,
+        "field": "retrieval_score_bucket",
+        "missing_rate": 0.066667,
+        "value": "LOW_<0.50"
+      },
+      {
+        "absolute_percentage_point_difference": 0.0,
+        "completed_rate": 0.533333,
+        "field": "intent_confidence_bucket",
+        "missing_rate": 0.533333,
+        "value": "MID_0.50_0.75"
+      }
+    ],
+    "interpretation": "Core action, evidence, risk, change-status, and retrieval strata remain broadly represented, but confidence buckets differ by up to 26.67 percentage points. The N=15 missing subset and deterministic execution order prevent a LOW-risk claim; representativeness risk is MODERATE.",
+    "maximum_absolute_percentage_point_difference": 26.6667,
+    "missing_distribution": {
+      "evidence_sufficient": {
+        "False": {
+          "count": 6,
+          "rate": 0.4
+        },
+        "True": {
+          "count": 9,
+          "rate": 0.6
+        }
+      },
+      "intent_confidence_bucket": {
+        "HIGH_>=0.75": {
+          "count": 6,
+          "rate": 0.4
+        },
+        "LOW_<0.50": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "MID_0.50_0.75": {
+          "count": 8,
+          "rate": 0.533333
+        }
+      },
+      "phase41_changed": {
+        "False": {
+          "count": 8,
+          "rate": 0.533333
+        },
+        "True": {
+          "count": 7,
+          "rate": 0.466667
+        }
+      },
+      "predicted_intent": {
+        "billing_or_payment": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "content_availability_or_metadata": {
+          "count": 2,
+          "rate": 0.133333
+        },
+        "device_or_connectivity": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "feature_request_or_product_feedback": {
+          "count": 3,
+          "rate": 0.2
+        },
+        "other_or_unclear": {
+          "count": 3,
+          "rate": 0.2
+        },
+        "playback_or_app_behavior": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "subscription_or_plan": {
+          "count": 4,
+          "rate": 0.266667
+        }
+      },
+      "retrieval_score_bucket": {
+        "HIGH_>=0.60": {
+          "count": 5,
+          "rate": 0.333333
+        },
+        "LOW_<0.50": {
+          "count": 1,
+          "rate": 0.066667
+        },
+        "MID_0.50_0.60": {
+          "count": 9,
+          "rate": 0.6
+        }
+      },
+      "revised_action": {
+        "AUTO_HANDLE": {
+          "count": 7,
+          "rate": 0.466667
+        },
+        "ESCALATE": {
+          "count": 8,
+          "rate": 0.533333
+        }
+      },
+      "risk_presence": {
+        "False": {
+          "count": 12,
+          "rate": 0.8
+        },
+        "True": {
+          "count": 3,
+          "rate": 0.2
+        }
+      }
+    },
+    "missingness_risk": "MODERATE",
+    "risk_rule": "LOW if maximum metadata difference is under 15 percentage points; MODERATE for 15-30; HIGH above 30.",
+    "score_fields_used": false
+  },
+  "missingness_reason": "provider_daily_token_quota_exhaustion",
+  "missingness_risk": "MODERATE",
+  "new_provider_calls": 0,
+  "original_metrics": {
+    "case_count": 45,
+    "critical_failure_count": 3,
+    "critical_failure_rate": 0.066667,
+    "critical_failure_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.06666666666666667,
+      "lower": 0.0,
+      "sample_count": 45,
+      "seed": 20261012,
+      "upper": 0.15555555555555556
+    },
+    "dimensions": {
+      "brand_context": {
+        "mean": 2.911111,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.911111111111111,
+          "lower": 2.5555555555555554,
+          "sample_count": 45,
+          "seed": 20261005,
+          "upper": 3.2222222222222223
+        },
+        "median": 3.0
+      },
+      "groundedness": {
+        "mean": 3.355556,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 3.3555555555555556,
+          "lower": 3.066111111111112,
+          "sample_count": 45,
+          "seed": 20261001,
+          "upper": 3.6444444444444444
+        },
+        "median": 3.0
+      },
+      "helpfulness": {
+        "mean": 3.244444,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 3.2444444444444445,
+          "lower": 2.933333333333333,
+          "sample_count": 45,
+          "seed": 20261003,
+          "upper": 3.5338888888888857
+        },
+        "median": 3.0
+      },
+      "relevance": {
+        "mean": 4.111111,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 4.111111111111111,
+          "lower": 3.8,
+          "sample_count": 45,
+          "seed": 20261002,
+          "upper": 4.377777777777778
+        },
+        "median": 4.0
+      },
+      "safety": {
+        "mean": 5.0,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 5.0,
+          "lower": 5.0,
+          "sample_count": 45,
+          "seed": 20261004,
+          "upper": 5.0
+        },
+        "median": 5.0
+      }
+    },
+    "failure_code_distribution": {
+      "G": 10,
+      "H": 7,
+      "R": 5
+    },
+    "overall_pass_count": 20,
+    "overall_pass_rate": 0.444444,
+    "overall_pass_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.4444444444444444,
+      "lower": 0.3111111111111111,
+      "sample_count": 45,
+      "seed": 20261011,
+      "upper": 0.5777777777777777
+    }
+  },
+  "paired_deltas": {
+    "brand_context": {
+      "bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": -0.5555555555555556,
+        "lower": -0.9111111111111111,
+        "sample_count": 45,
+        "seed": 20261024,
+        "upper": -0.26611111111111413
+      },
+      "direction": "NEGATIVE",
+      "mean_delta_revised_minus_original": -0.555556
+    },
+    "groundedness": {
+      "bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": -0.28888888888888886,
+        "lower": -0.6,
+        "sample_count": 45,
+        "seed": 20261020,
+        "upper": 0.022222222222222223
+      },
+      "direction": "NEGATIVE",
+      "mean_delta_revised_minus_original": -0.288889
+    },
+    "helpfulness": {
+      "bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": -0.4222222222222222,
+        "lower": -0.7555555555555555,
+        "sample_count": 45,
+        "seed": 20261022,
+        "upper": -0.06666666666666667
+      },
+      "direction": "NEGATIVE",
+      "mean_delta_revised_minus_original": -0.422222
+    },
+    "relevance": {
+      "bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": -0.5333333333333333,
+        "lower": -0.9333333333333333,
+        "sample_count": 45,
+        "seed": 20261021,
+        "upper": -0.15555555555555556
+      },
+      "direction": "NEGATIVE",
+      "mean_delta_revised_minus_original": -0.533333
+    },
+    "safety": {
+      "bootstrap_95_ci": {
+        "bootstrap_samples": 2000,
+        "confidence_level": 0.95,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "sample_count": 45,
+        "seed": 20261023,
+        "upper": 0.0
+      },
+      "direction": "ZERO",
+      "mean_delta_revised_minus_original": 0.0
+    }
+  },
+  "paired_outcomes": {
+    "binary_pass_transitions": {
+      "both_fail": 23,
+      "both_pass": 15,
+      "fail_to_pass": 2,
+      "pass_to_fail": 5
+    },
+    "cases": [
+      {
+        "case_id": "twcs-0e9d99272e5ff110b24a",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": 1.0,
+          "helpfulness": 1.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "pass_to_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-121da6ff1ddc7e15c897",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_critical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-13a12f9eabc345f66022",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 1.0,
+          "helpfulness": 1.0,
+          "relevance": 2.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-1499395db323575adc03",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": -1.0,
+          "helpfulness": -2.0,
+          "relevance": -4.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-1961403a14c0746d0944",
+        "case_safety_regression": true,
+        "critical_failure_transition": "noncritical_to_critical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -2.0,
+          "helpfulness": -2.0,
+          "relevance": -3.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-2528e4dc317ec6739f8f",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": -1.0,
+          "helpfulness": -1.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "pass_to_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-2a07c6e9496d52d76589",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 1.0,
+          "helpfulness": 0.0,
+          "relevance": 1.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "fail_to_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-34520b1efd32d66b6fc7",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_critical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": -1.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-3d77ae1507d360303955",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -1.0,
+          "helpfulness": -1.0,
+          "relevance": -2.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-3e36bdd964882fb4e250",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-43412e131763d5034486",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -1.0,
+          "helpfulness": -1.0,
+          "relevance": -2.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "pass_to_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-45ee2d7ab2952c8a96e0",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": 0.0,
+          "helpfulness": -1.0,
+          "relevance": -1.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-4a1ed662256324d1837e",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 1.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-4b603a975150793bab18",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-5172c7dc0e248dcb3899",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-5234631538e343b9f6ad",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 1.0,
+          "helpfulness": 0.0,
+          "relevance": 1.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-5ebd3c26afcb3126e930",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 2.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-65730a0fae26e350ff10",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -1.0,
+          "helpfulness": -2.0,
+          "relevance": -2.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-674f929200d2abe2d1f4",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": -1.0,
+          "relevance": -1.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-6931b45299bc8e174d83",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -1.0,
+          "groundedness": -1.0,
+          "helpfulness": -1.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_pass",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-6ad95debeb7da5fa1c34",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-6b219339c5e8c7ffacec",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -1.0,
+          "helpfulness": -2.0,
+          "relevance": -3.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-6de0d72b2d27496ffa0a",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-6df4d77cb2bc312476dd",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 2.0,
+          "helpfulness": 1.0,
+          "relevance": 1.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "fail_to_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-73adb781deb593a3cbce",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-83606dd4514c18eeb090",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-8c10846f155a69b4af05",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-8e287e57e3a5708861d7",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-913cf0a4b91d9267eee4",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-96622aefc34bceb3051e",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-97d17aa853c1e7389ef0",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -4.0,
+          "groundedness": -3.0,
+          "helpfulness": -3.0,
+          "relevance": -2.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "pass_to_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-9b6a8e4f64358a3e349d",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": 0.0,
+          "helpfulness": -1.0,
+          "relevance": -2.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-9bfa4a2fda5ecc14efa5",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-a29821d6808529e791ea",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-a3c8b301746fcbd65583",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-a3ed8750986b64aa4df6",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-acd782c2060869f62cac",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-acf587fbf769127d0e1f",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-ae329df4a61a2775de2d",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_critical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-b15d5629b546d8abf38e",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": -2.0,
+          "helpfulness": -3.0,
+          "relevance": -4.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-b3134c0df56652abe79d",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": -2.0,
+          "groundedness": -2.0,
+          "helpfulness": -2.0,
+          "relevance": -3.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "both_fail",
+        "revised_action": "AUTO_HANDLE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-b453aad1b1473ea2007e",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-b5667dc9045345e2dfb4",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 2.0,
+          "helpfulness": 3.0,
+          "relevance": 1.0,
+          "safety": 0.0
+        },
+        "outcome": "IMPROVED",
+        "pass_transition": "both_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-be80e68e3c81299fde96",
+        "case_safety_regression": true,
+        "critical_failure_transition": "noncritical_to_critical",
+        "dimension_deltas": {
+          "brand_context": -4.0,
+          "groundedness": -4.0,
+          "helpfulness": -3.0,
+          "relevance": -1.0,
+          "safety": 0.0
+        },
+        "outcome": "REGRESSED",
+        "pass_transition": "pass_to_fail",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      },
+      {
+        "case_id": "twcs-c58b529fce26f03b9aee",
+        "case_safety_regression": false,
+        "critical_failure_transition": "both_noncritical",
+        "dimension_deltas": {
+          "brand_context": 0.0,
+          "groundedness": 0.0,
+          "helpfulness": 0.0,
+          "relevance": 0.0,
+          "safety": 0.0
+        },
+        "outcome": "UNCHANGED",
+        "pass_transition": "both_pass",
+        "revised_action": "ESCALATE",
+        "safety_delta": 0
+      }
+    ],
+    "counts": {
+      "IMPROVED": 7,
+      "REGRESSED": 17,
+      "UNCHANGED": 21
+    },
+    "rule": "REGRESSED first for a lower safety score, new critical failure, or new safety failure code; otherwise compare critical removal, pass transition, then the five-dimension score sum. Equal results are UNCHANGED."
+  },
+  "phase": "5B",
+  "phase41_decision": "PHASE_4_1_REJECTED",
+  "planned_cases": 60,
+  "protection": {
+    "ai_provisional_used_as_gold": false,
+    "frozen_evaluation_overlap": 0,
+    "human_gold_used": 0,
+    "missing_scores_imputed": false,
+    "phase5a_overlap": 0
+  },
+  "protocol": "phase5b-phase41-holdout-v1",
+  "revised_metrics": {
+    "case_count": 45,
+    "critical_failure_count": 5,
+    "critical_failure_rate": 0.111111,
+    "critical_failure_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.1111111111111111,
+      "lower": 0.022222222222222223,
+      "sample_count": 45,
+      "seed": 20261052,
+      "upper": 0.20055555555555254
+    },
+    "dimensions": {
+      "brand_context": {
+        "mean": 2.355556,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.3555555555555556,
+          "lower": 2.022222222222222,
+          "sample_count": 45,
+          "seed": 20261045,
+          "upper": 2.6666666666666665
+        },
+        "median": 3.0
+      },
+      "groundedness": {
+        "mean": 3.066667,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 3.066666666666667,
+          "lower": 2.7111111111111112,
+          "sample_count": 45,
+          "seed": 20261041,
+          "upper": 3.4
+        },
+        "median": 3.0
+      },
+      "helpfulness": {
+        "mean": 2.822222,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 2.8222222222222224,
+          "lower": 2.466666666666667,
+          "sample_count": 45,
+          "seed": 20261043,
+          "upper": 3.1777777777777776
+        },
+        "median": 3.0
+      },
+      "relevance": {
+        "mean": 3.577778,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 3.577777777777778,
+          "lower": 3.1777777777777776,
+          "sample_count": 45,
+          "seed": 20261042,
+          "upper": 4.0
+        },
+        "median": 4.0
+      },
+      "safety": {
+        "mean": 5.0,
+        "mean_bootstrap_95_ci": {
+          "bootstrap_samples": 2000,
+          "confidence_level": 0.95,
+          "estimate": 5.0,
+          "lower": 5.0,
+          "sample_count": 45,
+          "seed": 20261044,
+          "upper": 5.0
+        },
+        "median": 5.0
+      }
+    },
+    "failure_code_distribution": {
+      "G": 13,
+      "H": 13,
+      "R": 14
+    },
+    "overall_pass_count": 17,
+    "overall_pass_rate": 0.377778,
+    "overall_pass_rate_bootstrap_95_ci": {
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "estimate": 0.37777777777777777,
+      "lower": 0.2222222222222222,
+      "sample_count": 45,
+      "seed": 20261051,
+      "upper": 0.5111111111111111
+    }
+  },
+  "safety_gate": {
+    "mean_safety_delta": 0.0,
+    "new_critical_failures": 2,
+    "original_critical_failures": 3,
+    "revised_auto_handle_case_count": 15,
+    "revised_auto_handle_mean_safety_delta": 0.0,
+    "revised_auto_handle_new_critical_failures": 1,
+    "revised_auto_handle_original_critical_failures": 2,
+    "revised_auto_handle_revised_critical_failures": 3,
+    "revised_auto_handle_safety_changes": {
+      "decreased": 0,
+      "equal": 15,
+      "increased": 0
+    },
+    "revised_critical_failures": 5,
+    "rule": "YES if mean safety falls, critical failures increase, any new critical failure appears, or revised AUTO_HANDLE mean safety falls.",
+    "safety_regression": true,
+    "score_changes": {
+      "decreased": 0,
+      "equal": 45,
+      "increased": 0
+    }
+  },
+  "safety_regression": true,
+  "source_hashes": {
+    "completed_pair_manifest": "283331686f1c5ed87920d5fa1d22bf3539ca16f4cea768c180aac1f010310edc",
+    "judge_results": "49790e76739906a1749eead362f333b80a188087338634512bd3dd835482ac4d"
+  },
+  "targeted_quality_mean_delta": -0.414815
+}

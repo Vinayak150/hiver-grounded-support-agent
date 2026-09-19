@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 
+from support_agent.agent.config import load_agent_config
 from support_agent.agent.evidence import (
     EvidenceThresholds,
     assess_evidence,
@@ -191,6 +192,65 @@ def test_sanitizer_composer_and_verifier_are_deterministic(config):
     assert not unsafe.passed
     assert "PII_LEAK" in unsafe.reason_codes
     assert "UNSUPPORTED_ACTION_CLAIM" in unsafe.reason_codes
+
+
+def test_phase41_composer_uses_top_two_and_rejects_redundant_questions(config):
+    phase41 = load_agent_config(Path("configs/agent_v41.yaml"))
+    composer = GroundedComposer(phase41["generation"], phase41["verifier"])
+    cases = [
+        RetrievedCase(
+            **{
+                **safe_case("question").__dict__,
+                "historical_reply": "Can you tell us what device and Spotify version you use?",
+            }
+        ),
+        RetrievedCase(
+            **{
+                **safe_case("step").__dict__,
+                "historical_reply": (
+                    "Please restart the Spotify app and try playing the song again."
+                ),
+            }
+        ),
+    ]
+    reply, evidence_ids = composer.compose_with_evidence(
+        cases,
+        "My iPhone 7 uses Spotify version 8.4 and the song stops playing.",
+    )
+    assert reply == "Please restart the Spotify app and try playing the song again."
+    assert evidence_ids == ("step",)
+
+
+def test_phase41_agent_escalates_when_only_answer_repeats_supplied_context(config):
+    phase41 = load_agent_config(Path("configs/agent_v41.yaml"))
+
+    class StubClassifier:
+        def predict(self, _thread):
+            return IntentPrediction(
+                "playback_or_app_behavior",
+                0.9,
+                (("playback_or_app_behavior", 0.9), ("other_or_unclear", 0.1)),
+                0.8,
+            )
+
+    redundant = RetrievedCase(
+        **{
+            **safe_case("redundant").__dict__,
+            "historical_reply": "Can you tell us what device and Spotify version you're using?",
+        }
+    )
+
+    class StubRetriever:
+        def retrieve(self, _thread, _intent):
+            return [redundant] * 5
+
+    permissive = EvidenceThresholds(0.5, 0.1, 0.5, 0.4, 0.6, 1.0)
+    agent = GroundedSupportAgent(StubClassifier(), StubRetriever(), permissive, phase41)
+    output = agent.run_one(
+        thread("dev-covered", "My iPhone 7 uses Spotify version 8.4 and playback stops.")
+    )
+    assert output.action == "ESCALATE"
+    assert "MISSING_EVIDENCE" in output.reason_codes
 
 
 def test_safe_auto_handle_and_structured_output(config):

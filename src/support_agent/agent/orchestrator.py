@@ -29,6 +29,7 @@ _REASON_TEXT = {
     "UNSUPPORTED_ACTION_CLAIM": "The proposed reply claims an unsupported action.",
     "MISSING_EVIDENCE": "No usable supporting evidence is attached.",
     "INVALID_EVIDENCE_REFERENCE": "A supporting evidence reference is invalid.",
+    "ANSWER_COVERAGE_FAILURE": "The proposed reply does not cover the supplied customer context.",
 }
 
 
@@ -59,10 +60,13 @@ class GroundedSupportAgent:
             thread.customer_text(), prediction.margin, self.config["risk"], prediction.intent
         )
         evidence = assess_evidence(prediction, cases, risk, self.thresholds)
-        evidence_ids = (cases[0].thread_id,) if evidence.sufficient and cases else ()
-        draft = self.composer.compose(cases) if evidence.sufficient else ""
+        draft, evidence_ids = (
+            self.composer.compose_with_evidence(cases, thread.customer_text())
+            if evidence.sufficient
+            else ("", ())
+        )
         verification = (
-            self.verifier.verify(draft, cases, evidence_ids)
+            self.verifier.verify(draft, cases, evidence_ids, thread.customer_text())
             if evidence.sufficient
             else VerificationResult(False, (), 0.0)
         )
@@ -94,6 +98,11 @@ class GroundedSupportAgent:
             grounding_passed=verification.passed,
             latency_ms=None,
             system_version=str(self.config["version"]),
+            evidence_ids=(
+                evidence_ids if auto_handle else ()
+            )
+            if self.config["generation"].get("mode") == "deterministic_extractive_v41"
+            else None,
         )
         output.validate()
         output.to_prediction().validate()

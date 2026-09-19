@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
+from support_agent.generation.grounded import answer_coverage_failure
 from support_agent.retrieval.hybrid import RetrievedCase
 
 
@@ -28,6 +29,7 @@ class GroundingVerifier:
         draft: str,
         cases: list[RetrievedCase],
         evidence_ids: tuple[str, ...],
+        customer: str = "",
     ) -> VerificationResult:
         normalized = draft.casefold()
         reasons = []
@@ -52,8 +54,16 @@ class GroundingVerifier:
             reasons.append("MISSING_EVIDENCE")
         if any(value not in valid_ids for value in evidence_ids):
             reasons.append("INVALID_EVIDENCE_REFERENCE")
+        if self.config.get("verify_answer_coverage") and answer_coverage_failure(draft, customer):
+            reasons.append("ANSWER_COVERAGE_FAILURE")
+        referenced = [case for case in cases if case.thread_id in set(evidence_ids)]
+        evidence_cases = (
+            referenced if self.config.get("referenced_evidence_only") else cases
+        )
         evidence_tokens = (
-            set().union(*(_tokens(case.historical_reply) for case in cases)) if cases else set()
+            set().union(*(_tokens(case.historical_reply) for case in evidence_cases))
+            if evidence_cases
+            else set()
         )
         draft_tokens = _tokens(draft)
         coverage = len(draft_tokens & evidence_tokens) / len(draft_tokens) if draft_tokens else 0.0
